@@ -28,8 +28,8 @@ app.get("/", function(req, res) {
     })
 })
 
-app.get("/contact", function(req, res) {
-    res.render("home", {
+app.get("/calculator", function(req, res) {
+    res.render("calculator", {
         startingContent: contactContent
     })
 })
