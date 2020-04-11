@@ -3,6 +3,11 @@ body {
   background-repeat: no-repeat;
 }
 
+#calculator {
+  background-image: url("/images/tub.png");
+  background-size: 100% 90%;
+  background-repeat: no-repeat;
+}
 
 #footer {
   position: fixed;
@@ -11,6 +16,13 @@ body {
   width: 100%;
   color: white;
   text-align: center;
+}
+
+.quiz-section {
+  margin-top: 15rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: 10rem;
 }
 
 .about-us {
