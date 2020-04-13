@@ -1,39 +1,21 @@
 <%- include("partials/header"); -%>
 
-<body>
-  <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+
 
   <!-- Quiz -->
   <section class="quiz-section">
-
-    <div class="text-center">
-
-      <h1 id="question"></h1>
-
-      <form>
-
-        <input type="radio" name="answer" value="100"><span id="choice0"></span></input>
-       
-        <input type="radio" name="answer" value="50"><span id="choice1"></span></input>
-       
-        <input type="radio" name="answer" value="50"><span id="choice2"></span></input>
-
-        <input type="button" name="next" value="NextQuestion" id="next"></input>
-      
-      </form>
-    
+    <div class="quiz-container">
+      <div id="quiz"></div>
     </div>
- 
+    <button id="previous">Previous Question</button>
+    <button id="next">Next Question</button>
+    <button id="submit">Submit Quiz</button>
+    <div id="results"></div>
+    
+    
   </section>
 
 
-
-
-
-
-</body>
 
 
 <%- include("partials/footer"); -%>
