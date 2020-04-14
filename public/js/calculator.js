@@ -83,6 +83,38 @@
    
    });
    
+   
+
+   $(document).ready(function () {
+
+    var options = {
+      title: {
+        text: "Your monthly? water consumption"
+      },
+      subtitles: [{
+        text: "Addd"
+      }],
+      animationEnabled: true,
+      backgroundColor: "rgba(0,0,0,0)",
+      data: [{
+        type: "pie",
+        startAngle: 40,
+        toolTipContent: "<b>{label}</b>: {y}%",
+        showInLegend: "true",
+        legendText: "{label}",
+        indexLabelFontSize: 16,
+        indexLabel: "{label} - {y}%",
+        dataPoints: [
+          { y: result["Toilet"], label: "Toilet" },
+          { y: result["Shower"], label: "Shower" },
+          { y: result["Kitchen"], label: "Kitchen" }
+        ]
+      }]
+    };
+    $("#chartContainer").CanvasJSChart(options);
+    
+    })   
+
   }
 
 
@@ -167,3 +199,4 @@
   nextButton.addEventListener("click", showNextSlide);
 
 
+  
