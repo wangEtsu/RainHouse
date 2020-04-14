@@ -49,9 +49,11 @@ body {
 .quiz-section {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
-  height: 50%;
+  height: 100%;
   text-align: center;
 }
+
+
 
 button{
   font-family: 'Work Sans', sans-serif;

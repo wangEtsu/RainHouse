@@ -1,4 +1,3 @@
-(function(){
   // Functions
   function buildQuiz(){
     // variable to store the HTML output
@@ -12,15 +11,15 @@
         const answers = [];
 
         // and for each available answer...
-        for(letter in currentQuestion.answers){
+        for(usage in currentQuestion.answers){
 
           // ...add an HTML radio button
           answers.push(
             `<label>
-              <input type="radio" name="question${questionNumber}" value="${letter}">
-              ${currentQuestion.answers[letter]}
+              <input type="radio" name="question${questionNumber}" value="${usage}">
+              ${currentQuestion.answers[usage]}
             </label>`
-          );
+          ); 
         }
 
         // add this question and its answers to the output
@@ -37,20 +36,18 @@
     quizContainer.innerHTML = output.join('');
   }
 
+
+
+
+
   function showResults(){
-    
-    const usage_dict = {
-      "Dual flush": 50,
-      "Normal flush": 100, 
-      "under 10 minutes": 10,
-      "10 ~ 25 minutes": 25,
-      "over 25 minutes": 50,
-      "Yes": 100,
-      "No": 20
-    };
+
+
+      
+    let totalUsage = 0;
 
     // set up list to collect user input
-    let result = [];
+    let result = {};
     
     // gather answer containers from our quiz
     const answerContainers = quizContainer.querySelectorAll('.answers');
@@ -63,15 +60,29 @@
       const selector = `input[name=question${questionNumber}]:checked`;
       const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-      console.log(currentQuestion.answers[userAnswer]);
-      console.log(usage_dict[currentQuestion.answers[userAnswer]]);
-      result.push(currentQuestion.answers[userAnswer]);
+      // show both user choice and the water cost
+      let currentActivity = currentQuestion.activity;
+      let currentUsage = userAnswer;
+
+
+      console.log(currentActivity);
+      console.log(currentUsage);
+
+
+      // push both user choice and cost into result dictionary
+      result[currentActivity] = currentUsage;
     });
 
     // show number of correct answers out of total
     console.log(result);
     console.log("end");
-    // resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    
+    // append result in results section
+    $.each(result,function(key,value){
+      $('#results').append("<h1>"+key +": "+value+"</h1>")
+   
+   });
+   
   }
 
 
@@ -110,28 +121,33 @@
   const myQuestions = [
     {
       question: "Do you have a dual flush or normal flush toilet?",
+      activity: "Toilet",
       answers: {
-        a: "Dual flush",
-        b: "Normal flush",
+        20: "Dual flush",
+        50: "Normal flush",
       },
     },
     {
       question: "How long does your shower took",
+      activity: "Shower",
       answers: {
-        a: "under 10 minutes",
-        b: "10 ~ 25 minutes",
-        c: "over 25 minutes"
+        10: "under 10 minutes",
+        25: "10 ~ 25 minutes",
+        40: "over 25 minutes"
       },
     },
     {
       question: "Do you have a dishwasher",
+      activity: "Kitchen",
       answers: {
-        a: "Yes",
-        b: "No"
+        100: "Yes",
+        50: "No"
       },
     }
   ];
 
+
+  
 
   // Kick things off
   buildQuiz();
@@ -149,4 +165,5 @@
   submitButton.addEventListener('click', showResults);
   previousButton.addEventListener("click", showPreviousSlide);
   nextButton.addEventListener("click", showNextSlide);
-})();
+
+
