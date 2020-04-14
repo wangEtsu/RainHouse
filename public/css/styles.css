@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Abang;
+  src: url("/fonts/Abang.otf") format("opentype");
+}
+
 body {
   background-image: url("/images/summer.png");
   background-repeat: no-repeat;
@@ -103,8 +108,8 @@ button:hover{
 }
 
 .slogan {
-  font-family: 'Permanent Marker', cursive;
-  color: #044478;
+  font-family: 'Abang';
+  color: #ffffff;
   font-size: 5rem;
   line-height: 1.5;
   padding-bottom: 2rem;
@@ -160,7 +165,8 @@ button:hover{
   }
   #mainNav .navbar-brand {
     padding: .5rem 0;
-    color: rgba(255, 255, 255, 0.5);
+    color: floralwhite;
+    font-family: Abang;
   }
   #mainNav .nav-link {
     transition: none;
