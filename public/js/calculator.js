@@ -1,3 +1,41 @@
+    // Variables
+    const quizContainer = document.getElementById('quiz');
+    const resultsContainer = document.getElementById('results');
+    const submitButton = document.getElementById('submit');
+    const myQuestions = [
+      {
+        question: "What is your average shower time?",
+        activity: "Shower",
+        answers: {
+          20: "0-5 minute",
+          50: "5-10 minute",
+          20: "10-15 minute",
+          30: "more than 15 minute"
+        },
+        tip: "With a dual flush toilet, you can save up to 100L water per day!"
+      },
+      {
+        question: "Does your house have an efficient showerhead(low flow)?",
+        activity: "Shower",
+        answers: {
+          10: "under 10 minutes",
+          25: "10 ~ 25 minutes",
+          40: "over 25 minutes"
+        },
+        tip: "A  "
+      },
+      {
+        question: "How often do you take shower?",
+        activity: "Shower",
+        answers: {
+          100: "Yes",
+          50: "No"
+        },
+      }
+    ];
+  
+  
+  
   // Functions
   function buildQuiz(){
     // variable to store the HTML output
@@ -16,9 +54,9 @@
           // ...add an HTML radio button
           answers.push(
             `<label>
-              <input type="radio" name="question${questionNumber}" value="${usage}">
+              <input type="radio" name="question${questionNumber}" value="${usage}"><span class="btn">
               ${currentQuestion.answers[usage]}
-            </label>`
+            </span></label>`
           ); 
         }
 
@@ -26,7 +64,7 @@
         output.push(
           `<div class="slide">
             <div class="question"> ${currentQuestion.question} </div>
-            <div class="answers"> ${answers.join("")} </div>
+            <div class="answers"><div class="radio-toolbar"> ${answers.join("")} </div></div>
           </div>`
         );
       }
@@ -145,38 +183,6 @@
   function showPreviousSlide() {
     showSlide(currentSlide - 1);
   }
-
-  // Variables
-  const quizContainer = document.getElementById('quiz');
-  const resultsContainer = document.getElementById('results');
-  const submitButton = document.getElementById('submit');
-  const myQuestions = [
-    {
-      question: "Do you have a dual flush or normal flush toilet?",
-      activity: "Toilet",
-      answers: {
-        20: "Dual flush",
-        50: "Normal flush",
-      },
-    },
-    {
-      question: "How long does your shower took",
-      activity: "Shower",
-      answers: {
-        10: "under 10 minutes",
-        25: "10 ~ 25 minutes",
-        40: "over 25 minutes"
-      },
-    },
-    {
-      question: "Do you have a dishwasher",
-      activity: "Kitchen",
-      answers: {
-        100: "Yes",
-        50: "No"
-      },
-    }
-  ];
 
 
   

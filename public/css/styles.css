@@ -77,6 +77,28 @@ button:hover{
 }
 
 
+/* Answer button remodified, used to make span tag act like a button */
+.btn
+{
+    background-color: rgb(7, 55, 99);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 2px 12px 3px 12px;
+    text-decoration: none;
+
+}
+
+/* Checked answer button color changed */
+.radio-toolbar input[type="radio"]:checked ~ * { 
+  background:pink !important;
+}
+
+/* Hide the radio button */
+input[type="radio"] {  
+  opacity:0;                                      
+}
+
 .slide{
   position: absolute;
   left: 0px;
