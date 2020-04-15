@@ -7,23 +7,24 @@
         question: "What is your average shower time?",
         activity: "Shower",
         answers: {
-          20: "0-5 minute",
-          50: "5-10 minute",
-          20: "10-15 minute",
-          30: "more than 15 minute"
+          1500: "0-5 minute",
+          1850: "5-10 minute",
+          2400: "10-15 minute",
+          3000: "more than 15 minute"
         },
         tip: "With a dual flush toilet, you can save up to 100L water per day!"
       },
+
       {
         question: "Does your house have an efficient showerhead(low flow)?",
         activity: "Shower",
         answers: {
-          10: "under 10 minutes",
-          25: "10 ~ 25 minutes",
-          40: "over 25 minutes"
+          10: "Yes",
+          0: "No"
         },
-        tip: "A  "
+        tip: "An AAA rated showerhead can reduce almost half of your shower consumption!"
       },
+
       {
         question: "How often do you take shower?",
         activity: "Shower",
@@ -31,7 +32,9 @@
           100: "Yes",
           50: "No"
         },
-      }
+        tip: "Some random fact"
+      },
+
     ];
   
   
@@ -65,6 +68,7 @@
           `<div class="slide">
             <div class="question"> ${currentQuestion.question} </div>
             <div class="answers"><div class="radio-toolbar"> ${answers.join("")} </div></div>
+            <div class="tip"><i class="fas fa-lightbulb"></i> ${currentQuestion.tip} </div>
           </div>`
         );
       }
@@ -143,9 +147,7 @@
         indexLabelFontSize: 16,
         indexLabel: "{label} - {y}%",
         dataPoints: [
-          { y: result["Toilet"], label: "Toilet" },
           { y: result["Shower"], label: "Shower" },
-          { y: result["Kitchen"], label: "Kitchen" }
         ]
       }]
     };
