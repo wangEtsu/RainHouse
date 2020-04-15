@@ -105,6 +105,12 @@ input[type="radio"] {
   opacity:0;                                      
 }
 
+/* tips lightbulb icon */
+.fa-lightbulb:before {
+  content: "\f0eb";
+  color: rgba(0,123,255,.5);
+}
+
 .slide{
   position: absolute;
   left: 0px;
