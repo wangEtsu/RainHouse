@@ -3,98 +3,177 @@ const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
+
+  // How many people?
   {
-    question: "What is your average shower time?",
-    activity: "Shower",
+    questionTag: "familyMember",
+    question: "How many people lives in your household?",
     answers: {
-      1500: "0-5 minute",
-      1850: "5-10 minute",
-      2400: "10-15 minute",
-      3000: "more than 15 minute"
+      "2": "2",
+      "2.5": "3",
+      "3.2": "4",
+      "3.5": "5 or more",
     },
-    tip: "With a dual flush toilet, you can save up to 100L water per day!"
+    tip: "Do you know that a large family actually saves more water? I made this up"
+  },
+
+  // Shower set
+  {
+    questionTag: "showerDuration",
+    question: "What is your average shower time?",
+    activity: "Shower & Bath",
+    answers: {
+      "50": "0-5 minute",
+      "70": "5-10 minute",
+      "120": "10-15 minute",
+      "200": "more than 15 minute"
+    },
+    tip: "Some random fact"
   },
 
   {
+    questionTag: "showerheadEfficiency",
     question: "Does your house have an efficient showerhead(low flow)?",
-    activity: "Shower",
+    activity: "Shower & Bath",
     answers: {
-      10: "Yes",
-      0: "No"
+      "0.65": "Yes",
+      "1": "No"
     },
     tip: "An AAA rated showerhead can reduce almost half of your shower consumption!"
   },
 
   {
+    questionTag: "showerFrequency",
     question: "How often do you take shower?",
-    activity: "Shower",
+    activity: {"Shower & Bath": "showerFrequency"},
     answers: {
-      100: "Yes",
-      50: "No"
+      "30": "Everyday",
+      "60": "Twice per day",
+      "90": "Three times per day!!"
     },
     tip: "Some random fact"
   },
 
   {
-    question: "How often do you take shower?",
-    activity: "Shower",
+    questionTag: "bathAmount",
+    question: "Do you take bath? If so, how frequent?",
+    activity: "Shower & Bath",
     answers: {
-      100: "Yes",
-      50: "No"
+      "0": "Never!",
+      "412": "Once per week",
+      "96": "Only once per month"
+
     },
     tip: "Some random fact"
   },
 
+
+  // Toilet set
   {
-    question: "Do you have a single tank or a dual tank?",
+    questionTag: "toiletAmount",
+    question: "Do you have a dual flush toilet?",
     activity: "Toilet",
     answers: {
-      1500: "I have a single tank",
-      1850: "I have a dual tank",
+      "750": "Yes I do",
+      "1650": "No, I only got a normal one",
     },
     tip: "Some random fact"
   },
 
   {
+    questionTag: "toiletLeak",
     question: "Do you have leaks in your toilet?",
     activity: "Toilet",
     answers: {
-      1500: "Yes",
-      1850: "No",
+      "1320": "Yes",
+      "0": "No",
     },
     tip: "Some random fact"
   },
 
+  // Kitchen set
   {
+    questionTag: "kitchenWash",
     question: "How do you wash your utensils?",
     activity: "Kitchen",
     answers: {
-      1000: "Hand wash",
-      1850: "Dishwasher",
+      "540": "I love doing dishwashing by hands!",
+      "600": "Dishwasher of course!",
     },
     tip: "Some random fact"
   },
 
   {
+    questionTag: "kitchenEfficiency",
     question: "Do you have low flow taps in the kitchen?",
     activity: "Kitchen",
     answers: {
-      500: "Yes",
-      1000: "No",
+      "0.75": "Yes",
+      "1": "No",
     },
     tip: "Some random fact"
   },
 
   {
-    question: "How do you wask your clothes",
-    activity: "Washing Room",
+    questionTag: "kitchenAmount",
+    question: "How long do you keep the facets open in a day?",
+    activity: "Kitchen",
     answers: {
-      200: "Hand wash",
-      1000: "Dishwasher",
+      "280": "About 0-5 minutes",
+      "540": "About 5-15 minutes",
+      "650": "over 15 minutes"
     },
     tip: "Some random fact"
-  }
+  },
 
+  // Laundry set
+  {
+    questionTag: "laundryAmount",
+    question: "How do you wash your clothes?",
+    activity: "Washing",
+    answers: {
+      "200": "I prefer hand wash",
+      "50": "I got a front loading washing machine!",
+      "130": "I got a top loading washing machine!"
+    },
+    tip: "Some random fact"
+  },
+
+  {
+    questionTag: "laundryFrequency",
+    question: "How many laundry loads per week?",
+    activity: "Washing",
+    answers: {
+      "8": "Twice per week",
+      "4": "Every week",
+      "1": "Once per month"
+    },
+    tip: "Some random fact"
+  },
+
+  // Outdoor set
+  {
+    questionTag: "outdoorGarden",
+    question: "Do you have a garden? If so, do you use sprinklers?",
+    activity: "Outdoor",
+    answers: {
+      "0": "No I don't have one",
+      "1000": "Yes, but I prefer to take care of it by myself",
+      "3000": "Yes sprinkler cured my depression"
+    },
+    tip: "Some random fact"
+  },
+
+  {
+    questionTag: "outdoorCar",
+    question: "Do you wash your car by urself?",
+    activity: "Outdoor",
+    answers: {
+      "0": "Never, too time consuming",
+      "1000": "Yes, I prefer taking care of my own car"
+    },
+    tip: "Some random fact"
+  },
 ];
 
 
@@ -117,7 +196,7 @@ function buildQuiz() {
         // ...add an HTML radio button
         answers.push(
           `<label>
-              <input type="radio" name="question${questionNumber}" value="${usage}"><span class="btn">
+              <input class="userChoice" type="radio" name="question${questionNumber}" value="${usage}"><span class="btn">
               ${currentQuestion.answers[usage]}
             </span></label>`
         );
@@ -144,10 +223,6 @@ function buildQuiz() {
 
 function showResults() {
 
-
-
-  let totalUsage = 0;
-
   // set up list to collect user input
   let result = {};
 
@@ -162,22 +237,14 @@ function showResults() {
     const selector = `input[name=question${questionNumber}]:checked`;
     const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-    // show both user choice and the water cost
+    // Define activity, tag, and answer for each question
     let currentActivity = currentQuestion.activity;
+    let currentTag = currentQuestion.questionTag;
     let currentUsage = userAnswer;
 
+    // Store tag and usage as key value pairs for further calculation
+    result[currentTag] = parseFloat(currentUsage);
 
-    console.log(currentActivity);
-    console.log(currentUsage);
-
-
-    // push both user choice and accumulated cost into result dictionary
-    if (result.hasOwnProperty(currentActivity)) {
-      result[currentActivity] = parseInt(result[currentActivity]) + parseInt(currentUsage);
-    }
-    else {
-      result[currentActivity] = parseInt(currentUsage);
-    }
 
   });
 
@@ -191,8 +258,15 @@ function showResults() {
 
   //  });
 
+  let familyCount = result["familyMember"]
+  let showerTotal = (result["showerDuration"] * result["showerheadEfficiency"] * result["showerFrequency"] + result["bathAmount"])*familyCount;
+  let toiletTotal = (result["toiletAmount"] + result["toiletLeak"])*familyCount;
+  let kitchenTotal = (result["kitchenWash"] * result["kitchenEfficiency"] + result["kitchenAmount"])*familyCount;
+  let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"])*familyCount;
+  let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
 
-  // plot both pir and bar charts
+
+  // plot both pie and bar charts
   $(document).ready(function () {
 
     var options = {
@@ -211,12 +285,13 @@ function showResults() {
         showInLegend: "true",
         legendText: "{label}",
         indexLabelFontSize: 16,
-        indexLabel: "{label} - {y}%",
+        indexLabel: "{label} - {y}",
         dataPoints: [
-          { y: result["Shower"], label: "Shower" },
-          { y: result["Toilet"], label: "Toilet" },
-          { y: result["Washing Room"], label: "Washing room" },
-          { y: result["Kitchen"], label: "Kitchen" }
+          { y: showerTotal, label: "Shower & Bath" },
+          { y: toiletTotal, label: "Toilet" },
+          { y: kitchenTotal, label: "Kitchen" },
+          { y: laundryTotal, label: "Laundry" },
+          { y: outdoorTotal, label: "Outdoor"}
         ]
       }]
     };
@@ -224,58 +299,6 @@ function showResults() {
 
   })
 
-  function addSymbols(e) {
-    var suffixes = ["", "K", "M", "B"];
-    var order = Math.max(Math.floor(Math.log(e.value) / Math.log(1000)), 0);
-
-    if (order > suffixes.length - 1)
-      order = suffixes.length - 1;
-
-    var suffix = suffixes[order];
-    return CanvasJS.formatNumber(e.value / Math.pow(1000, order)) + suffix;
-  }
-
-
-  // plot both pir and bar charts
-  $(document).ready(function () {
-
-
-    var options = {
-      title:{
-        text: "A Combination of Column & Line Chart"
-      
-      },   
-      animationEnabled: true,
-      backgroundColor: "rgba(0,0,0,0)",
-      data: [{        
-        type: "column",
-        dataPoints: [
-        { x: "Shower", y: result["Shower"] },
-        { x: "Toilet", y: result["Toilet"]},
-        { x: "Washing Room", y: result["Washing Room"] },
-        { x: "Kitchen", y: result["Kitchen"] },
-        ]
-      }
-      // {        
-      //   type: "line",
-      //   dataPoints: [
-      //   { x: 10, y: 71 },
-      //   { x: 20, y: 55},
-      //   { x: 30, y: 50 },
-      //   { x: 40, y: 65 },
-      //   { x: 50, y: 95 },
-      //   { x: 60, y: 68 },
-      //   { x: 70, y: 28 },
-      //   { x: 80, y: 34 },
-      //   { x: 90, y: 14}
-      //   ]
-      // }
-        
-      ]};
-    
-    $("#chartContainer-bar").CanvasJSChart(options);
-
-  })
 }
 
 
@@ -317,12 +340,17 @@ buildQuiz();
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
+const choiceButtons = document.querySelectorAll(".userChoice")
 let currentSlide = 0;
 
 // Show the first slide
 showSlide(currentSlide);
 
 // Event listeners
+for (var i = 0; i < choiceButtons.length -1; i++) {
+  choiceButtons[i].addEventListener("click", showNextSlide);
+};
+
 submitButton.addEventListener('click', showResults);
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
