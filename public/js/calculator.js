@@ -339,7 +339,21 @@ function showSlide(n) {
 }
 
 function showNextSlide() {
-  showSlide(currentSlide + 1);
+
+  // Check if the current question is answered, if not, prompt an alert and stop user from continuing
+  const answerContainers = quizContainer.querySelectorAll('.answers');
+  const currentAnswer = answerContainers[currentSlide];
+  const currentSelector = `input[name=question${currentSlide}]:checked`;
+  const atLeastOneIsChecked = currentAnswer.querySelector(currentSelector) !== null;
+
+  if(atLeastOneIsChecked) {
+    showSlide(currentSlide + 1);
+  }
+  else {
+    alert("plz check")
+  }
+
+
 }
 
 function showPreviousSlide() {
@@ -366,6 +380,17 @@ showSlide(currentSlide);
 for (var i = 0; i < choiceButtons.length -1; i++) {
   choiceButtons[i].addEventListener("click", showNextSlide);
 };
+
+for (var i = 0; i < choiceButtons.length; i++) {
+  choiceButtons[i].addEventListener("click", activateStepper);
+};
+
+function activateStepper() {
+  // find out which question user are currently in
+
+  $("#progressbar li").eq(1).addClass("active");
+  // then activate step accordingly
+}
 
 submitButton.addEventListener('click', showResults);
 previousButton.addEventListener("click", showPreviousSlide);
