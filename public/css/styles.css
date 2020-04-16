@@ -99,13 +99,15 @@ position: relative;
   font-size: 30px;
   margin-bottom: 10px;
 }
+
+
 .answers {
   margin-bottom: 20px;
   text-align: left;
   display: inline-block;
 }
 .answers label{
-  display: block;
+  display: inline-block;
   margin-bottom: 10px;
 }
 
@@ -130,24 +132,49 @@ position: relative;
 }
 
 
-button{
-  position: relative;
-  font-family: 'Work Sans', sans-serif;
-  font-size: 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: 0px;
-  border-radius: 3px;
-  padding: 15px 15px 15px 15px;
-  cursor: pointer;
-  margin: 6rem 4rem 4rem 4rem;
-  margin-bottom: 20px;
-}
+
 
 button:hover{
 	background-color: #38a;
 }
 
+
+/* Arrow button */
+.btn-arrow-right, .btn-arrow-left {
+  position: relative;
+}
+
+.btn-arrow-right:before,
+.btn-arrow-left:before{
+  content: '';
+  position: absolute;
+  top: 5px;
+  width: 22px;
+  height: 22px;
+  background: inherit;
+  border: inherit;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 0px 4px 0px 20px;
+}
+
+.btn-arrow-right:before {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  right: -11px;
+}
+
+.btn-arrow-left:before {
+  transform: rotate(225deg); 
+  -webkit-transform: rotate(225deg);
+  -moz-transform: rotate(225deg);
+  -o-transform: rotate(225deg);
+  -ms-transform: rotate(225deg);
+  left: -11px;
+}
 
 /* Result Table */
 .project-tab {
@@ -568,6 +595,7 @@ input[type="radio"] {
  .btn {
    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
    font-weight: 700;
+   margin: 0.5rem;
  }
  
  .bg-primary {
