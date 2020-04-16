@@ -1,4 +1,4 @@
-// Variables
+// Quiz Variables
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
@@ -265,8 +265,24 @@ function showResults() {
   let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"])*familyCount;
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
 
+    // Set up variable to store table element, and then fill in with calculated data
+    const showerCell = document.getElementById("shower-consumption");
+    const toiletCell = document.getElementById("toilet-consumption");
+    const kitchenCell = document.getElementById("kitchen-consumption");
+    const laundryCell = document.getElementById("laundry-consumption");
+    const gardeningCell = document.getElementById("gardening-consumption"); 
+    const carCell = document.getElementById("car-consumption");
 
-  // plot both pie and bar charts
+    // Fill in result
+    showerCell.innerHTML = showerTotal;
+    kitchenCell.innerHTML = kitchenTotal;
+    toiletCell.innerHTML = toiletTotal;
+    laundryCell.innerHTML = laundryTotal;
+    gardeningCell.innerHTML = result["outdoorGarden"];
+    carCell.innerHTML = result["outdoorCar"];
+
+
+  // plot both pie chart
   $(document).ready(function () {
 
     var options = {

@@ -120,7 +120,7 @@ position: relative;
 .quiz-section {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
-  height: 100%;
+  height: 50%;
   text-align: center;
 }
 
@@ -149,8 +149,12 @@ button:hover{
 }
 
 
-/* Answer button remodified, used to make span tag act like a button */
-
+/* Result Table */
+.project-tab {
+  padding: 10%;
+  margin-top: 18%;
+  position: relative;
+}
 
 /* Checked answer button color changed */
 .radio-toolbar input[type="radio"]:checked ~ * { 
