@@ -140,30 +140,22 @@ button{
   border-radius: 3px;
   padding: 15px 15px 15px 15px;
   cursor: pointer;
-  margin: 4rem 4rem 4rem 4rem;
+  margin: 6rem 4rem 4rem 4rem;
   margin-bottom: 20px;
-  
 }
+
 button:hover{
 	background-color: #38a;
 }
 
 
 /* Answer button remodified, used to make span tag act like a button */
-.btn
-{
-    background-color: rgb(7, 55, 99);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 2px 12px 3px 12px;
-    text-decoration: none;
 
-}
 
 /* Checked answer button color changed */
 .radio-toolbar input[type="radio"]:checked ~ * { 
-  background:pink !important;
+  background:#007bff !important;
+  color: white;
 }
 
 /* Hide the radio button */
