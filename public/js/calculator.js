@@ -8,6 +8,7 @@ const myQuestions = [
   {
     questionTag: "familyMember",
     question: "How many people lives in your household?",
+    activity: "familySize",
     answers: {
       "2": "2",
       "2.5": "3",
@@ -387,8 +388,25 @@ for (var i = 0; i < choiceButtons.length; i++) {
 
 function activateStepper() {
   // find out which question user are currently in
+  if (currentSlide >= 5) {
+    $("#progressbar li").eq(1).addClass("active");
+  }; 
 
-  $("#progressbar li").eq(1).addClass("active");
+  if (currentSlide >= 7) {
+    $("#progressbar li").eq(2).addClass("active");
+  };
+
+  if (currentSlide >= 10) {
+    $("#progressbar li").eq(3).addClass("active");
+  };
+
+  if (currentSlide >= 12) {
+    $("#progressbar li").eq(4).addClass("active");
+  };
+
+
+
+  
   // then activate step accordingly
 }
 
