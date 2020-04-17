@@ -29,83 +29,120 @@
 </section>
 
 
+<section class="content-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 pie-chart text-center">
+                <div id="chartContainer-pie" style="height: 370px; width: 100%;">
+                    <h1>Visualize</h1>
+                </div>
+            </div>
 
-<section class="visualize-section">
-    <div id="results"></div>
-    <div class="left-half text-center">
-        <div id="chartContainer-pie" style="height: 370px; width: 100%;">
-            <h1>Visualize</h1>
+            <div class="col-md-6">
+                <p> Duis est velit, ultrices non leo suscipit, pharetra laoreet dolor. Sed augue nulla, dictum tristique
+                    porttitor quis, bibendum sit amet lacus. Vestibulum sagittis erat elit. Cras viverra, ligula non
+                    convallis elementum, tellus enim ultrices nulla, id euismod diam lectus quis arcu. Vestibulum eu
+                    eros eu sapien facilisis molestie vitae in nisl. Nullam bibendum lacus est, ac cursus lacus
+                    condimentum imperdiet. Vivamus at malesuada ante, quis molestie enim. Nam eu vulputate ligula, eget
+                    rhoncus metus. Proin varius neque commodo, sodales ligula a, maximus augue. Cras enim neque,
+                    eleifend et pulvinar ac, sodales id ligula. Integer sagittis augue et tortor consectetur, id
+                    scelerisque nunc auctor. Maecenas eget risus mollis, tristique massa ac, tempus mi. Integer
+                    consectetur, massa nec venenatis porttitor, quam ex facilisis sem, accumsan molestie libero sem sed
+                    erat. Praesent pulvinar tempus ullamcorper. Aenean dapibus sapien sed turpis auctor, non aliquet
+                    orci tincidunt.
+
+                    at mollis erat egestas. Etiam porta, eros nec elementum dignissim, turpis dolor cursus lorem, eu
+                    suscipit turpis nibh a velit. Cras a quam viverra, eleifend velit sed, mattis mauris. Sed a quam a
+                    mauris auctor iaculis. Vestibulum at massa at purus aliquam aliquet et a massa. Donec posuere
+                    gravida bibendum. In eu gravida eros, vel bibendum augue.
+
+                </p>
+            </div>
         </div>
     </div>
-
-
-    <!-- Two water tank for comparison  -->
-    <!-- water tank left -->
-    <div class="water-tanks">
-    <div class="water-tank" id="water-tank-left">
-        <div class="liquid">
-          <svg class="water" viewBox="0 0 200 100">
-            <defs>
-              <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0" style="stop-color:#29ABE2"/>
-              <stop offset="0.1643" style="stop-color:#28A6E3"/>
-              <stop offset="0.3574" style="stop-color:#2496E6"/>
-              <stop offset="0.5431" style="stop-color:#1E7DEA"/>
-              <stop offset="0.7168" style="stop-color:#1559F0"/>
-              <stop offset="0.874" style="stop-color:#0B2CF7"/>
-              <stop offset="1" style="stop-color:#0000FF"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#waterGradient)" d="
-              M 0,0 v 100 h 200 v -100 
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-            "/>
-          </svg>
-        </div>
-        
-        <div class="indicator" data-value="75"></div> 
-        <div class="indicator" data-value="50"></div> 
-        <div class="indicator" data-value="25"></div> 
-        
-      </div> 
-
-
-      <!-- water tank right -->
-      <div class="water-tank" id="water-tank-right">
-        <div class="liquid">
-          <svg class="water" viewBox="0 0 200 100">
-            <defs>
-              <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0" style="stop-color:#29ABE2"/>
-              <stop offset="0.1643" style="stop-color:#28A6E3"/>
-              <stop offset="0.3574" style="stop-color:#2496E6"/>
-              <stop offset="0.5431" style="stop-color:#1E7DEA"/>
-              <stop offset="0.7168" style="stop-color:#1559F0"/>
-              <stop offset="0.874" style="stop-color:#0B2CF7"/>
-              <stop offset="1" style="stop-color:#0000FF"/>
-              </linearGradient>
-            </defs>
-            <path fill="url(#waterGradient)" d="
-              M 0,0 v 100 h 200 v -100 
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
-            "/>
-          </svg>
-        </div>
-        
-        <div class="indicator" data-value="75"></div> 
-        <div class="indicator" data-value="50"></div> 
-        <div class="indicator" data-value="25"></div> 
-        
-      </div>
-    </div>
-</div>
 </section>
+
+
+<!-- Two water tank for comparison  -->
+<!-- water tank left -->
+<section class="content-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+            <div class="water-tanks">
+                <h1 class="water-tank-subtitle">Your consumption Victorian Average</h1>
+                <div class="water-tank" id="water-tank-left">
+
+                    <div class="liquid">
+                        <svg class="water" viewBox="0 0 200 100">
+                            <defs>
+                                <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0" style="stop-color:#29ABE2" />
+                                    <stop offset="0.1643" style="stop-color:#28A6E3" />
+                                    <stop offset="0.3574" style="stop-color:#2496E6" />
+                                    <stop offset="0.5431" style="stop-color:#1E7DEA" />
+                                    <stop offset="0.7168" style="stop-color:#1559F0" />
+                                    <stop offset="0.874" style="stop-color:#0B2CF7" />
+                                    <stop offset="1" style="stop-color:#0000FF" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#waterGradient)" d="
+              M 0,0 v 100 h 200 v -100 
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+            " />
+                        </svg>
+                    </div>
+
+                    <div class="indicator" data-value="75"></div>
+                    <div class="indicator" data-value="50"></div>
+                    <div class="indicator" data-value="25"></div>
+
+                </div>
+
+                <!-- water tank right -->
+                <div class="water-tank" id="water-tank-right">
+                    <div class="liquid">
+                        <svg class="water" viewBox="0 0 200 100">
+                            <defs>
+                                <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0" style="stop-color:#29ABE2" />
+                                    <stop offset="0.1643" style="stop-color:#28A6E3" />
+                                    <stop offset="0.3574" style="stop-color:#2496E6" />
+                                    <stop offset="0.5431" style="stop-color:#1E7DEA" />
+                                    <stop offset="0.7168" style="stop-color:#1559F0" />
+                                    <stop offset="0.874" style="stop-color:#0B2CF7" />
+                                    <stop offset="1" style="stop-color:#0000FF" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#waterGradient)" d="
+              M 0,0 v 100 h 200 v -100 
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+            " />
+                        </svg>
+                    </div>
+
+                    <div class="indicator" data-value="75"></div>
+                    <div class="indicator" data-value="50"></div>
+                    <div class="indicator" data-value="25"></div>
+
+                </div>
+
+                <h1>Test Context</h1>
+            </div>
+        </div>
+        <div class="col-md-6">
+                <h1>Test Context</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <section id="tabs" class="project-tab">
     <div class="container">

@@ -71,17 +71,6 @@ position: relative;
 }
 
 /* Above are result table */
-.left-half {
-  width: 50%;
-  left: 0;
-  position: relative;
-}
-
-.right-half {
-  width: 50%;
-  right: 0;
-  position: absolute;
-}
 
 
 
@@ -290,6 +279,10 @@ input[type="radio"] {
 
 /* Water tank */
 
+.water-tank-subtitle {
+  font-size: small;
+}
+
 #water-tank-left {
   margin: auto;
 }
@@ -300,7 +293,7 @@ input[type="radio"] {
 
 .water-tanks {
   width: 50%;
-  margin: 10%;
+  margin: 20%;
   display: inline-block;
 }
 

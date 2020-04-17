@@ -1,6 +1,5 @@
 // Quiz Variables
 const quizContainer = document.getElementById('quiz');
-const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const myQuestions = [
 
@@ -426,6 +425,7 @@ let currentSlide = 0;
 showSlide(currentSlide);
 
 // Event listeners
+// When user go to the last lide, re-selecting should not trigger showNextSlide, thus length - 2
 for (var i = 0; i < choiceButtons.length-2; i++) {
   choiceButtons[i].addEventListener("click", showNextSlide);
 };
