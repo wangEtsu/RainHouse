@@ -22,7 +22,7 @@
 
     <button class="btn btn-primary" id="previous">Previous Question</button>
     <button class="btn btn-primary" id="next">Next Question</button>
-    <button class="btn btn-primary" id="submit">Submit Quiz</button>
+    <button class="btn btn-primary" id="submit" >Submit Quiz</button>
 
 
 
@@ -34,28 +34,13 @@
         <div class="row">
             <div class="col-md-6 pie-chart text-center">
                 <div id="chartContainer-pie" style="height: 370px; width: 100%;">
-                    <h1>Visualize</h1>
+                    <h1></h1>
                 </div>
             </div>
 
             <div class="col-md-6">
-                <p> Duis est velit, ultrices non leo suscipit, pharetra laoreet dolor. Sed augue nulla, dictum tristique
-                    porttitor quis, bibendum sit amet lacus. Vestibulum sagittis erat elit. Cras viverra, ligula non
-                    convallis elementum, tellus enim ultrices nulla, id euismod diam lectus quis arcu. Vestibulum eu
-                    eros eu sapien facilisis molestie vitae in nisl. Nullam bibendum lacus est, ac cursus lacus
-                    condimentum imperdiet. Vivamus at malesuada ante, quis molestie enim. Nam eu vulputate ligula, eget
-                    rhoncus metus. Proin varius neque commodo, sodales ligula a, maximus augue. Cras enim neque,
-                    eleifend et pulvinar ac, sodales id ligula. Integer sagittis augue et tortor consectetur, id
-                    scelerisque nunc auctor. Maecenas eget risus mollis, tristique massa ac, tempus mi. Integer
-                    consectetur, massa nec venenatis porttitor, quam ex facilisis sem, accumsan molestie libero sem sed
-                    erat. Praesent pulvinar tempus ullamcorper. Aenean dapibus sapien sed turpis auctor, non aliquet
-                    orci tincidunt.
-
-                    at mollis erat egestas. Etiam porta, eros nec elementum dignissim, turpis dolor cursus lorem, eu
-                    suscipit turpis nibh a velit. Cras a quam viverra, eleifend velit sed, mattis mauris. Sed a quam a
-                    mauris auctor iaculis. Vestibulum at massa at purus aliquam aliquet et a massa. Donec posuere
-                    gravida bibendum. In eu gravida eros, vel bibendum augue.
-
+                <h3 id="pie-message"></h3>
+                <p id="pie-analysis"> 
                 </p>
             </div>
         </div>
@@ -65,14 +50,14 @@
 
 <!-- Two water tank for comparison  -->
 <!-- water tank left -->
-<section class="content-section bg-light">
+<section class="content-section bg-light" style="height: fit-content;">
     <div class="container">
         <div class="row">
             <div class="col-md-6">
             <div class="water-tanks">
-                <h1 class="water-tank-subtitle">Your consumption Victorian Average</h1>
+                
                 <div class="water-tank" id="water-tank-left">
-
+                    <h5 class="water-tank-subtitle">Your Usage</h5>
                     <div class="liquid">
                         <svg class="water" viewBox="0 0 200 100">
                             <defs>
@@ -104,6 +89,7 @@
 
                 <!-- water tank right -->
                 <div class="water-tank" id="water-tank-right">
+                    <h5 class="water-tank-subtitle">Average Usage</h5>
                     <div class="liquid">
                         <svg class="water" viewBox="0 0 200 100">
                             <defs>
@@ -132,12 +118,11 @@
                     <div class="indicator" data-value="25"></div>
 
                 </div>
-
-                <h1>Test Context</h1>
             </div>
         </div>
         <div class="col-md-6">
-                <h1>Test Context</h1>
+                <h3 id="water-tank-message"></h3>
+                <p id="water-tank-analysis"></p>
             </div>
         </div>
     </div>

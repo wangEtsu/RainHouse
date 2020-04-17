@@ -281,6 +281,9 @@ input[type="radio"] {
 
 .water-tank-subtitle {
   font-size: small;
+  position: absolute;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
 }
 
 #water-tank-left {

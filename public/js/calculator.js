@@ -45,7 +45,7 @@ const myQuestions = [
   {
     questionTag: "showerFrequency",
     question: "How often do you take shower?",
-    activity: {"Shower & Bath": "showerFrequency"},
+    activity: { "Shower & Bath": "showerFrequency" },
     answers: {
       "30": "Everyday",
       "60": "Twice per day",
@@ -259,28 +259,28 @@ function showResults() {
   //  });
 
   let familyCount = result["familyMember"]
-  let showerTotal = (result["showerDuration"] * result["showerheadEfficiency"] * result["showerFrequency"] + result["bathAmount"])*familyCount;
-  let toiletTotal = (result["toiletAmount"] + result["toiletLeak"])*familyCount;
-  let kitchenTotal = (result["kitchenWash"] * result["kitchenEfficiency"] + result["kitchenAmount"])*familyCount;
-  let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"])*familyCount;
+  let showerTotal = (result["showerDuration"] * result["showerheadEfficiency"] * result["showerFrequency"] + result["bathAmount"]) * familyCount;
+  let toiletTotal = (result["toiletAmount"] + result["toiletLeak"]) * familyCount;
+  let kitchenTotal = (result["kitchenWash"] * result["kitchenEfficiency"] + result["kitchenAmount"]) * familyCount;
+  let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"]) * familyCount;
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
   let usageTotal = showerTotal + toiletTotal + kitchenTotal + laundryTotal + outdoorTotal
 
-    // Set up variable to store table element, and then fill in with calculated data
-    const showerCell = document.getElementById("shower-consumption");
-    const toiletCell = document.getElementById("toilet-consumption");
-    const kitchenCell = document.getElementById("kitchen-consumption");
-    const laundryCell = document.getElementById("laundry-consumption");
-    const gardeningCell = document.getElementById("gardening-consumption"); 
-    const carCell = document.getElementById("car-consumption");
+  // Set up variable to store table element, and then fill in with calculated data
+  const showerCell = document.getElementById("shower-consumption");
+  const toiletCell = document.getElementById("toilet-consumption");
+  const kitchenCell = document.getElementById("kitchen-consumption");
+  const laundryCell = document.getElementById("laundry-consumption");
+  const gardeningCell = document.getElementById("gardening-consumption");
+  const carCell = document.getElementById("car-consumption");
 
-    // Fill in result
-    showerCell.innerHTML = showerTotal;
-    kitchenCell.innerHTML = kitchenTotal;
-    toiletCell.innerHTML = toiletTotal;
-    laundryCell.innerHTML = laundryTotal;
-    gardeningCell.innerHTML = result["outdoorGarden"];
-    carCell.innerHTML = result["outdoorCar"];
+  // Fill in result
+  showerCell.innerHTML = showerTotal;
+  kitchenCell.innerHTML = kitchenTotal;
+  toiletCell.innerHTML = toiletTotal;
+  laundryCell.innerHTML = laundryTotal;
+  gardeningCell.innerHTML = result["outdoorGarden"];
+  carCell.innerHTML = result["outdoorCar"];
 
 
   // plot both pie chart
@@ -299,11 +299,11 @@ function showResults() {
         fontFamily: "calibri",
         fontSize: 14,
         itemTextFormatter: function (e) {
-          return e.dataPoint.label + ": " + Math.round(e.dataPoint.y / usageTotal * 100) + "%";  
+          return e.dataPoint.label + ": " + Math.round(e.dataPoint.y / usageTotal * 100) + "%";
         }
       },
       data: [{
-        
+
         innerRadius: "60%",
         legendMarkerType: "square",
         radius: "100%",
@@ -315,7 +315,7 @@ function showResults() {
           { y: toiletTotal, label: "Toilet" },
           { y: kitchenTotal, label: "Kitchen" },
           { y: laundryTotal, label: "Laundry" },
-          { y: outdoorTotal, label: "Outdoor"}
+          { y: outdoorTotal, label: "Outdoor" }
         ]
       }]
     };
@@ -326,22 +326,22 @@ function showResults() {
   // Water tank
   // Average victorian family water usage 
   let averageTotal = familyCount * 160 * 30;
-
+  let feedbackMessage = "";
 
   // $(".water-tank .liquid svg").css("top", "calc(97.5% - 20%)")
 
   // If user are using less water than average household with same size
   if (averageTotal > usageTotal) {
 
-    let message = "You are doing Great!!!";
+    feedbackMessage = "You are doing Great!!!";
 
     // Set up a top water level
     let topLevel = averageTotal * 1.2;
-    
-    let avgPercentage = (averageTotal/topLevel) * 100 + "%";
-    let userPercentage = (usageTotal/topLevel) * 100 + "%";
 
+    let avgPercentage = (averageTotal / topLevel) * 100 + "%";
+    let userPercentage = (usageTotal / topLevel) * 100 + "%";
 
+    // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
     $("#water-tank-right .liquid svg").css("top", "calc(97.5% - " + avgPercentage + ")")
 
@@ -350,19 +350,32 @@ function showResults() {
 
     // If user are using more water than average household with same size
     let topLevel = usageTotal * 1.2;
-    let message = "Kids in Africa are dying u fucking monster!!!";
-    
-    let avgPercentage = (averageTotal/topLevel) * 100 + "%";
-    let userPercentage = (usageTotal/topLevel) * 100 + "%";
+    feedbackMessage = "Kids in Africa are dying u fucking monster!!!";
 
+    let avgPercentage = (averageTotal / topLevel) * 100 + "%";
+    let userPercentage = (usageTotal / topLevel) * 100 + "%";
+
+
+    // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
     $("#water-tank-right .liquid svg").css("top", "calc(97.5% - " + avgPercentage + ")")
 
 
   }
-  
 
-  
+  // Pie chart section feedback
+  // Pre-set analysis context
+  preSet = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at convallis dolor. Quisque venenatis lectus vel turpis bibendum sodales. Praesent tempor, justo congue rhoncus sodales, risus mi pretium sapien, sed malesuada mauris leo sed elit. Aliquam ullamcorper, est ac convallis gravida, urna quam congue urna, ut iaculis turpis quam ac eros. Nullam nec libero non turpis lacinia sollicitudin eget ut enim. Suspendisse a accumsan lectus, ut tincidunt leo. Praesent vulputate malesuada metus at eleifend. Sed at convallis risus, at bibendum nibh. Aenean lectus augue, tincidunt quis lacus ut, sagittis pharetra risus. Ut dignissim iaculis neque id ultrices."
+  // Activate analysis text
+  $("#pie-message").append(feedbackMessage);
+  $("#pie-analysis").append(preSet);
+
+
+  // Water tank section feedback
+  // Activate analysis text
+  $("#water-tank-message").append(feedbackMessage);
+  $("#water-tank-analysis").append(preSet);
+
 }
 
 
@@ -394,7 +407,7 @@ function showNextSlide() {
   const currentSelector = `input[name=question${currentSlide}]:checked`;
   const atLeastOneIsChecked = currentAnswer.querySelector(currentSelector) !== null;
 
-  if(atLeastOneIsChecked) {
+  if (atLeastOneIsChecked) {
     showSlide(currentSlide + 1);
   }
   else {
@@ -426,7 +439,7 @@ showSlide(currentSlide);
 
 // Event listeners
 // When user go to the last lide, re-selecting should not trigger showNextSlide, thus length - 2
-for (var i = 0; i < choiceButtons.length-2; i++) {
+for (var i = 0; i < choiceButtons.length - 2; i++) {
   choiceButtons[i].addEventListener("click", showNextSlide);
 };
 
@@ -438,7 +451,7 @@ function activateStepper() {
   // find out which question user are currently in
   if (currentSlide >= 5) {
     $("#progressbar li").eq(1).addClass("active");
-  }; 
+  };
 
   if (currentSlide >= 7) {
     $("#progressbar li").eq(2).addClass("active");
@@ -454,7 +467,7 @@ function activateStepper() {
 
 
 
-  
+
   // then activate step accordingly
 }
 
