@@ -265,6 +265,7 @@ function showResults() {
   let kitchenTotal = (result["kitchenWash"] * result["kitchenEfficiency"] + result["kitchenAmount"])*familyCount;
   let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"])*familyCount;
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
+  let usageTotal = showerTotal + toiletTotal + kitchenTotal + laundryTotal + outdoorTotal
 
     // Set up variable to store table element, and then fill in with calculated data
     const showerCell = document.getElementById("shower-consumption");
@@ -295,14 +296,21 @@ function showResults() {
       }],
       animationEnabled: true,
       backgroundColor: "rgba(0,0,0,0)",
+      legend: {
+        fontFamily: "calibri",
+        fontSize: 14,
+        itemTextFormatter: function (e) {
+          return e.dataPoint.label + ": " + Math.round(e.dataPoint.y / usageTotal * 100) + "%";  
+        }
+      },
       data: [{
-        type: "pie",
-        startAngle: 40,
-        toolTipContent: "<b>{label}</b>: {y}%",
-        showInLegend: "true",
-        legendText: "{label}",
-        indexLabelFontSize: 16,
-        indexLabel: "{label} - {y}",
+        
+        innerRadius: "60%",
+        legendMarkerType: "square",
+        radius: "100%",
+        showInLegend: true,
+        startAngle: 90,
+        type: "doughnut",
         dataPoints: [
           { y: showerTotal, label: "Shower & Bath" },
           { y: toiletTotal, label: "Toilet" },
@@ -415,3 +423,116 @@ previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
 
 
+
+
+// Chart
+
+
+// var totalVisitors = 883000;
+// var visitorsData = {
+// 	"New vs Returning Visitors": [{
+// 		click: visitorsChartDrilldownHandler,
+// 		cursor: "pointer",
+// 		explodeOnClick: false,
+		// innerRadius: "75%",
+		// legendMarkerType: "square",
+		// name: "New vs Returning Visitors",
+		// radius: "100%",
+		// showInLegend: true,
+		// startAngle: 90,
+		// type: "doughnut",
+// 		dataPoints: [
+// 			{ y: 519960, name: "New Visitors", color: "#E7823A" },
+// 			{ y: 363040, name: "Returning Visitors", color: "#546BC1" }
+// 		]
+// 	}],
+
+// };
+
+// var newVSReturningVisitorsOptions = {
+// 	animationEnabled: true,
+// 	theme: "light2",
+// 	title: {
+// 		text: "New VS Returning Visitors"
+// 	},
+// 	subtitles: [{
+// 		text: "Click on Any Segment to Drilldown",
+// 		backgroundColor: "#2eacd1",
+// 		fontSize: 16,
+// 		fontColor: "white",
+// 		padding: 5
+// 	}],
+// 	legend: {
+// 		fontFamily: "calibri",
+// 		fontSize: 14,
+// 		itemTextFormatter: function (e) {
+// 			return e.dataPoint.name + ": " + Math.round(e.dataPoint.y / totalVisitors * 100) + "%";  
+// 		}
+// 	},
+// 	data: []
+// };
+
+// var visitorsDrilldownedChartOptions = {
+// 	animationEnabled: true,
+// 	theme: "light2",
+// 	axisX: {
+// 		labelFontColor: "#717171",
+// 		lineColor: "#a2a2a2",
+// 		tickColor: "#a2a2a2"
+// 	},
+// 	axisY: {
+// 		gridThickness: 0,
+// 		includeZero: false,
+// 		labelFontColor: "#717171",
+// 		lineColor: "#a2a2a2",
+// 		tickColor: "#a2a2a2",
+// 		lineThickness: 1
+// 	},
+// 	data: []
+// };
+
+// newVSReturningVisitorsOptions.data = visitorsData["New vs Returning Visitors"];
+// $("#chartContainer").CanvasJSChart(newVSReturningVisitorsOptions);
+
+// function visitorsChartDrilldownHandler(e) {
+// 	e.chart.options = visitorsDrilldownedChartOptions;
+// 	e.chart.options.data = visitorsData[e.dataPoint.name];
+// 	e.chart.options.title = { text: e.dataPoint.name }
+// 	e.chart.render();
+// 	$("#backButton").toggleClass("invisible");
+// }
+
+// $("#backButton").click(function() { 
+// 	$(this).toggleClass("invisible");
+// 	newVSReturningVisitorsOptions.data = visitorsData["New vs Returning Visitors"];
+// 	$("#chartContainer").CanvasJSChart(newVSReturningVisitorsOptions);
+// });
+
+// }
+// </script>
+// <style>
+// 	#backButton {
+// 		border-radius: 4px;
+// 		padding: 8px;
+// 		border: none;
+// 		font-size: 16px;
+// 		background-color: #2eacd1;
+// 		color: white;
+// 		position: absolute;
+// 		top: 10px;
+// 		right: 10px;
+// 		cursor: pointer;
+// 	}
+// 	.invisible {
+// 		display: none;
+// 	}
+// </style>
+// </head>
+// <body>
+
+// <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+// <button class="btn invisible" id="backButton">< Back</button>
+// <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+// <script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+// </body>
+// </html>
