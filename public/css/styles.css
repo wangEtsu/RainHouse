@@ -288,6 +288,83 @@ input[type="radio"] {
   padding-bottom: 2rem;
 }
 
+/* Water tank */
+
+.water-tank {
+  width:20em;
+  height:30em;
+  border:.3em solid #3A3A3A;
+  border-top:none;
+  box-sizing:border-box;
+  position:relative;
+}
+
+.water-tank .liquid {
+  width:100%;
+  height:100%;
+  position:absolute;
+  overflow:hidden;
+}
+
+.water-tank .liquid svg {
+  height:30em;
+  top: calc(97.5% - 90%);
+  position:absolute;
+  animation: waves 5s infinite linear;
+}
+
+
+@keyframes waves {
+    0% { transform:translateX(-15em); }
+    100% { transform:translateX(0); }
+}
+
+.water-tank .label {
+  position:absolute;
+  color:white;
+  line-height:2em;
+  width:4em;
+  text-align:center;
+  border-radius:.5em;
+  margin-bottom: -1em;
+  background-color:#3A3A3A;
+  right:-4.9em;
+  bottom:57%;
+}
+
+.water-tank .label:before {
+  content:"";
+  position:absolute;
+  background-color:#3A3A3A;
+  width:0.7em;
+  height:0.7em;
+  top:.65em;
+  left:-0.3em;
+  transform:rotate(45deg);
+}
+
+.water-tank .indicator {
+  position:absolute;
+  background-color:#3A3A3A;
+  height:0.3em;
+  width:1em;
+  margin-bottom: -0.15em;
+  right:0;
+}
+
+.water-tank .indicator[data-value="25"] {
+  bottom: 25%;
+}
+
+.water-tank .indicator[data-value="50"] {
+  bottom: 50%;
+}
+
+.water-tank .indicator[data-value="75"] {
+  bottom: 75%;
+}
+/* Water tank wrapper */
+
 
 /*!
  * Start Bootstrap - Grayscale v5.0.9 (https://startbootstrap.com/template-overviews/grayscale)
