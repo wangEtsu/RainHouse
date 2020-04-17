@@ -29,6 +29,9 @@ position: relative;
 }
 
 
+
+
+
 /* Result Table */
 .project-tab {
   padding: 10%;
@@ -584,14 +587,15 @@ input[type="radio"] {
 
  
  .service-icon {
-   background-color: #fff;
-   color: #1D809F;
-   height: 7rem;
+   background-color:transparent;
+   color: #0779e4;
+   height: 3rem;
    width: 7rem;
    display: block;
-   line-height: 7.5rem;
+   line-height: 2.5rem;
    font-size: 2.25rem;
-   box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+   padding-bottom: 1rem;
+   /* box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1); */
  }
  
  .callout {

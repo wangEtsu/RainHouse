@@ -12,13 +12,51 @@
   <div class="overlay"></div>
 </header>
 
+
+<section class="content-section bg-light">
+<!-- Container (Services Section) -->
+<div id="services" class="container-fluid text-center">
+  <h2 style="
+    padding: 2rem 0rem 5rem;
+">What we offer</h2>
+  <br>
+  <div class="row slideanim">
+    <div class="col-sm-4">
+      <i class="fas fa-chart-pie service-icon" style="size: 3rem;"></i>
+      <h4>Analysis</h4>
+      <p>We help people to figure out their activity-based water consumption</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fas fa-info service-icon"></i>
+      <h4>Educate</h4>
+      <p>We give poeple personzlied tips on water-saving techniques</p>
+    </div>
+    <div class="col-sm-4">
+      <i class="fas fa-cloud-rain service-icon"></i>
+      <h4>Prediction</h4>
+      <p>We introduce rain-harvesting solutions and shit</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+</section>
+
 <!-- Calculator introduction -->
-<section class="content-section bg-light" id="calculator-intro" >
+<section class="content-section bg-light" id="calculator-intro" style="padding-top: 14rem; height: 30rem;" >
 
   <div class="container text-center" >
-    <h1>Pull</h1>
-    <h3>Compare | Tips | Analytics</h2>
-      <button onclick="location.href = '/calculator'" type="button" class="btn btn-outline-primary">Find out more</button>
+    <div class="container text-center">
+      <h1>Calculator</h1>
+      <h3>Compare | Tips | Analytics</h2>
+        <button onclick="location.href = '/calculator'" type="button" class="btn btn-outline-primary">Find out more</button>
+    </div>
+    
+
+
+
   </div>
 
  
@@ -37,5 +75,41 @@
 </section>
 
 
+<!-- <script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links in navbar + footer link
+  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 900, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+  
+  $(window).scroll(function() {
+    $(".slideanim").each(function(){
+      var pos = $(this).offset().top;
+
+      var winTop = $(window).scrollTop();
+        if (pos < winTop + 600) {
+          $(this).addClass("slide");
+        }
+    });
+  });
+})
+</script> -->
 
 <%- include("partials/footer"); -%>
