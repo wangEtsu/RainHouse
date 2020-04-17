@@ -324,6 +324,46 @@ function showResults() {
 
   })
 
+  // Water tank
+  // Average victorian family water usage 
+  let averageTotal = familyCount * 160 * 30;
+
+
+  // $(".water-tank .liquid svg").css("top", "calc(97.5% - 20%)")
+
+  // If user are using less water than average household with same size
+  if (averageTotal > usageTotal) {
+
+    let message = "You are doing Great!!!";
+
+    // Set up a top water level
+    let topLevel = averageTotal * 1.2;
+    
+    let avgPercentage = (averageTotal/topLevel) * 100 + "%";
+    let userPercentage = (usageTotal/topLevel) * 100 + "%";
+
+
+    $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
+    $("#water-tank-right .liquid svg").css("top", "calc(97.5% - " + avgPercentage + ")")
+
+
+  } else {
+
+    // If user are using more water than average household with same size
+    let topLevel = usageTotal * 1.2;
+    let message = "Kids in Africa are dying u fucking monster!!!";
+    
+    let avgPercentage = (averageTotal/topLevel) * 100 + "%";
+    let userPercentage = (usageTotal/topLevel) * 100 + "%";
+
+    $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
+    $("#water-tank-right .liquid svg").css("top", "calc(97.5% - " + avgPercentage + ")")
+
+
+  }
+  
+
+  
 }
 
 

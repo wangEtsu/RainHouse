@@ -37,7 +37,12 @@
             <h1>Visualize</h1>
         </div>
     </div>
-    <div class="water-tank">
+
+
+    <!-- Two water tank for comparison  -->
+    <!-- water tank left -->
+    <div class="water-tanks">
+    <div class="water-tank" id="water-tank-left">
         <div class="liquid">
           <svg class="water" viewBox="0 0 200 100">
             <defs>
@@ -65,9 +70,41 @@
         <div class="indicator" data-value="50"></div> 
         <div class="indicator" data-value="25"></div> 
         
-        <div class="label">58%</div> 
       </div> 
+
+
+      <!-- water tank right -->
+      <div class="water-tank" id="water-tank-right">
+        <div class="liquid">
+          <svg class="water" viewBox="0 0 200 100">
+            <defs>
+              <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0" style="stop-color:#29ABE2"/>
+              <stop offset="0.1643" style="stop-color:#28A6E3"/>
+              <stop offset="0.3574" style="stop-color:#2496E6"/>
+              <stop offset="0.5431" style="stop-color:#1E7DEA"/>
+              <stop offset="0.7168" style="stop-color:#1559F0"/>
+              <stop offset="0.874" style="stop-color:#0B2CF7"/>
+              <stop offset="1" style="stop-color:#0000FF"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#waterGradient)" d="
+              M 0,0 v 100 h 200 v -100 
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+              c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
+            "/>
+          </svg>
+        </div>
+        
+        <div class="indicator" data-value="75"></div> 
+        <div class="indicator" data-value="50"></div> 
+        <div class="indicator" data-value="25"></div> 
+        
+      </div>
     </div>
+</div>
 </section>
 
 <section id="tabs" class="project-tab">
