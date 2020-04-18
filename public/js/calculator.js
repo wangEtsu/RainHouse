@@ -10,9 +10,9 @@ const myQuestions = [
     activity: "familySize",
     answers: {
       "2": "2",
-      "2.5": "3",
+      "2.6": "3",
       "3.2": "4",
-      "3.5": "5 or more",
+      "4.2": "5",
     },
     tip: "Do you know that a large family actually saves more water? I made this up"
   },
@@ -333,13 +333,19 @@ function showResults() {
   // If user are using less water than average household with same size
   if (averageTotal > usageTotal) {
 
-    feedbackMessage = "You are doing Great!!!";
+    
 
     // Set up a top water level
     let topLevel = averageTotal * 1.2;
 
     let avgPercentage = (averageTotal / topLevel) * 100 + "%";
     let userPercentage = (usageTotal / topLevel) * 100 + "%";
+
+
+    // Calculate how much less user are using than average victorian family of the same size
+    let howMuchLess = Math.round((100 - (usageTotal / averageTotal) * 100)) + "%";
+
+    feedbackMessage = `<h1> Good Work! </h1> <h3> You are using <h3> <h1 class="percentage"> ${howMuchLess} </h1> <h3>more water than an average Victorian family of </h3> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
 
     // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
@@ -349,11 +355,20 @@ function showResults() {
   } else {
 
     // If user are using more water than average household with same size
-    let topLevel = usageTotal * 1.2;
-    feedbackMessage = "Kids in Africa are dying u fucking monster!!!";
 
-    let avgPercentage = (averageTotal / topLevel) * 100 + "%";
-    let userPercentage = (usageTotal / topLevel) * 100 + "%";
+    
+    let topLevel = usageTotal * 1.2;
+    
+
+    let avgPercentage = (averageTotal / topLevel ) * 100 + "%";
+    let userPercentage = (usageTotal / topLevel ) * 100 + "%";
+
+
+    let howMuchMore = Math.round((usageTotal / averageTotal ) * 100) + "%";
+
+
+    feedbackMessage = `You are using <h1 class="percentage"> ${howMuchMore} </h1> more water than an average Victorian family of <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    ;
 
 
     // Activate water tanks

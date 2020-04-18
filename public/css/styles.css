@@ -28,8 +28,15 @@ position: relative;
 
 }
 
+.percentage {
+  font-family: 'Montserrat', sans-serif;
+  color: #007bff;
+}
 
-
+#family-size {
+  font-family: 'Montserrat', sans-serif;
+  color: #007bff;
+}
 
 
 /* Result Table */
