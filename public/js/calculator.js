@@ -1,3 +1,21 @@
+// // Uncomment below
+// // Get data that were passed to ejs from app.js (MySQL)
+// var variableJSON = document.getElementById('variableJSON').innerText;
+
+// // Remove the ejs element since there is no more use for it
+// document.getElementById('variableJSON').remove();
+
+// // set up an array to store result
+// let test = [];
+
+// // iterate through each question
+// for (var i = 0; i < 13; i++) {
+//   // !improtant: You need to parse it twice to deal with stringified object
+//   console.log(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+//   test.push(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+// };
+
+
 // Quiz Variables
 const quizContainer = document.getElementById('quiz');
 const submitButton = document.getElementById('submit');
