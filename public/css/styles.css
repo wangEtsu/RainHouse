@@ -242,7 +242,7 @@ input[type="radio"] {
   color: rgba(0,123,255,.5);
 }
 
-.slide{
+.quiz-slide{
   position: absolute;
   left: 0px;
   top: 0px;

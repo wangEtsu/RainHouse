@@ -204,7 +204,7 @@ function buildQuiz() {
 
       // add this question and its answers to the output
       output.push(
-        `<div class="slide">
+        `<div class="quiz-slide">
             <div class="question"> ${currentQuestion.question} </div>
             <div class="answers"><div class="radio-toolbar"> ${answers.join("")} </div></div>
             <div class="tip"><i class="fas fa-lightbulb"></i> ${currentQuestion.tip} </div>
@@ -430,7 +430,7 @@ buildQuiz();
 // Pagination
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
-const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll(".quiz-slide");
 const choiceButtons = document.querySelectorAll(".userChoice")
 let currentSlide = 0;
 
