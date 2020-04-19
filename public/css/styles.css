@@ -3,6 +3,16 @@
   src: url("/fonts/Abang.otf") format("opentype");
 }
 
+/*  */
+#water-tank-message {
+  padding-top: 4rem;
+}
+
+#water-tank-analysis {
+  position: relative;
+}
+
+
 /* Apply background image in header area */
 #header {
   background-color: gainsboro;
@@ -14,6 +24,75 @@ body {
   background-color: gainsboro;
 
 }
+
+
+
+/* Comparison table */
+.feature-table .feature-block {
+  /*flex: 1;*/
+  background-color: #476481;
+  color: #fff;
+  padding: 40px;
+  text-align: center;
+}
+
+@media(min-width:768px){
+  .feature-table {
+    display: flex;
+  }
+
+  .feature-table .feature-block {
+    flex: 1;
+  }
+}
+
+.feature-table h3 {
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.feature-table .th1 {
+  background-color:#ffffff;
+}
+
+.feature-table .th2 {
+  background-color: #ffffff;
+}
+
+
+.feature-table-icon {
+  background-color: #6b839a;
+  border-radius: 50%;
+  border: 1px solid #3e5871;
+  width: 115px;
+  height: 115px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.feature-table-icon-1 {
+  background-color: #6B839A;
+  border-color: #3e5871;
+}
+
+.feature-table-icon-2 {
+  background-color: #476481;
+  border-color: #354b60;
+}
+
+
+
+.feature-table-icon svg {
+  width: 100%;
+}
+
+
+/* Comparison table wrapper */
+
+
 
 
 /* Calculator introduction section at front page*/

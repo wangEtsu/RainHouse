@@ -63,7 +63,7 @@ const myQuestions = [
   {
     questionTag: "showerFrequency",
     question: "How often do you take shower?",
-    activity: { "Shower & Bath": "showerFrequency" },
+    activity: "Shower & Bath",
     answers: {
       "30": "Everyday",
       "60": "Twice per day",
@@ -344,14 +344,18 @@ function showResults() {
   // Water tank
   // Average victorian family water usage 
   let averageTotal = familyCount * 160 * 30;
-  let feedbackMessage = "";
+  let tankFeedbackMessage = "";
+
+
+
+
 
   // $(".water-tank .liquid svg").css("top", "calc(97.5% - 20%)")
 
   // If user are using less water than average household with same size
   if (averageTotal > usageTotal) {
 
-    
+
 
     // Set up a top water level
     let topLevel = averageTotal * 1.2;
@@ -363,7 +367,7 @@ function showResults() {
     // Calculate how much less user are using than average victorian family of the same size
     let howMuchLess = Math.round((100 - (usageTotal / averageTotal) * 100)) + "%";
 
-    feedbackMessage = `<h1> Good Work! </h1> <h3> You are using <h3> <h1 class="percentage"> ${howMuchLess} </h1> <h3>more water than an average Victorian family of </h3> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1> Good Work! </h1> <h3> You are using <h3> <h1 class="percentage"> ${howMuchLess} </h1> <h3>more water than an average Victorian family of </h3> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
 
     // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
@@ -374,19 +378,19 @@ function showResults() {
 
     // If user are using more water than average household with same size
 
-    
+
     let topLevel = usageTotal * 1.2;
-    
-
-    let avgPercentage = (averageTotal / topLevel ) * 100 + "%";
-    let userPercentage = (usageTotal / topLevel ) * 100 + "%";
 
 
-    let howMuchMore = Math.round((usageTotal / averageTotal ) * 100) + "%";
+    let avgPercentage = (averageTotal / topLevel) * 100 + "%";
+    let userPercentage = (usageTotal / topLevel) * 100 + "%";
 
 
-    feedbackMessage = `You are using <h1 class="percentage"> ${howMuchMore} </h1> more water than an average Victorian family of <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
-    ;
+    let howMuchMore = Math.round((usageTotal / averageTotal) * 100) + "%";
+
+
+    tankFeedbackMessage = `Stop right there! You are using <h1 class="percentage"> ${howMuchMore} </h1> more water than an average Victorian family of <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+      ;
 
 
     // Activate water tanks
@@ -396,18 +400,118 @@ function showResults() {
 
   }
 
-  // Pie chart section feedback
-  // Pre-set analysis context
-  preSet = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at convallis dolor. Quisque venenatis lectus vel turpis bibendum sodales. Praesent tempor, justo congue rhoncus sodales, risus mi pretium sapien, sed malesuada mauris leo sed elit. Aliquam ullamcorper, est ac convallis gravida, urna quam congue urna, ut iaculis turpis quam ac eros. Nullam nec libero non turpis lacinia sollicitudin eget ut enim. Suspendisse a accumsan lectus, ut tincidunt leo. Praesent vulputate malesuada metus at eleifend. Sed at convallis risus, at bibendum nibh. Aenean lectus augue, tincidunt quis lacus ut, sagittis pharetra risus. Ut dignissim iaculis neque id ultrices."
-  // Activate analysis text
-  $("#pie-message").append(feedbackMessage);
-  $("#pie-analysis").append(preSet);
 
+
+  // Pie 
+  let pieFeedbackMessage = "";
+  let avgShower = familyCount * 20000;
+  let avgToilet = familyCount * 20000;
+  let avgKitchen = familyCount * 200;
+  let avgLaundry = familyCount * 200;
+  let avgOutdoor = familyCount * 200;
+
+  let compareSet = {
+    "Shower & Bath": "Normal",
+    "Toilet": "Normal",
+    "Kitchen": "Normal",
+    "Laundry": "Normal",
+    "Outdoor": "Normal",
+  }
+
+
+  // Find out if user is doing good / bad in shower and bath
+  if(showerTotal > avgShower * 1.5) {
+    compareSet["Shower & Bath"] = "Bad"
+  } 
+
+  if(showerTotal < avgShower * 0.8) {
+    compareSet["Shower & Bath"] = "Good"
+  } 
+
+  // Find out if user is doing good / bad in toilet
+  if(toiletTotal > avgToilet * 1.5) {
+    compareSet["Toilet"] = "Bad"
+  } 
+
+  if(toiletTotal < avgToilet * 0.8) {
+    compareSet["Toilet"] = "Good"
+  } 
+
+  // Find out if user is doing good / bad in kitchen
+  if(kitchenTotal > avgKitchen * 1.5) {
+    compareSet["Kitchen"] = "Bad"
+  } 
+
+  if(kitchenTotal < avgKitchen * 0.8) {
+    compareSet["Kitchen"] = "Good"
+  } 
+
+  // Find out if user is doing good / bad in kitchen
+  if(laundryTotal > avgLaundry * 1.5) {
+    compareSet["Laundry"] = "Bad"
+  } 
+
+  if(laundryTotal < avgLaundry * 0.8) {
+    compareSet["Laundry"] = "Good"
+  } 
+
+  // Find out if user is doing good / bad in kitchen
+  if(outdoorTotal > avgOutdoor * 1.5) {
+    compareSet["Outdoor"] = "Bad"
+  } 
+
+  if(outdoorTotal < avgOutdoor * 0.8) {
+    compareSet["Outdoor"] = "Good"
+  } 
+
+  goodSet = [];
+  badSet = [];
+
+
+  // Push result to both sets
+  for (let key in compareSet) { 
+    if(compareSet[key] === "Good") {
+      goodSet.push(key);
+    }
+    if(compareSet[key] === "Bad") {
+      badSet.push(key);
+    }
+
+  } 
+
+  var goodStr = '';
+  var badStr = '';
+
+  goodSet.forEach(function(goodie) {
+    goodStr += '<p>'+ goodie + '</p>';
+  }); 
+
+  badSet.forEach(function(badie) {
+    badStr += '<p>'+ badie + '</p>';
+  }); 
+
+
+  $("#good-activity").html(goodStr);
+  $("#bad-activity").html(badStr);
+
+  // pieFeedbackMessage = `You are doing great in: ${goodSet} You are doing bad in ${badSet}`
 
   // Water tank section feedback
+  // Pre-set analysis context
+  tankPreSet = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at convallis dolor. Quisque venenatis lectus vel turpis bibendum sodales. Praesent tempor, justo congue rhoncus sodales, risus mi pretium sapien, sed malesuada mauris leo sed elit. Aliquam ullamcorper, est ac convallis gravida, urna quam congue urna, ut iaculis turpis quam ac eros. Nullam nec libero non turpis lacinia sollicitudin eget ut enim. Suspendisse a accumsan lectus, ut tincidunt leo. Praesent vulputate malesuada metus at eleifend. Sed at convallis risus, at bibendum nibh. Aenean lectus augue, tincidunt quis lacus ut, sagittis pharetra risus. Ut dignissim iaculis neque id ultrices."
   // Activate analysis text
-  $("#water-tank-message").append(feedbackMessage);
-  $("#water-tank-analysis").append(preSet);
+  $("#water-tank-message").html(tankFeedbackMessage);
+  $("#water-tank-analysis").html(tankPreSet);
+
+  // Pie chart section feedback
+  // Pre-set analysis context
+  piePreSet = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at convallis dolor. Quisque venenatis lectus vel turpis bibendum sodales. Praesent tempor, justo congue rhoncus sodales, risus mi pretium sapien, sed malesuada mauris leo sed elit. Aliquam ullamcorper, est ac convallis gravida, urna quam congue urna, ut iaculis turpis quam ac eros. Nullam nec libero non turpis lacinia sollicitudin eget ut enim. Suspendisse a accumsan lectus, ut tincidunt leo. Praesent vulputate malesuada metus at eleifend. Sed at convallis risus, at bibendum nibh. Aenean lectus augue, tincidunt quis lacus ut, sagittis pharetra risus. Ut dignissim iaculis neque id ultrices."
+  // Activate analysis text
+  $("#pie-message").html(pieFeedbackMessage);
+  $("#pie-analysis").html(piePreSet);
+
+
+
 
 }
 
@@ -444,7 +548,7 @@ function showNextSlide() {
     showSlide(currentSlide + 1);
   }
   else {
-    alert("plz check")
+    alert("Select one answer")
   }
 
 
@@ -508,3 +612,15 @@ submitButton.addEventListener('click', showResults);
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
 
+// sampleJsonSchema = 
+// {
+//   qid: 01,
+//   questionTag: "toiletConsumption",
+//   question: "Do you have a dual-flush toilet?",
+//   activity: "Toilet",
+//   answers: {
+//     "Yes, I do": "750",
+//     "No, I only have a normal one": "No, I only got a single-flush one",
+//   },
+//   tip: "A dual flush toilet can save up to 50% water!"
+// }
