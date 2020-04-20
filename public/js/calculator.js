@@ -204,7 +204,16 @@ const myQuestions = [
   },
 ];
 
-
+$("#tanky").hide();
+$("#piediv").hide();
+$("#comparison-table").hide();
+$("#detail-table").hide();
+$("#submit").click(function () {
+  $("#tanky").fadeIn();
+  $("#piediv").fadeIn();
+  $("#comparison-table").fadeIn();
+  $("#detail-table").fadeIn();
+});
 
 // Functions
 function buildQuiz() {
@@ -244,6 +253,10 @@ function buildQuiz() {
   // finally combine our output list into one string of HTML and put it on the page
   quizContainer.innerHTML = output.join('');
 }
+
+
+
+
 
 
 
@@ -356,10 +369,15 @@ function showResults() {
     series.slices.template.innerCornerRadius = 7;
     series.slices.template.draggable = true;
     series.slices.template.inert = true;
+    // Disable ticks and labels
+    series.labels.template.disabled = true;
+    series.ticks.template.disabled = true;
     series.alignLabels = false;
     
     series.hiddenState.properties.startAngle = 90;
     series.hiddenState.properties.endAngle = 90;
+    
+
     
     chart.legend = new am4charts.Legend();
     

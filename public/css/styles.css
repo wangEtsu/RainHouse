@@ -5,13 +5,36 @@
 
 /*  */
 #water-tank-message {
-  padding-top: 4rem;
+  padding: 2rem;
+  border-radius: 25px;
+  background-color: blanchedalmond;
 }
 
 #water-tank-analysis {
   position: relative;
 }
 
+
+/* Comparison table, good and back */
+#comparison-table{
+  border-radius: 25px;
+  background-color: antiquewhite;
+}
+
+
+
+.hidden-content {
+  height: 0px;
+  visibility: hidden;
+  transition: all 0.5s ease-out;
+}
+
+.active .hidden-content {
+  height: 100px;
+  visibility: visible;
+  transition: all 0.5s ease-in;
+  background-color: rgba(0, 0, 0, 0.5);
+}
 
 /* Apply background image in header area */
 #header {
@@ -48,9 +71,6 @@ body {
 
 
 .feature-table .feature-block {
-  /*flex: 1;*/
-  background-color: #476481;
-  color: rgb(24, 23, 23);
   padding: 40px;
   text-align: center;
 }
@@ -66,47 +86,10 @@ body {
 }
 
 .feature-table h3 {
-  color: #fff;
   font-size: 24px;
   font-weight: 700;
 }
 
-.feature-table .th1 {
-  background-color:#F8F9FA;
-}
-
-.feature-table .th2 {
-  background-color: #F8F9FA;
-}
-
-
-.feature-table-icon {
-  background-color: #6b839a;
-  border-radius: 50%;
-  border: 1px solid #3e5871;
-  width: 115px;
-  height: 115px;
-  padding: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 20px;
-}
-
-.feature-table-icon-1 {
-  background-color: #6B839A;
-  border-color: #3e5871;
-}
-
-.feature-table-icon-2 {
-  background-color: #476481;
-  border-color: #354b60;
-}
-
-
-
-.feature-table-icon svg {
-  width: 100%;
-}
 
 
 /* Comparison table wrapper */
