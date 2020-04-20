@@ -24,102 +24,122 @@ const myQuestions = [
   // How many people?
   {
     questionTag: "familyMember",
-    question: "How many people lives in your household?",
+    question: "How many people live in your house?",
     activity: "familySize",
     answers: {
-      "2": "2",
-      "2.6": "3",
-      "3.2": "4",
-      "4.2": "5",
+      "1": "1",
+      "1.5":"2",
+      "2.3":"3",
+      "3.1":"4",
+      "4.1":"5"
     },
-    tip: "Do you know that a large family actually saves more water? I made this up"
+    tip: "Charlesworths family at Sydeny saves thousands of litres of water per year! Lets find out about yours!"
   },
 
   // Shower set
   {
     questionTag: "showerDuration",
-    question: "What is your average shower time?",
+    question: "What is the average shower time of your family per person?",
     activity: "Shower & Bath",
     answers: {
-      "50": "0-5 minute",
-      "70": "5-10 minute",
-      "120": "10-15 minute",
-      "200": "more than 15 minute"
+      "24": "0-5 mins",
+      "72": "5-10 mins",
+      "120": "10-15 mins",
+      "190": "> 15 mins"
     },
-    tip: "Some random fact"
+    tip: "A minute saved in the shower saves upto 12 litres of water. Challenge yourself to a shower time of your favourite song or under 5 mins."
   },
 
   {
     questionTag: "showerheadEfficiency",
-    question: "Does your house have an efficient showerhead(low flow)?",
+    question: "Does your house have an efficient showerhead?",
     activity: "Shower & Bath",
     answers: {
-      "0.65": "Yes",
-      "1": "No"
+      "0.5": "Yes",
+      "1": "No",
+      "0.75": "Not sure",
     },
-    tip: "An AAA rated showerhead can reduce almost half of your shower consumption!"
+    tip: "An AAA rated showerhead can reduce almost half of your shower consumption or upto 26 litres of water for a 7 minute shower"
   },
 
   {
     questionTag: "showerFrequency",
-    question: "How often do you take shower?",
+    question: "How often do you take shower per day?",
     activity: "Shower & Bath",
     answers: {
-      "30": "Everyday",
-      "60": "Twice per day",
-      "90": "Three times per day!!"
+      "30": "1",
+      "60": "2",
+      "120": "3",
+      "45" : "Depends"	
     },
-    tip: "Some random fact"
+    tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
   },
 
   {
     questionTag: "bathAmount",
-    question: "Do you take bath? If so, how frequent?",
+    question: "Do you fancy taking bath? If so, how frequently?",
     activity: "Shower & Bath",
     answers: {
-      "0": "Never!",
-      "412": "Once per week",
-      "96": "Only once per month"
+      "0": "Never",
+      "380": "Once a week",
+      "95": "Once a month"
 
     },
-    tip: "Some random fact"
+    tip: "If you generally take a shower for more than 20 mins, its advisable to take a bath which will help you save more water"
   },
 
 
   // Toilet set
   {
     questionTag: "toiletAmount",
-    question: "Do you have a dual flush toilet?",
+    question: "Do you have a choice between a partial flush or a full flush in your toilet?",
     activity: "Toilet",
     answers: {
-      "750": "Yes I do",
-      "1650": "No, I only got a normal one",
+      "540": "Yes",
+      "1440": "No",
+      "1000": "Not Sure"
     },
-    tip: "Some random fact"
+    tip: "Have you got one? if no, thats bad!!. A Dual-flush toilets, by comparison, use much less water and are considered to be environmentally friendly."
   },
 
   {
     questionTag: "toiletLeak",
-    question: "Do you have leaks in your toilet?",
+    question: "Do you have any leaks in your toilet?",
     activity: "Toilet",
     answers: {
-      "1320": "Yes",
+      "1232": "Yes",
       "0": "No",
+      "650": "Not Sure"
     },
-    tip: "Some random fact"
+    tip: "Get those leaks fixed ASAP. A leaking toilet hogs upto 308 litres of water a week"
   },
 
   // Kitchen set
   {
     questionTag: "kitchenWash",
-    question: "How do you wash your utensils?",
+    question: "How do you wash your dishes?",
     activity: "Kitchen",
     answers: {
-      "540": "I love doing dishwashing by hands!",
-      "600": "Dishwasher of course!",
+      "60": "By hand",
+      "12": "Dishwasher of course!!",
     },
-    tip: "Some random fact"
+    tip: "An Energy Star certified dishwasher can use as little as 12 litres of water per load, which is only 1/5 of washing in sink"
   },
+
+  {
+
+    
+      questionTag: "dishwashingFrequency",
+      question: "How often do you wash your dishes per week?",
+      activity: "Kitchen",
+      answers: {
+        "12": "3",
+        "20": "5",
+        "32": "7 or more",
+      },
+    
+      tips: " Use a bucket to pre wash your dishes, it saves more water and also prevents bacteria from growing  "
+    },
 
   {
     questionTag: "kitchenEfficiency",
@@ -128,21 +148,11 @@ const myQuestions = [
     answers: {
       "0.75": "Yes",
       "1": "No",
+      "0.9": "Not Sure",
     },
-    tip: "Some random fact"
+    tip: "Get a low flow taps ASAP, it saves not only water but also electricty use"
   },
 
-  {
-    questionTag: "kitchenAmount",
-    question: "How long do you keep the facets open in a day?",
-    activity: "Kitchen",
-    answers: {
-      "280": "About 0-5 minutes",
-      "540": "About 5-15 minutes",
-      "650": "over 15 minutes"
-    },
-    tip: "Some random fact"
-  },
 
   // Laundry set
   {
@@ -150,11 +160,11 @@ const myQuestions = [
     question: "How do you wash your clothes?",
     activity: "Washing",
     answers: {
-      "200": "I prefer hand wash",
-      "50": "I got a front loading washing machine!",
-      "130": "I got a top loading washing machine!"
+      "200": "By hand",
+      "50": "Front loading washing machine",
+      "130": "Top loading washing machine"
     },
-    tip: "Some random fact"
+    tip: "An AAA rated washing machine can save your water usage by atleast 50%."
   },
 
   {
@@ -166,7 +176,7 @@ const myQuestions = [
       "4": "Every week",
       "1": "Once per month"
     },
-    tip: "Some random fact"
+    tip: "Clothes are slightly damaged with each wash, an appropriate laundry frequency can help to save both water and electricity use"
   },
 
   // Outdoor set
@@ -176,21 +186,21 @@ const myQuestions = [
     activity: "Outdoor",
     answers: {
       "0": "No I don't have one",
-      "1000": "Yes, but I prefer to take care of it by myself",
-      "3000": "Yes sprinkler cured my depression"
+      "1000": "Yes, but I do not use a sprinkler",
+      "3000": "Yes, sprinkler ease my work"
     },
-    tip: "Some random fact"
+    tip: "A well-designed sprinkler system not only saves water but also prevent over-watering"
   },
 
   {
     questionTag: "outdoorCar",
-    question: "Do you wash your car by urself?",
+    question: "Do you wash your car by yourself",
     activity: "Outdoor",
     answers: {
-      "0": "Never, too time consuming",
-      "1000": "Yes, I prefer taking care of my own car"
+      "0": "Never",
+      "1000": "Yes, I wash my car at home"
     },
-    tip: "Some random fact"
+    tip: "Using a waterless cleaning solution can reduce your water usage to a single cup per car"
   },
 ];
 
@@ -279,7 +289,7 @@ function showResults() {
   let familyCount = result["familyMember"]
   let showerTotal = (result["showerDuration"] * result["showerheadEfficiency"] * result["showerFrequency"] + result["bathAmount"]) * familyCount;
   let toiletTotal = (result["toiletAmount"] + result["toiletLeak"]) * familyCount;
-  let kitchenTotal = (result["kitchenWash"] * result["kitchenEfficiency"] + result["kitchenAmount"]) * familyCount;
+  let kitchenTotal = (result["kitchenWash"] * result["dishwashingFrequency"] * result["kitchenEfficiency"]) * familyCount;
   let laundryTotal = (result["laundryAmount"] * result["laundryFrequency"]) * familyCount;
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
   let usageTotal = showerTotal + toiletTotal + kitchenTotal + laundryTotal + outdoorTotal
