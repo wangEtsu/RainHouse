@@ -138,7 +138,7 @@ const myQuestions = [
         "32": "7 or more",
       },
     
-      tips: " Use a bucket to pre wash your dishes, it saves more water and also prevents bacteria from growing  "
+      tip: " Use a bucket to pre-wash your dishes, it saves more water and also prevents bacteria from growing  "
     },
 
   {
