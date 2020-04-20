@@ -1,12 +1,5 @@
 <%- include("partials/header"); -%>
 
-<script type="text/javascript">
-    $('#submit').click(function() {
-   //optionally remove the 500 (which is time in milliseconds) of the
-   //scrolling animation to remove the animation and make it instant
-   $.scrollTo($('#tanky'), 10);
-});
-</script>
 
 <!-- Manual Section -->
 <div class="container text-center">
@@ -138,10 +131,8 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-6 pie-chart text-center">
-            <div id="chartContainer-pie" style="height: 370px; width: 100%;">
-                <h1></h1>
-            </div>
+        <div class="col-md-6 text-center">
+            <div id="piediv"></div>
         </div>
 
         <div class="col-md-6">

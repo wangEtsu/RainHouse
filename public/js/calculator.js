@@ -28,10 +28,10 @@ const myQuestions = [
     activity: "familySize",
     answers: {
       "1": "1",
-      "1.5":"2",
-      "2.3":"3",
-      "3.1":"4",
-      "4.1":"5"
+      "1.5": "2",
+      "2.3": "3",
+      "3.1": "4",
+      "4.1": "5"
     },
     tip: "Charlesworths family at Sydeny saves thousands of litres of water per year! Lets find out about yours!"
   },
@@ -70,7 +70,7 @@ const myQuestions = [
       "30": "1",
       "60": "2",
       "120": "3",
-      "45" : "Depends"	
+      "45": "Depends"
     },
     tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
   },
@@ -128,18 +128,18 @@ const myQuestions = [
 
   {
 
-    
-      questionTag: "dishwashingFrequency",
-      question: "How often do you wash your dishes per week?",
-      activity: "Kitchen",
-      answers: {
-        "12": "3",
-        "20": "5",
-        "32": "7 or more",
-      },
-    
-      tip: " Use a bucket to pre-wash your dishes, it saves more water and also prevents bacteria from growing  "
+
+    questionTag: "dishwashingFrequency",
+    question: "How often do you wash your dishes per week?",
+    activity: "Kitchen",
+    answers: {
+      "12": "3",
+      "20": "5",
+      "32": "7 or more",
     },
+
+    tip: " Use a bucket to pre-wash your dishes, it saves more water and also prevents bacteria from growing  "
+  },
 
   {
     questionTag: "kitchenEfficiency",
@@ -311,45 +311,61 @@ function showResults() {
   carCell.innerHTML = result["outdoorCar"];
 
 
-  // plot both pie chart
-  $(document).ready(function () {
+  //pie chart
+  am4core.ready(function() {
 
-    var options = {
-      title: {
-        text: "Your monthly water consumption"
+    // Themes begin
+    am4core.useTheme(am4themes_animated);
+    // Themes end
+    
+    var chart = am4core.create("piediv", am4charts.PieChart);
+    chart.hiddenState.properties.opacity = 0; // this creates initial fade-in
+    
+    chart.data = [
+      {
+        activity: "Shower & Bath",
+        value: showerTotal
       },
-      subtitles: [{
-        text: "Addd some stuff"
-      }],
-      animationEnabled: true,
-      backgroundColor: "rgba(0,0,0,0)",
-      legend: {
-        fontFamily: "calibri",
-        fontSize: 14,
-        itemTextFormatter: function (e) {
-          return e.dataPoint.label + ": " + Math.round(e.dataPoint.y / usageTotal * 100) + "%";
-        }
+      {
+        activity: "Toilet",
+        value: toiletTotal
       },
-      data: [{
+      {
+        activity: "Kitchen",
+        value: kitchenTotal
+      },
+      {
+        activity: "Laundry",
+        value: laundryTotal
+      },
+      {
+        activity: "Outdoor",
+        value: outdoorTotal
+      },
+    ];
+    chart.radius = am4core.percent(70);
+    chart.innerRadius = am4core.percent(40);
+    chart.startAngle = 180;
+    chart.endAngle = 360;  
+    
+    var series = chart.series.push(new am4charts.PieSeries());
+    series.dataFields.value = "value";
+    series.dataFields.category = "activity";
+    
+    series.slices.template.cornerRadius = 10;
+    series.slices.template.innerCornerRadius = 7;
+    series.slices.template.draggable = true;
+    series.slices.template.inert = true;
+    series.alignLabels = false;
+    
+    series.hiddenState.properties.startAngle = 90;
+    series.hiddenState.properties.endAngle = 90;
+    
+    chart.legend = new am4charts.Legend();
+    
+    }); // end am4core.ready()
 
-        innerRadius: "60%",
-        legendMarkerType: "square",
-        radius: "100%",
-        showInLegend: true,
-        startAngle: 90,
-        type: "doughnut",
-        dataPoints: [
-          { y: showerTotal, label: "Shower & Bath" },
-          { y: toiletTotal, label: "Toilet" },
-          { y: kitchenTotal, label: "Kitchen" },
-          { y: laundryTotal, label: "Laundry" },
-          { y: outdoorTotal, label: "Outdoor" }
-        ]
-      }]
-    };
-    $("#chartContainer-pie").CanvasJSChart(options);
 
-  })
 
   // Water tank
   // Average victorian family water usage 
@@ -414,8 +430,8 @@ function showResults() {
 
   // Pie 
   let pieFeedbackMessage = "";
-  let avgShower = familyCount * 20000;
-  let avgToilet = familyCount * 20000;
+  let avgShower = familyCount * 2000;
+  let avgToilet = familyCount * 2000;
   let avgKitchen = familyCount * 200;
   let avgLaundry = familyCount * 200;
   let avgOutdoor = familyCount * 200;
@@ -430,75 +446,75 @@ function showResults() {
 
 
   // Find out if user is doing good / bad in shower and bath
-  if(showerTotal > avgShower * 1.5) {
+  if (showerTotal > avgShower * 1.5) {
     compareSet["Shower & Bath"] = "Bad"
-  } 
+  }
 
-  if(showerTotal < avgShower * 0.8) {
+  if (showerTotal < avgShower * 0.8) {
     compareSet["Shower & Bath"] = "Good"
-  } 
+  }
 
   // Find out if user is doing good / bad in toilet
-  if(toiletTotal > avgToilet * 1.5) {
+  if (toiletTotal > avgToilet * 1.5) {
     compareSet["Toilet"] = "Bad"
-  } 
+  }
 
-  if(toiletTotal < avgToilet * 0.8) {
+  if (toiletTotal < avgToilet * 0.8) {
     compareSet["Toilet"] = "Good"
-  } 
+  }
 
   // Find out if user is doing good / bad in kitchen
-  if(kitchenTotal > avgKitchen * 1.5) {
+  if (kitchenTotal > avgKitchen * 1.5) {
     compareSet["Kitchen"] = "Bad"
-  } 
+  }
 
-  if(kitchenTotal < avgKitchen * 0.8) {
+  if (kitchenTotal < avgKitchen * 0.8) {
     compareSet["Kitchen"] = "Good"
-  } 
+  }
 
   // Find out if user is doing good / bad in kitchen
-  if(laundryTotal > avgLaundry * 1.5) {
+  if (laundryTotal > avgLaundry * 1.5) {
     compareSet["Laundry"] = "Bad"
-  } 
+  }
 
-  if(laundryTotal < avgLaundry * 0.8) {
+  if (laundryTotal < avgLaundry * 0.8) {
     compareSet["Laundry"] = "Good"
-  } 
+  }
 
   // Find out if user is doing good / bad in kitchen
-  if(outdoorTotal > avgOutdoor * 1.5) {
+  if (outdoorTotal > avgOutdoor * 1.5) {
     compareSet["Outdoor"] = "Bad"
-  } 
+  }
 
-  if(outdoorTotal < avgOutdoor * 0.8) {
+  if (outdoorTotal < avgOutdoor * 0.8) {
     compareSet["Outdoor"] = "Good"
-  } 
+  }
 
   goodSet = [];
   badSet = [];
 
 
   // Push result to both sets
-  for (let key in compareSet) { 
-    if(compareSet[key] === "Good") {
+  for (let key in compareSet) {
+    if (compareSet[key] === "Good") {
       goodSet.push(key);
     }
-    if(compareSet[key] === "Bad") {
+    if (compareSet[key] === "Bad") {
       badSet.push(key);
     }
 
-  } 
+  }
 
   var goodStr = '';
   var badStr = '';
 
-  goodSet.forEach(function(goodie) {
-    goodStr += '<p>'+ goodie + '</p>';
-  }); 
+  goodSet.forEach(function (goodie) {
+    goodStr += '<p>' + goodie + '</p>';
+  });
 
-  badSet.forEach(function(badie) {
-    badStr += '<p>'+ badie + '</p>';
-  }); 
+  badSet.forEach(function (badie) {
+    badStr += '<p>' + badie + '</p>';
+  });
 
 
   $("#good-activity").html(goodStr);
@@ -523,117 +539,123 @@ function showResults() {
 
 
   // Amchart bar
-  am4core.ready(function() {
+  am4core.ready(function () {
 
     // Themes begin
     am4core.useTheme(am4themes_dataviz);
     am4core.useTheme(am4themes_animated);
     // Themes end
-    
-    
-    
-    
+
+
+
+
     var chart = am4core.create('chartdiv', am4charts.XYChart)
     chart.colors.step = 2;
-    
+
     chart.legend = new am4charts.Legend()
     chart.legend.position = 'top'
     chart.legend.paddingBottom = 20
     chart.legend.labels.template.maxWidth = 95
-    
+
     var xAxis = chart.xAxes.push(new am4charts.CategoryAxis())
     xAxis.dataFields.category = 'category'
     xAxis.renderer.cellStartLocation = 0.1
     xAxis.renderer.cellEndLocation = 0.9
     xAxis.renderer.grid.template.location = 0;
-    
+
     var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
     yAxis.min = 0;
-    
+
     function createSeries(value, name) {
-        var series = chart.series.push(new am4charts.ColumnSeries())
-        series.dataFields.valueY = value
-        series.dataFields.categoryX = 'category'
-        series.name = name
-    
-        series.events.on("hidden", arrangeColumns);
-        series.events.on("shown", arrangeColumns);
-    
-        var bullet = series.bullets.push(new am4charts.LabelBullet())
-        bullet.interactionsEnabled = false
-        bullet.dy = 30;
-        bullet.label.text = '{valueY}'
-        bullet.label.fill = am4core.color('#ffffff')
-    
-        return series;
+      var series = chart.series.push(new am4charts.ColumnSeries())
+      series.dataFields.valueY = value
+      series.dataFields.categoryX = 'category'
+      series.name = name
+
+      series.events.on("hidden", arrangeColumns);
+      series.events.on("shown", arrangeColumns);
+
+      var bullet = series.bullets.push(new am4charts.LabelBullet())
+      bullet.interactionsEnabled = false
+      bullet.dy = 30;
+      bullet.label.text = '{valueY}'
+      bullet.label.fill = am4core.color('#ffffff')
+
+      return series;
     }
-    
+
     chart.data = [
-        {
-            category: 'Shower & Bath',
-            You: 40,
-            Average: 55,
-        },
-        {
-            category: 'Toilet',
-            You: 30,
-            Average: 78,
-        },
-        {
-            category: 'Kitchen',
-            You: 27,
-            Average: 40,
-        },
-        {
-            category: 'Laundry',
-            You: 50,
-            Average: 33,
-        }
+      {
+        category: 'Shower & Bath',
+        You: showerTotal,
+        Average: avgShower,
+      },
+      {
+        category: 'Toilet',
+        You: toiletTotal,
+        Average: avgToilet,
+      },
+      {
+        category: 'Kitchen',
+        You: kitchenTotal,
+        Average: avgKitchen,
+      },
+      {
+        category: 'Laundry',
+        You: laundryTotal,
+        Average: avgLaundry,
+      },
+      {
+        category: 'Outdoor',
+        You: outdoorTotal,
+        Average: avgOutdoor,
+      }
+
     ]
-    
-    
-    createSeries('You', 'Your consumption');
-    createSeries('Average', 'Average consumption');
-    
+
+
+    createSeries('You', 'Yours');
+    createSeries('Average', 'Average');
+
     function arrangeColumns() {
-    
-        var series = chart.series.getIndex(0);
-    
-        var w = 1 - xAxis.renderer.cellStartLocation - (1 - xAxis.renderer.cellEndLocation);
-        if (series.dataItems.length > 1) {
-            var x0 = xAxis.getX(series.dataItems.getIndex(0), "categoryX");
-            var x1 = xAxis.getX(series.dataItems.getIndex(1), "categoryX");
-            var delta = ((x1 - x0) / chart.series.length) * w;
-            if (am4core.isNumber(delta)) {
-                var middle = chart.series.length / 2;
-    
-                var newIndex = 0;
-                chart.series.each(function(series) {
-                    if (!series.isHidden && !series.isHiding) {
-                        series.dummyData = newIndex;
-                        newIndex++;
-                    }
-                    else {
-                        series.dummyData = chart.series.indexOf(series);
-                    }
-                })
-                var visibleCount = newIndex;
-                var newMiddle = visibleCount / 2;
-    
-                chart.series.each(function(series) {
-                    var trueIndex = chart.series.indexOf(series);
-                    var newIndex = series.dummyData;
-    
-                    var dx = (newIndex - trueIndex + middle - newMiddle) * delta
-    
-                    series.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
-                    series.bulletsContainer.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
-                })
+
+      var series = chart.series.getIndex(0);
+
+      var w = 1 - xAxis.renderer.cellStartLocation - (1 - xAxis.renderer.cellEndLocation);
+      if (series.dataItems.length > 1) {
+        var x0 = xAxis.getX(series.dataItems.getIndex(0), "categoryX");
+        var x1 = xAxis.getX(series.dataItems.getIndex(1), "categoryX");
+        var delta = ((x1 - x0) / chart.series.length) * w;
+        if (am4core.isNumber(delta)) {
+          var middle = chart.series.length / 2;
+
+          var newIndex = 0;
+          chart.series.each(function (series) {
+            if (!series.isHidden && !series.isHiding) {
+              series.dummyData = newIndex;
+              newIndex++;
             }
+            else {
+              series.dummyData = chart.series.indexOf(series);
+            }
+          })
+          var visibleCount = newIndex;
+          var newMiddle = visibleCount / 2;
+
+          chart.series.each(function (series) {
+            var trueIndex = chart.series.indexOf(series);
+            var newIndex = series.dummyData;
+
+            var dx = (newIndex - trueIndex + middle - newMiddle) * delta
+
+            series.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
+            series.bulletsContainer.animate({ property: "dx", to: dx }, series.interpolationDuration, series.interpolationEasing);
+          })
         }
+      }
     }
-    
-    }); // end am4core.ready()
+
+  }); // end am4core.ready()
 
 
 }
