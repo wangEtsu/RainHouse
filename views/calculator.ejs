@@ -1,9 +1,21 @@
 <%- include("partials/header"); -%>
 
+<script type="text/javascript">
+    $('#submit').click(function() {
+   //optionally remove the 500 (which is time in milliseconds) of the
+   //scrolling animation to remove the animation and make it instant
+   $.scrollTo($('#tanky'), 10);
+});
+</script>
+
+<!-- Manual Section -->
+<div class="container text-center">
+    <h1>Test</h1>
+</div>
 
 
 <!-- Quiz -->
-<section class="quiz-section">
+<div class="container quiz-section">
 
     <!-- progressbar -->
     <ul id="progressbar">
@@ -20,236 +32,237 @@
 
     </div>
 
-    <button class="btn btn-primary" id="previous">Previous Question</button>
-    <button class="btn btn-primary" id="next">Next Question</button>
-    <button class="btn btn-primary" id="submit">Submit Quiz</button>
+    <button class="btn btn-primary" id="previous" style="display: inline-block;position: relative;top: 24px;">Previous
+        Question</button>
+    <button class="btn btn-primary" id="next" style="display: inline-block;position: relative;top: 24px;">Next
+        Question</button>
+    <button class="btn btn-primary" id="submit" style="display: inline-block;position: relative;top: 24px;">Submit
+        Quiz</button>
 
 
 
-</section>
+
+
+</div>
 
 
 
 
 <!-- Two water tank for comparison  -->
 <!-- water tank left -->
-<section class="content-section bg-light" style="height: fit-content;padding-bottom: 0px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="water-tanks">
+<div class="container" id="tanky">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="water-tanks">
 
-                    <div class="water-tank" id="water-tank-left">
-                        <h5 class="water-tank-subtitle">Your Usage</h5>
-                        <div class="liquid">
-                            <svg class="water" viewBox="0 0 200 100">
-                                <defs>
-                                    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0" style="stop-color:#29ABE2" />
-                                        <stop offset="0.1643" style="stop-color:#28A6E3" />
-                                        <stop offset="0.3574" style="stop-color:#2496E6" />
-                                        <stop offset="0.5431" style="stop-color:#1E7DEA" />
-                                        <stop offset="0.7168" style="stop-color:#1559F0" />
-                                        <stop offset="0.874" style="stop-color:#0B2CF7" />
-                                        <stop offset="1" style="stop-color:#0000FF" />
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#waterGradient)" d="
+                <div class="water-tank" id="water-tank-left">
+                    <h5 class="water-tank-subtitle">Your Usage</h5>
+                    <div class="liquid">
+                        <svg class="water" viewBox="0 0 200 100">
+                            <defs>
+                                <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0" style="stop-color:#29ABE2" />
+                                    <stop offset="0.1643" style="stop-color:#28A6E3" />
+                                    <stop offset="0.3574" style="stop-color:#2496E6" />
+                                    <stop offset="0.5431" style="stop-color:#1E7DEA" />
+                                    <stop offset="0.7168" style="stop-color:#1559F0" />
+                                    <stop offset="0.874" style="stop-color:#0B2CF7" />
+                                    <stop offset="1" style="stop-color:#0000FF" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#waterGradient)" d="
               M 0,0 v 100 h 200 v -100 
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
             " />
-                            </svg>
-                        </div>
-
-                        <div class="indicator" data-value="75"></div>
-                        <div class="indicator" data-value="50"></div>
-                        <div class="indicator" data-value="25"></div>
-
+                        </svg>
                     </div>
 
-                    <!-- water tank right -->
-                    <div class="water-tank" id="water-tank-right">
-                        <h5 class="water-tank-subtitle">Average Usage</h5>
-                        <div class="liquid">
-                            <svg class="water" viewBox="0 0 200 100">
-                                <defs>
-                                    <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0" style="stop-color:#29ABE2" />
-                                        <stop offset="0.1643" style="stop-color:#28A6E3" />
-                                        <stop offset="0.3574" style="stop-color:#2496E6" />
-                                        <stop offset="0.5431" style="stop-color:#1E7DEA" />
-                                        <stop offset="0.7168" style="stop-color:#1559F0" />
-                                        <stop offset="0.874" style="stop-color:#0B2CF7" />
-                                        <stop offset="1" style="stop-color:#0000FF" />
-                                    </linearGradient>
-                                </defs>
-                                <path fill="url(#waterGradient)" d="
+                    <div class="indicator" data-value="75"></div>
+                    <div class="indicator" data-value="50"></div>
+                    <div class="indicator" data-value="25"></div>
+
+                </div>
+
+                <!-- water tank right -->
+                <div class="water-tank" id="water-tank-right">
+                    <h5 class="water-tank-subtitle">Average Usage</h5>
+                    <div class="liquid">
+                        <svg class="water" viewBox="0 0 200 100">
+                            <defs>
+                                <linearGradient id="waterGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0" style="stop-color:#29ABE2" />
+                                    <stop offset="0.1643" style="stop-color:#28A6E3" />
+                                    <stop offset="0.3574" style="stop-color:#2496E6" />
+                                    <stop offset="0.5431" style="stop-color:#1E7DEA" />
+                                    <stop offset="0.7168" style="stop-color:#1559F0" />
+                                    <stop offset="0.874" style="stop-color:#0B2CF7" />
+                                    <stop offset="1" style="stop-color:#0000FF" />
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#waterGradient)" d="
               M 0,0 v 100 h 200 v -100 
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
               c -10,0 -15,5 -25,5 c -10,0 -15,-5 -25,-5
             " />
-                            </svg>
-                        </div>
-
-                        <div class="indicator" data-value="75"></div>
-                        <div class="indicator" data-value="50"></div>
-                        <div class="indicator" data-value="25"></div>
-
+                        </svg>
                     </div>
+
+                    <div class="indicator" data-value="75"></div>
+                    <div class="indicator" data-value="50"></div>
+                    <div class="indicator" data-value="25"></div>
+
                 </div>
             </div>
-            <div class="col-md-6">
-                <h3 id="water-tank-message"></h3>
-                <!-- <p id="water-tank-analysis"></p> -->
-            </div>
+        </div>
+        <div class="col-md-6">
+            <h3 id="water-tank-message"></h3>
+            <!-- <p id="water-tank-analysis"></p> -->
         </div>
     </div>
-</section>
+</div>
 
 
-<section class="content-section bg-light" style="padding-top: 0rem;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <p id="water-tank-analysis"></p>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p id="water-tank-analysis"></p>
         </div>
     </div>
-</section>
+</div>
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 pie-chart text-center">
-                <div id="chartContainer-pie" style="height: 370px; width: 100%;">
-                    <h1></h1>
-                </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 pie-chart text-center">
+            <div id="chartContainer-pie" style="height: 370px; width: 100%;">
+                <h1></h1>
             </div>
+        </div>
 
-            <div class="col-md-6">
+        <div class="col-md-6">
 
-                <div class="container">
-                    <div class="row feature-table">
-                
-                      <div class="col-sm-6 feature-block th1">
+            <div class="container">
+                <div class="row feature-table">
+
+                    <div class="col-sm-6 feature-block th1">
                         <i class="fas fa-thumbs-up" id="thumbs-up"></i>
                         <div id="good-activity">
 
+                        </div>
                     </div>
-                      </div>
-                      <div class="col-sm-6 feature-block th2">
+                    <div class="col-sm-6 feature-block th2">
                         <i class="fas fa-thumbs-down" id="thumbs-down"></i>
                         <div id="bad-activity">
+                        </div>
                     </div>
-                      </div>
-=
-                    </div>
-                  </div> 
+                    =
+                </div>
+            </div>
 
-<!-- 
+            <!-- 
                 <h3 id="pie-message"></h3>
                 <p id="pie-analysis"> -->
-                <!-- </p> -->
-            </div>
+            <!-- </p> -->
         </div>
     </div>
+</div>
 
 
-<section id="tabs" class="project-tab">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <nav>
-                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                            role="tab" aria-controls="nav-home" aria-selected="true">Indoor</a>
-                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                            role="tab" aria-controls="nav-profile" aria-selected="false">Outdoor</a>
-                    </div>
-                </nav>
-                <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-                        <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Activity</th>
-                                    <th>Consumption</th>
-                                    <th>Comparison</th>
-                                    <th>Tips</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#">Shower & Bath</a></td>
-                                    <td id="shower-consumption">0</td>
-                                    <td><i class="fas fa-arrow-alt-circle-up"></i><i
-                                            class="fas fa-arrow-alt-circle-up"></i></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Toilet</a></td>
-                                    <td id="toilet-consumption">0</td>
-                                    <td></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Kitchen</a></td>
-                                    <td id="kitchen-consumption">0</td>
-                                    <td></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Laundry</a></td>
-                                    <td id="laundry-consumption">0</td>
-                                    <td></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                        <table class="table" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Acticity</th>
-                                    <th>Consumption</th>
-                                    <th>Comparison</th>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#">Gardening</a></td>
-                                    <td id="gardening-consumption">0</td>
-                                    <td></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">Car washing</a></td>
-                                    <td id="car-consumption">0</td>
-                                    <td></td>
-                                    <td> <a href="/about" style="color: cadetblue;"><i
-                                                class="fas fa-external-link-alt"></i></a> </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+<div id="chartdiv"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav>
+                <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                        aria-controls="nav-home" aria-selected="true">Indoor</a>
+                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                        aria-controls="nav-profile" aria-selected="false">Outdoor</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <table class="table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Activity</th>
+                                <th>Consumption</th>
+                                <th>Comparison</th>
+                                <th>Tips</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#">Shower & Bath</a></td>
+                                <td id="shower-consumption">0</td>
+                                <td><i class="fas fa-arrow-alt-circle-up"></i><i class="fas fa-arrow-alt-circle-up"></i>
+                                </td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Toilet</a></td>
+                                <td id="toilet-consumption">0</td>
+                                <td></td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Kitchen</a></td>
+                                <td id="kitchen-consumption">0</td>
+                                <td></td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Laundry</a></td>
+                                <td id="laundry-consumption">0</td>
+                                <td></td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                    <table class="table" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Acticity</th>
+                                <th>Consumption</th>
+                                <th>Comparison</th>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#">Gardening</a></td>
+                                <td id="gardening-consumption">0</td>
+                                <td></td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                            <tr>
+                                <td><a href="#">Car washing</a></td>
+                                <td id="car-consumption">0</td>
+                                <td></td>
+                                <td> <a href="/about" style="color: cadetblue;"><i
+                                            class="fas fa-external-link-alt"></i></a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 
 <!-- Calcualtor custom script -->

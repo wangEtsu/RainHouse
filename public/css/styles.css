@@ -181,6 +181,12 @@ position: relative;
 /* Above are result table */
 
 
+/* Amcharts */
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+/* Amcharts */
 
 #footer {
   position: fixed;
@@ -219,7 +225,6 @@ position: relative;
 .quiz-section {
   padding-top: 7.5rem;
   padding-bottom: 7.5rem;
-  height: 50%;
   text-align: center;
 }
 
