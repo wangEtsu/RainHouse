@@ -21,17 +21,36 @@
 }
 
 body {
-  background-color: gainsboro;
+  background-color: #F8F9FA;
 
 }
 
 
 
 /* Comparison table */
+#thumbs-up {
+  font-size: 50px;
+  color: #4ca362;
+}
+
+#thumbs-down {
+  font-size: 50px;
+  color: #f0a34b;
+}
+
+#good-activity {
+  padding-top: 40px;
+}
+
+#bad-activity {
+  padding-top: 40px;
+}
+
+
 .feature-table .feature-block {
   /*flex: 1;*/
   background-color: #476481;
-  color: #fff;
+  color: rgb(24, 23, 23);
   padding: 40px;
   text-align: center;
 }
@@ -53,11 +72,11 @@ body {
 }
 
 .feature-table .th1 {
-  background-color:#ffffff;
+  background-color:#F8F9FA;
 }
 
 .feature-table .th2 {
-  background-color: #ffffff;
+  background-color: #F8F9FA;
 }
 
 
