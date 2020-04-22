@@ -83,6 +83,7 @@ app.get("/calculator", function (req, res) {
     res.render("calculator")
 })
 
+// Use it to pass value to ejs
 // app.get("/calculator", function (req, res) {
 //     res.render("calculator", { quizs: quizs })
 // })
@@ -93,8 +94,8 @@ app.get("/contact", function (req, res) {
     })
 })
 
-app.get("/about", function (req, res) {
-    res.render("about", {
+app.get("/educate", function (req, res) {
+    res.render("educate", {
         startingContent: aboutContent
     })
 })
