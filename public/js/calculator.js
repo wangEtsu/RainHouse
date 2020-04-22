@@ -209,10 +209,10 @@ $("#piediv").hide();
 $("#comparison-table").hide();
 $("#detail-table").hide();
 $("#submit").click(function () {
-  $("#tanky").fadeIn();
-  $("#piediv").fadeIn();
-  $("#comparison-table").fadeIn();
-  $("#detail-table").fadeIn();
+  $("#tanky").fadeIn(4000);
+  $("#piediv").fadeIn(4000);
+  $("#comparison-table").fadeIn(4000);
+  $("#detail-table").fadeIn(4000);
 });
 
 // Functions
@@ -561,7 +561,6 @@ function showResults() {
 
     // Themes begin
     am4core.useTheme(am4themes_dataviz);
-    am4core.useTheme(am4themes_animated);
     // Themes end
 
 

@@ -4,30 +4,26 @@
 }
 
 
+/* card manual*/
+.card {
+  display: inline-block;
+}
+
+
 /* house img */
 #house-img{
   border-radius: 5%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/*  */
-.carousel {
-  margin-top: 20px;
+/* How it work */
+.how-it-work {
+  text-align: center;
+  /* margin: 10rem; */
+  padding-top: 10rem;
+  height: 100%;
 }
-.item .thumb {
-width: 25%;
-cursor: pointer;
-float: left;
-}
-.item .thumb img {
-width: 100%;
-margin: 2px;
-}
-.item img {
-width: 100%;	
-}
-/*  */
-
+/* How it work */
 
 /* Service section */
 #service-section {
@@ -383,7 +379,7 @@ position: relative;
 }
 #progressbar li {
 	list-style-type: none;
-	color: white;
+  color: #27ae60;
 	text-transform: uppercase;
 	font-size: 9px;
 	width: 20%;
