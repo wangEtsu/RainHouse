@@ -208,7 +208,7 @@ h3 {
 #water-tank-message {
   padding: 2rem;
   border-radius: 25px;
-  background-color: blanchedalmond;
+  background-color: #e6e2dd;
 }
 
 #water-tank-analysis {
@@ -218,8 +218,9 @@ h3 {
 
 /* Comparison table, good and back */
 #comparison-table{
+  margin-top: 10rem;
   border-radius: 25px;
-  background-color: antiquewhite;
+  background-color: #e6e2dd;
 }
 
 
@@ -432,9 +433,9 @@ position: relative;
 }
 #progressbar li {
 	list-style-type: none;
-  color: #27ae60;
+  color: #222831;
 	text-transform: uppercase;
-	font-size: 9px;
+	font-size: 15px;
 	width: 20%;
 	float: left;
 	position: relative;

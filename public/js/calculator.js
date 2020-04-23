@@ -55,8 +55,8 @@ const myQuestions = [
     question: "Does your house have an efficient showerhead?",
     activity: "Shower & Bath",
     answers: {
-      "0.5": "Yes",
       "1": "No",
+      "0.5": "Yes",
       "0.75": "Not sure",
     },
     tip: "An AAA rated showerhead can reduce almost half of your shower consumption or upto 26 litres of water for a 7 minute shower"
@@ -67,10 +67,11 @@ const myQuestions = [
     question: "How often do you take shower per day?",
     activity: "Shower & Bath",
     answers: {
+      "45": "Depends",
       "30": "1",
       "60": "2",
-      "120": "3",
-      "45": "Depends"
+      "120": "3"
+      
     },
     tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
   },
@@ -206,13 +207,15 @@ const myQuestions = [
 
 $("#tanky").hide();
 $("#piediv").hide();
-$("#comparison-table").hide();
+$("#pie-and-comparison").hide();
 $("#detail-table").hide();
+$("#message-to-educate").hide();
 $("#submit").click(function () {
   $("#tanky").fadeIn(4000);
   $("#piediv").fadeIn(4000);
-  $("#comparison-table").fadeIn(4000);
+  $("#pie-and-comparison").fadeIn(4000);
   $("#detail-table").fadeIn(4000);
+  $("#message-to-educate").fadeIn(4000);
 });
 
 // Functions
@@ -229,7 +232,7 @@ function buildQuiz() {
 
       // and for each available answer...
       for (usage in currentQuestion.answers) {
-
+        console.log(usage)
         // ...add an HTML radio button
         answers.push(
           `<label>
@@ -307,21 +310,21 @@ function showResults() {
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
   let usageTotal = showerTotal + toiletTotal + kitchenTotal + laundryTotal + outdoorTotal
 
-  // Set up variable to store table element, and then fill in with calculated data
-  const showerCell = document.getElementById("shower-consumption");
-  const toiletCell = document.getElementById("toilet-consumption");
-  const kitchenCell = document.getElementById("kitchen-consumption");
-  const laundryCell = document.getElementById("laundry-consumption");
-  const gardeningCell = document.getElementById("gardening-consumption");
-  const carCell = document.getElementById("car-consumption");
+  // // Set up variable to store table element, and then fill in with calculated data
+  // const showerCell = document.getElementById("shower-consumption");
+  // const toiletCell = document.getElementById("toilet-consumption");
+  // const kitchenCell = document.getElementById("kitchen-consumption");
+  // const laundryCell = document.getElementById("laundry-consumption");
+  // const gardeningCell = document.getElementById("gardening-consumption");
+  // const carCell = document.getElementById("car-consumption");
 
-  // Fill in result
-  showerCell.innerHTML = showerTotal;
-  kitchenCell.innerHTML = kitchenTotal;
-  toiletCell.innerHTML = toiletTotal;
-  laundryCell.innerHTML = laundryTotal;
-  gardeningCell.innerHTML = result["outdoorGarden"];
-  carCell.innerHTML = result["outdoorCar"];
+  // // Fill in result
+  // showerCell.innerHTML = showerTotal;
+  // kitchenCell.innerHTML = kitchenTotal;
+  // toiletCell.innerHTML = toiletTotal;
+  // laundryCell.innerHTML = laundryTotal;
+  // gardeningCell.innerHTML = result["outdoorGarden"];
+  // carCell.innerHTML = result["outdoorCar"];
 
 
   //pie chart
@@ -542,7 +545,7 @@ function showResults() {
 
   // Water tank section feedback
   // Pre-set analysis context
-  tankPreSet = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at convallis dolor. Quisque venenatis lectus vel turpis bibendum sodales. Praesent tempor, justo congue rhoncus sodales, risus mi pretium sapien, sed malesuada mauris leo sed elit. Aliquam ullamcorper, est ac convallis gravida, urna quam congue urna, ut iaculis turpis quam ac eros. Nullam nec libero non turpis lacinia sollicitudin eget ut enim. Suspendisse a accumsan lectus, ut tincidunt leo. Praesent vulputate malesuada metus at eleifend. Sed at convallis risus, at bibendum nibh. Aenean lectus augue, tincidunt quis lacus ut, sagittis pharetra risus. Ut dignissim iaculis neque id ultrices."
+  tankPreSet = "We use a lot of water, but how we use it is much more important than the amount of water we drink every day. Studies carried out by many Australian government bodies indicate that we use up to 35% of the water to irrigate our gardens, while 19% of the water is flushed down the toilet. An average toilet uses up to 12 litres of water per flush, while an average garden sprinkler uses up to 1,000 litres of water per hour."
   // Activate analysis text
   $("#water-tank-message").html(tankFeedbackMessage);
   $("#water-tank-analysis").html(tankPreSet);
