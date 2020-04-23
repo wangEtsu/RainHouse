@@ -88,8 +88,8 @@ app.get("/calculator", function (req, res) {
 //     res.render("calculator", { quizs: quizs })
 // })
 
-app.get("/contact", function (req, res) {
-    res.render("contact", {
+app.get("/about", function (req, res) {
+    res.render("about", {
         startingContent: contactContent
     })
 })
