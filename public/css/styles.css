@@ -3,6 +3,21 @@
   src: url("/fonts/Abang.otf") format("opentype");
 }
 
+/* About us */
+.about-us {
+  background-color: lightgrey;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 5% 2% 5%;
+  height: fit-content;
+}
+
+.about-brand {
+  color: black;
+  font-family: Abang;
+  font-size: 4rem;
+}
+
 
 /* card manual*/
 .card {
@@ -187,7 +202,7 @@ h3 {
 /* Apply background image in header area */
 #header {
   background-color: gainsboro;
-  background: url("/images/beach.jpeg")no-repeat center center fixed;
+  background: url("/images/faucet.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
 }
 
@@ -509,11 +524,7 @@ input[type="radio"] {
 }
 
 
-/* About us */
-.about-us {
-  text-align: center;
-  padding: 20% 0% 5%;
-}
+
 
 #logo {
   width: 8rem;
