@@ -1,121 +1,133 @@
 
-    am4core.ready(function() {
-    
+   am4core.ready(function() {
+
     // Themes begin
     am4core.useTheme(am4themes_animated);
     // Themes end
     
     // Create chart instance
     var chart = am4core.create("storage-visualization", am4charts.XYChart);
-    chart.scrollbarX = new am4core.Scrollbar();
     
     // Add data
     chart.data = [{
-      "country": "USA",
-      "visits": 3025
+      "date": "2013-01-16",
+      "market1": 71,
+      "market2": 75,
     }, {
-      "country": "China",
-      "visits": 1882
+      "date": "2013-01-17",
+      "market1": 74,
+      "market2": 78,
     }, {
-      "country": "Japan",
-      "visits": 1809
+      "date": "2013-01-18",
+      "market1": 78,
+      "market2": 88,
     }, {
-      "country": "Germany",
-      "visits": 1322
+      "date": "2013-01-19",
+      "market1": 85,
+      "market2": 89,
     }, {
-      "country": "UK",
-      "visits": 1122
+      "date": "2013-01-20",
+      "market1": 82,
+      "market2": 89,
     }, {
-      "country": "France",
-      "visits": 1114
+      "date": "2013-01-21",
+      "market1": 83,
+      "market2": 85,
     }, {
-      "country": "India",
-      "visits": 984
+      "date": "2013-01-22",
+      "market1": 88,
+      "market2": 92,
     }, {
-      "country": "Spain",
-      "visits": 711
+      "date": "2013-01-23",
+      "market1": 85,
+      "market2": 90,
     }, {
-      "country": "Netherlands",
-      "visits": 665
+      "date": "2013-01-24",
+      "market1": 85,
+      "market2": 91,
+    }, {
+      "date": "2013-01-25",
+      "market1": 80,
+      "market2": 84,
     }];
     
-    prepareParetoData();
-    
-    function prepareParetoData(){
-        var total = 0;
-    
-        for(var i = 0; i < chart.data.length; i++){
-            var value = chart.data[i].visits;
-            total += value;
-        }
-    
-        var sum = 0;
-        for(var i = 0; i < chart.data.length; i++){
-            var value = chart.data[i].visits;
-            sum += value;   
-            chart.data[i].pareto = sum / total * 100;
-        }    
-    }
-    
     // Create axes
-    var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-    categoryAxis.dataFields.category = "country";
-    categoryAxis.renderer.grid.template.location = 0;
-    categoryAxis.renderer.minGridDistance = 60;
-    categoryAxis.tooltip.disabled = true;
+    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+    //dateAxis.renderer.grid.template.location = 0;
+    //dateAxis.renderer.minGridDistance = 30;
     
-    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.renderer.minWidth = 50;
-    valueAxis.min = 0;
-    valueAxis.cursorTooltipEnabled = false;
+    var valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis1.title.text = "Storage level";
+    
+    var valueAxis2 = chart.yAxes.push(new am4charts.ValueAxis());
+    valueAxis2.title.text = "Population";
+    valueAxis2.renderer.opposite = true;
+    valueAxis2.renderer.grid.template.disabled = true;
     
     // Create series
-    var series = chart.series.push(new am4charts.ColumnSeries());
-    series.sequencedInterpolation = true;
-    series.dataFields.valueY = "visits";
-    series.dataFields.categoryX = "country";
-    series.tooltipText = "[{categoryX}: bold]{valueY}[/]";
-    series.columns.template.strokeWidth = 0;
+    var series1 = chart.series.push(new am4charts.ColumnSeries());
+    series1.dataFields.valueY = "sales1";
+    series1.dataFields.dateX = "date";
+    series1.yAxis = valueAxis1;
+    series1.name = "Target Sales";
+    series1.tooltipText = "{name}\n[bold font-size: 20]${valueY}M[/]";
+    series1.fill = chart.colors.getIndex(0);
+    series1.strokeWidth = 0;
+    series1.clustered = false;
+    series1.columns.template.width = am4core.percent(40);
     
-    series.tooltip.pointerOrientation = "vertical";
+    var series2 = chart.series.push(new am4charts.ColumnSeries());
+    series2.dataFields.valueY = "sales2";
+    series2.dataFields.dateX = "date";
+    series2.yAxis = valueAxis1;
+    series2.name = "Actual Sales";
+    series2.tooltipText = "{name}\n[bold font-size: 20]${valueY}M[/]";
+    series2.fill = chart.colors.getIndex(0).lighten(0.5);
+    series2.strokeWidth = 0;
+    series2.clustered = false;
+    series2.toBack();
     
-    series.columns.template.column.cornerRadiusTopLeft = 10;
-    series.columns.template.column.cornerRadiusTopRight = 10;
-    series.columns.template.column.fillOpacity = 0.8;
+    var series3 = chart.series.push(new am4charts.LineSeries());
+    series3.dataFields.valueY = "market1";
+    series3.dataFields.dateX = "date";
+    series3.name = "Market Days";
+    series3.strokeWidth = 2;
+    series3.tensionX = 0.7;
+    series3.yAxis = valueAxis2;
+    series3.tooltipText = "{name}\n[bold font-size: 20]{valueY}[/]";
     
-    // on hover, make corner radiuses bigger
-    var hoverState = series.columns.template.column.states.create("hover");
-    hoverState.properties.cornerRadiusTopLeft = 0;
-    hoverState.properties.cornerRadiusTopRight = 0;
-    hoverState.properties.fillOpacity = 1;
+    var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
+    bullet3.circle.radius = 3;
+    bullet3.circle.strokeWidth = 2;
+    bullet3.circle.fill = am4core.color("#fff");
     
-    series.columns.template.adapter.add("fill", function(fill, target) {
-      return chart.colors.getIndex(target.dataItem.index);
-    })
+    var series4 = chart.series.push(new am4charts.LineSeries());
+    series4.dataFields.valueY = "market2";
+    series4.dataFields.dateX = "date";
+    series4.name = "Market Days ALL";
+    series4.strokeWidth = 2;
+    series4.tensionX = 0.7;
+    series4.yAxis = valueAxis2;
+    series4.tooltipText = "{name}\n[bold font-size: 20]{valueY}[/]";
+    series4.stroke = chart.colors.getIndex(0).lighten(0.5);
+    series4.strokeDasharray = "3,3";
     
+    var bullet4 = series4.bullets.push(new am4charts.CircleBullet());
+    bullet4.circle.radius = 3;
+    bullet4.circle.strokeWidth = 2;
+    bullet4.circle.fill = am4core.color("#fff");
     
-    var paretoValueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    paretoValueAxis.renderer.opposite = true;
-    paretoValueAxis.min = 0;
-    paretoValueAxis.max = 100;
-    paretoValueAxis.strictMinMax = true;
-    paretoValueAxis.renderer.grid.template.disabled = true;
-    paretoValueAxis.numberFormatter = new am4core.NumberFormatter();
-    paretoValueAxis.numberFormatter.numberFormat = "#'%'"
-    paretoValueAxis.cursorTooltipEnabled = false;
-    
-    var paretoSeries = chart.series.push(new am4charts.LineSeries())
-    paretoSeries.dataFields.valueY = "pareto";
-    paretoSeries.dataFields.categoryX = "country";
-    paretoSeries.yAxis = paretoValueAxis;
-    paretoSeries.tooltipText = "pareto: {valueY.formatNumber('#.0')}%[/]";
-    paretoSeries.bullets.push(new am4charts.CircleBullet());
-    paretoSeries.strokeWidth = 2;
-    paretoSeries.stroke = new am4core.InterfaceColorSet().getFor("alternativeBackground");
-    paretoSeries.strokeOpacity = 0.5;
-    
-    // Cursor
+    // Add cursor
     chart.cursor = new am4charts.XYCursor();
-    chart.cursor.behavior = "panX";
+    
+    // Add legend
+    chart.legend = new am4charts.Legend();
+    chart.legend.position = "top";
+    
+    // Add scrollbar
+    chart.scrollbarX = new am4charts.XYChartScrollbar();
+    chart.scrollbarX.series.push(series1);
+    chart.scrollbarX.series.push(series3);
+    chart.scrollbarX.parent = chart.bottomAxesContainer;
     
     }); // end am4core.ready()
