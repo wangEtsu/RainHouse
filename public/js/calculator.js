@@ -1,209 +1,210 @@
-// // Uncomment below
-// // Get data that were passed to ejs from app.js (MySQL)
-// var variableJSON = document.getElementById('variableJSON').innerText;
+// Uncomment below
+// Get data that were passed to ejs from app.js (MySQL)
+var variableJSON = document.getElementById('variableJSON').innerText;
 
-// // Remove the ejs element since there is no more use for it
-// document.getElementById('variableJSON').remove();
+// Remove the ejs element since there is no more use for it
+document.getElementById('variableJSON').remove();
 
-// // set up an array to store result
-// let test = [];
+// set up an array to store result
+let test = [];
 
-// // iterate through each question
-// for (var i = 0; i < 13; i++) {
-//   // !improtant: You need to parse it twice to deal with stringified object
-//   console.log(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
-//   test.push(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
-// };
+// iterate through each question
+for (var i = 0; i < 13; i++) {
+  // !improtant: You need to parse it twice to deal with stringified object
+  console.log(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+  test.push(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+};
 
 
 // Quiz Variables
 const quizContainer = document.getElementById('quiz');
 const submitButton = document.getElementById('submit');
-const myQuestions = [
+const myQuestions = test;
+// const myQuestions = [
 
-  // How many people?
-  {
-    questionTag: "familyMember",
-    question: "How many people live in your house?",
-    activity: "familySize",
-    answers: {
-      "1": "1",
-      "1.5": "2",
-      "2.3": "3",
-      "3.1": "4",
-      "4.1": "5"
-    },
-    tip: "Charlesworths family at Sydeny saves thousands of litres of water per year! Lets find out about yours!"
-  },
+//   // How many people?
+//   {
+//     questionTag: "familyMember",
+//     question: "How many people live in your house?",
+//     activity: "familySize",
+//     answers: {
+//       "1": "1",
+//       "1.5": "2",
+//       "2.3": "3",
+//       "3.1": "4",
+//       "4.1": "5"
+//     },
+//     tip: "Charlesworths family at Sydeny saves thousands of litres of water per year! Lets find out about yours!"
+//   },
 
-  // Shower set
-  {
-    questionTag: "showerDuration",
-    question: "What is the average shower time of your family per person?",
-    activity: "Shower & Bath",
-    answers: {
-      "24": "0-5 mins",
-      "72": "5-10 mins",
-      "120": "10-15 mins",
-      "190": "> 15 mins"
-    },
-    tip: "A minute saved in the shower saves upto 12 litres of water. Challenge yourself to a shower time of your favourite song or under 5 mins."
-  },
+//   // Shower set
+//   {
+//     questionTag: "showerDuration",
+//     question: "What is the average shower time of your family per person?",
+//     activity: "Shower & Bath",
+//     answers: {
+//       "24": "0-5 mins",
+//       "72": "5-10 mins",
+//       "120": "10-15 mins",
+//       "190": "> 15 mins"
+//     },
+//     tip: "A minute saved in the shower saves upto 12 litres of water. Challenge yourself to a shower time of your favourite song or under 5 mins."
+//   },
 
-  {
-    questionTag: "showerheadEfficiency",
-    question: "Does your house have an efficient showerhead?",
-    activity: "Shower & Bath",
-    answers: {
-      "1": "No",
-      "0.5": "Yes",
-      "0.75": "Not sure",
-    },
-    tip: "An AAA rated showerhead can reduce almost half of your shower consumption or upto 26 litres of water for a 7 minute shower"
-  },
+//   {
+//     questionTag: "showerheadEfficiency",
+//     question: "Does your house have an efficient showerhead?",
+//     activity: "Shower & Bath",
+//     answers: {
+//       "1": "No",
+//       "0.5": "Yes",
+//       "0.75": "Not sure",
+//     },
+//     tip: "An AAA rated showerhead can reduce almost half of your shower consumption or upto 26 litres of water for a 7 minute shower"
+//   },
 
-  {
-    questionTag: "showerFrequency",
-    question: "How often do you take shower per day?",
-    activity: "Shower & Bath",
-    answers: {
-      "45": "Depends",
-      "30": "1",
-      "60": "2",
-      "120": "3"
+//   {
+//     questionTag: "showerFrequency",
+//     question: "How often do you take shower per day?",
+//     activity: "Shower & Bath",
+//     answers: {
+//       "45": "Depends",
+//       "30": "1",
+//       "60": "2",
+//       "120": "3"
       
-    },
-    tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
-  },
+//     },
+//     tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
+//   },
 
-  {
-    questionTag: "bathAmount",
-    question: "Do you fancy taking bath? If so, how frequently?",
-    activity: "Shower & Bath",
-    answers: {
-      "0": "Never",
-      "380": "Once a week",
-      "95": "Once a month"
+//   {
+//     questionTag: "bathAmount",
+//     question: "Do you fancy taking bath? If so, how frequently?",
+//     activity: "Shower & Bath",
+//     answers: {
+//       "0": "Never",
+//       "380": "Once a week",
+//       "95": "Once a month"
 
-    },
-    tip: "If you generally take a shower for more than 20 mins, its advisable to take a bath which will help you save more water"
-  },
-
-
-  // Toilet set
-  {
-    questionTag: "toiletAmount",
-    question: "Do you have a partial flush or a full flush toilet?",
-    activity: "Toilet",
-    answers: {
-      "540": "Yes",
-      "1440": "No",
-      "1000": "Not Sure"
-    },
-    tip: "Have you got one? if no, thats bad!!. A Dual-flush toilets, by comparison, use much less water and are considered to be environmentally friendly."
-  },
-
-  {
-    questionTag: "toiletLeak",
-    question: "Do you have any leaks in your toilet?",
-    activity: "Toilet",
-    answers: {
-      "1232": "Yes",
-      "0": "No",
-      "650": "Not Sure"
-    },
-    tip: "Get those leaks fixed ASAP. A leaking toilet hogs upto 308 litres of water a week"
-  },
-
-  // Kitchen set
-  {
-    questionTag: "kitchenWash",
-    question: "How do you wash your dishes?",
-    activity: "Kitchen",
-    answers: {
-      "60": "By hand",
-      "12": "Dishwasher of course!!",
-    },
-    tip: "An Energy Star certified dishwasher can use as little as 12 litres of water per load, which is only 1/5 of washing in sink"
-  },
-
-  {
+//     },
+//     tip: "If you generally take a shower for more than 20 mins, its advisable to take a bath which will help you save more water"
+//   },
 
 
-    questionTag: "dishwashingFrequency",
-    question: "How often do you wash your dishes per week?",
-    activity: "Kitchen",
-    answers: {
-      "12": "3",
-      "20": "5",
-      "32": "7 or more",
-    },
+//   // Toilet set
+//   {
+//     questionTag: "toiletAmount",
+//     question: "Do you have a partial flush or a full flush toilet?",
+//     activity: "Toilet",
+//     answers: {
+//       "540": "Yes",
+//       "1440": "No",
+//       "1000": "Not Sure"
+//     },
+//     tip: "Have you got one? if no, thats bad!!. A Dual-flush toilets, by comparison, use much less water and are considered to be environmentally friendly."
+//   },
 
-    tip: " Use a bucket to pre-wash your dishes, it saves more water and also prevents bacteria from growing  "
-  },
+//   {
+//     questionTag: "toiletLeak",
+//     question: "Do you have any leaks in your toilet?",
+//     activity: "Toilet",
+//     answers: {
+//       "1232": "Yes",
+//       "0": "No",
+//       "650": "Not Sure"
+//     },
+//     tip: "Get those leaks fixed ASAP. A leaking toilet hogs upto 308 litres of water a week"
+//   },
 
-  {
-    questionTag: "kitchenEfficiency",
-    question: "Do you have low flow taps in the kitchen?",
-    activity: "Kitchen",
-    answers: {
-      "0.75": "Yes",
-      "1": "No",
-      "0.9": "Not Sure",
-    },
-    tip: "Get a low flow taps ASAP, it saves not only water but also electricty use"
-  },
+//   // Kitchen set
+//   {
+//     questionTag: "kitchenWash",
+//     question: "How do you wash your dishes?",
+//     activity: "Kitchen",
+//     answers: {
+//       "60": "By hand",
+//       "12": "Dishwasher of course!!",
+//     },
+//     tip: "An Energy Star certified dishwasher can use as little as 12 litres of water per load, which is only 1/5 of washing in sink"
+//   },
+
+//   {
 
 
-  // Laundry set
-  {
-    questionTag: "laundryAmount",
-    question: "How do you wash your clothes?",
-    activity: "Washing",
-    answers: {
-      "200": "By hand",
-      "50": "Front loading washing machine",
-      "130": "Top loading washing machine"
-    },
-    tip: "An AAA rated washing machine can save your water usage by atleast 50%."
-  },
+//     questionTag: "dishwashingFrequency",
+//     question: "How often do you wash your dishes per week?",
+//     activity: "Kitchen",
+//     answers: {
+//       "12": "3",
+//       "20": "5",
+//       "32": "7 or more",
+//     },
 
-  {
-    questionTag: "laundryFrequency",
-    question: "How many laundry loads per week?",
-    activity: "Washing",
-    answers: {
-      "8": "Twice per week",
-      "4": "Every week",
-      "1": "Once per month"
-    },
-    tip: "Clothes are slightly damaged with each wash, an appropriate laundry frequency can help to save both water and electricity use"
-  },
+//     tip: " Use a bucket to pre-wash your dishes, it saves more water and also prevents bacteria from growing  "
+//   },
 
-  // Outdoor set
-  {
-    questionTag: "outdoorGarden",
-    question: "Do you have a garden? If so, do you use sprinklers?",
-    activity: "Outdoor",
-    answers: {
-      "0": "No I don't have one",
-      "1000": "Yes, but I do not use a sprinkler",
-      "3000": "Yes, sprinkler ease my work"
-    },
-    tip: "A well-designed sprinkler system not only saves water but also prevent over-watering"
-  },
+//   {
+//     questionTag: "kitchenEfficiency",
+//     question: "Do you have low flow taps in the kitchen?",
+//     activity: "Kitchen",
+//     answers: {
+//       "0.75": "Yes",
+//       "1": "No",
+//       "0.9": "Not Sure",
+//     },
+//     tip: "Get a low flow taps ASAP, it saves not only water but also electricty use"
+//   },
 
-  {
-    questionTag: "outdoorCar",
-    question: "Do you wash your car by yourself",
-    activity: "Outdoor",
-    answers: {
-      "0": "Never",
-      "1000": "Yes, I wash my car at home"
-    },
-    tip: "Using a waterless cleaning solution can reduce your water usage to a single cup per car"
-  },
-];
+
+//   // Laundry set
+//   {
+//     questionTag: "laundryAmount",
+//     question: "How do you wash your clothes?",
+//     activity: "Washing",
+//     answers: {
+//       "200": "By hand",
+//       "50": "Front loading washing machine",
+//       "130": "Top loading washing machine"
+//     },
+//     tip: "An AAA rated washing machine can save your water usage by atleast 50%."
+//   },
+
+//   {
+//     questionTag: "laundryFrequency",
+//     question: "How many laundry loads per week?",
+//     activity: "Washing",
+//     answers: {
+//       "8": "Twice per week",
+//       "4": "Every week",
+//       "1": "Once per month"
+//     },
+//     tip: "Clothes are slightly damaged with each wash, an appropriate laundry frequency can help to save both water and electricity use"
+//   },
+
+//   // Outdoor set
+//   {
+//     questionTag: "outdoorGarden",
+//     question: "Do you have a garden? If so, do you use sprinklers?",
+//     activity: "Outdoor",
+//     answers: {
+//       "0": "No I don't have one",
+//       "1000": "Yes, but I do not use a sprinkler",
+//       "3000": "Yes, sprinkler ease my work"
+//     },
+//     tip: "A well-designed sprinkler system not only saves water but also prevent over-watering"
+//   },
+
+//   {
+//     questionTag: "outdoorCar",
+//     question: "Do you wash your car by yourself",
+//     activity: "Outdoor",
+//     answers: {
+//       "0": "Never",
+//       "1000": "Yes, I wash my car at home"
+//     },
+//     tip: "Using a waterless cleaning solution can reduce your water usage to a single cup per car"
+//   },
+// ];
 
 $("#tanky").hide();
 $("#piediv").hide();
