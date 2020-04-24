@@ -1,45 +1,45 @@
-// Comment all of these to avoid db error
-// Connect to mysql
-var mysql = require('mysql');
-var database = mysql.createConnection({
-    host: 'us-cdbr-iron-east-01.cleardb.net',
-    user: 'bd619e2294e924',
-    password: 'ed79069b',
-    database: 'heroku_bf6ff4ce2abab84'
+// // Comment all of these to avoid db error
+// // Connect to mysql
+// var mysql = require('mysql');
+// var database = mysql.createConnection({
+//     host: 'us-cdbr-iron-east-01.cleardb.net',
+//     user: 'bd619e2294e924',
+//     password: 'ed79069b',
+//     database: 'heroku_bf6ff4ce2abab84'
 
-});
+// });
 
-// Test connection
-database.connect(function (connectionError) {
-    if (connectionError) {
-        throw connectionError;
-    }
-    else {
-        console.log("Connect to Database")
-    }
+// // Test connection
+// database.connect(function (connectionError) {
+//     if (connectionError) {
+//         throw connectionError;
+//     }
+//     else {
+//         console.log("Connect to Database")
+//     }
 
-});
+// });
 
 
-// Write query you wanna use
-var sql = "SELECT * FROM water_consumption";
+// // Write query you wanna use
+// var sql = "SELECT * FROM water_consumption";
 
-// Setup a variable to store query result
-let quizs;
+// // Setup a variable to store query result
+// let quizs;
 
-// Query db
-database.query(sql, function (error, results, fields) {
+// // Query db
+// database.query(sql, function (error, results, fields) {
 
-    if (error) throw error;
+//     if (error) throw error;
 
-    // Query an array of js objects
-    quizs = results.map((mysqlObj, index) => {
-        return Object.assign({}, mysqlObj);
-    });
+//     // Query an array of js objects
+//     quizs = results.map((mysqlObj, index) => {
+//         return Object.assign({}, mysqlObj);
+//     });
 
-    // Show the result
-    console.log(quizs);
-});
+//     // Show the result
+//     console.log(quizs);
+// });
 
 
 
