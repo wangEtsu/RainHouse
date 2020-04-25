@@ -1,19 +1,67 @@
-// Uncomment below
-// Get data that were passed to ejs from app.js (MySQL)
+
 var variableJSON = document.getElementById('variableJSON').innerText;
 
-// Remove the ejs element since there is no more use for it
-document.getElementById('variableJSON').remove();
+// document.getElementById('variableJSON').remove();
 
-// set up an array to store result
-let test = [];
+test = JSON.parse(variableJSON);
 
-// iterate through each question
-for (var i = 0; i < 13; i++) {
-  // !improtant: You need to parse it twice to deal with stringified object
-  console.log(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
-  test.push(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
-};
+// for (var i = 0; i < 14; i++) {
+
+//   var keys = Object.keys(json);
+// for (var j=0; j < keys.length; j++) {
+//    var key = keys[j].replace(/^element_/, "");
+//    tmp[key] = json[keys[j]];
+// }
+
+
+//   var keys = Object.keys(test[i].answers)
+//   for (var j = 0; j < keys.length; j++) {
+//     var key = keys[j].replace('．', ".");
+//   }
+
+
+//   .replace('．', ".")
+// }
+
+function fix_key(key) { return key.replace('．', "."); }
+
+for (var i = 0; i < 14; i++) {
+console.log(i);
+var keys = Object.keys(test[i].answers);
+var result = {};
+
+for (j = 0; j < keys.length; j++) {
+  var key = keys[j];
+  result[fix_key(key)] = (test[i].answers)[key];
+}
+test[i].answers = result;
+
+}
+// // iterate through each question
+// for (var i = 0; i < 11; i++) {
+//   // !improtant: You need to parse it twice to deal with stringified object
+//   console.log(JSON.parse(variableJSON)[i]);
+//   test.push(JSON.parse(variableJSON)[i]);
+// };
+
+
+
+// // Uncomment below
+// // Get data that were passed to ejs from app.js (MySQL)
+// var variableJSON = document.getElementById('variableJSON').innerText;
+
+// // Remove the ejs element since there is no more use for it
+// document.getElementById('variableJSON').remove();
+
+// // set up an array to store result
+// let test = [];
+
+// // iterate through each question
+// for (var i = 0; i < 13; i++) {
+//   // !improtant: You need to parse it twice to deal with stringified object
+//   console.log(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+//   test.push(JSON.parse(JSON.parse(variableJSON)[i]["survey_set"]));
+// };
 
 
 // Quiz Variables
@@ -184,11 +232,11 @@ const myQuestions = test;
 //   // Outdoor set
 //   {
 //     questionTag: "outdoorGarden",
-//     question: "Do you have a garden? If so, do you use sprinklers?",
+//     question: "Do you have a garden? If so, do you use sprinklers or drippers?",
 //     activity: "Outdoor",
 //     answers: {
 //       "0": "No I don't have one",
-//       "1000": "Yes, but I do not use a sprinkler",
+//       "2400": "Yes, I have a dripper system",
 //       "3000": "Yes, sprinkler ease my work"
 //     },
 //     tip: "A well-designed sprinkler system not only saves water but also prevent over-watering"
@@ -200,7 +248,7 @@ const myQuestions = test;
 //     activity: "Outdoor",
 //     answers: {
 //       "0": "Never",
-//       "1000": "Yes, I wash my car at home"
+//       "200": "Yes, I wash my car at home"
 //     },
 //     tip: "Using a waterless cleaning solution can reduce your water usage to a single cup per car"
 //   },

@@ -8,10 +8,15 @@
   },
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": "12.16.1"
+  },
   "dependencies": {
     "@types/node": "^13.11.0",
     "ejs": "^3.0.2",
     "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.10",
     "mysql": "^2.18.1",
     "request": "^2.88.2",
     "survey-jquery": "^1.5.19"
