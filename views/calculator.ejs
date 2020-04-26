@@ -1,39 +1,59 @@
 <%- include("partials/header"); -%>
 
 
+
+
 <!-- Manual Section -->
-<div class="how-it-work" style="background-color: thistle;">
-    <h1 style="padding: 3rem 0rem 7rem 0rem;">Get your water usage analysis in three steps!</h1>
-    <div class="col-lg-12">
-        <div class="card col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="images/manual1.png" alt="Card image cap">
+<div class="how-it-work" style="background-image: url(images/ocean.jpg); height: 130%;">
+    <!-- <h1 class="mb-1" style="color: antiquewhite; font-size: 4rem;">Get your water usage analysis in three steps!</h1> -->
+    <h1 style="padding: 3rem 0rem 7rem 0rem; color: antiquewhite;">Get your water usage analysis in three steps!</h1>
+    <div class="row">
+        <div class="manual-card col-lg-4 col-md-12 col-sm-12">
+            <img class="card-img-top" src="images/manual1.png" style="border-radius: 5%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" alt="Card image cap">
             <div class="card-body">
-                <h1 class="card-text">Step 1</h1>
-                <p class="card-text">Fill the Survey</p>
+                <h1 class="card-text" style="color: antiquewhite;">Step 1</h1>
+                <h3 class="card-text" style="color: antiquewhite;">Fill the Survey</h3>
             </div>
         </div>
-        <div class="card col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="images/manual2.png" alt="Card image cap">
+        <div class="manual-card col-lg-4 col-md-12 col-sm-12">
+            <img class="card-img-top" src="images/manual2.png" style="border-radius: 5%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" alt="Card image cap">
             <div class="card-body">
-                <h1 class="card-text">Step 2</h1>
-                <p class="card-text">Check your report card</p>
+                <h1 class="card-text" style="color: antiquewhite;">Step 2</h1>
+                <h3 class="card-text" style="color: antiquewhite;">Check your report card</h3>
             </div>
         </div>
-        <div class="card col-lg-4" style="width: 18rem;">
-            <img class="card-img-top" src="images/manual3.png" alt="Card image cap">
+        <div class="manual-card col-lg-4 col-md-12 col-sm-12">
+            <img class="card-img-top" src="images/manual3.png" style="border-radius: 5%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" alt="Card image cap">
             <div class="card-body">
-                <h1 class="card-text">Step 3</h1>
-                <p class="card-text">View tips and suggestions</p>
+                <h1 class="card-text" style="color: antiquewhite;">Step 3</h1>
+                <h3 class="card-text" style="color: antiquewhite;">View tips and suggestions</h3>
             </div>
         </div>
 
     </div>
-    <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin-top: 2rem;" href="#quiz-markpoint">Start</a>
+
+    <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin-top: 2rem; background-color: #8cba51; color: antiquewhite;" id="quiz-initialize">Start</a>
+    
+    <script>
+
+        $(document).ready(function() {
+        $(document).on('click','#quiz-initialize',function(e){
+            $("#quiz-markpoint").css({"display": "block"});
+            $(window).scrollTop($('#quiz-markpoint').offset().top);
+            
+        });
+        });
+            
+    </script>
+
 </div>
 
 
 <!-- Quiz -->
-<div class="container quiz-section" id="quiz-markpoint">
+<div class="container quiz-section" id="quiz-markpoint" style="display: none;">
 
     <!-- progressbar -->
     <ul id="progressbar">
@@ -44,7 +64,7 @@
         <li>Outdoor</li>
     </ul>
 
-    <div class="quiz-container">
+    <div class="quiz-container row">
 
         <div id="quiz"></div>
 
@@ -57,23 +77,44 @@
     <button class="btn btn-primary" id="submit" style="display: inline-block;position: relative;top: 24px;">Submit
         Quiz</button>
 
+    <script>
 
+        $(document).ready(function() {
+        $(document).on('click','#submit',function(e){
+            $(".report-card").css({"display": "block"});
+            $("#chartdiv").css({"display": "block"});
+            $(window).scrollTop($('.report-card').offset().top);
+            
+        });
+        });
+            
+    </script>
 
 
 
 </div>
 
 
-<div class="container report-card">
+<div class="container report-card" style="display: none;">
+<h1 class="text-center" style="padding: 5rem 0rem 3rem;">Report Card</h1>
+<h3 style="text-align: left;">The result section will display the following:</h3>
+<ul>
+    <li>Total water usage comparison</li>
+    <li>Water usage break up</li>
+    <li>Performance indicator</li>
+    <li>Activity-wise comparison</li>
+</ul>
 
 <!-- Two water tank for comparison  -->
 <!-- water tank left -->
 <div class="container" id="tanky" >
-    <h1 class="text-center" style="padding: 5rem 0rem 5rem;">Report Card</h1>
-    <div class="row">
-        <div class="col-md-6">
-            <div class="water-tanks">
 
+    <div class="row">
+ 
+        <div class="col-md-6">
+
+            <div class="water-tanks">
+                <!-- <h1 id="tank-subtitle text-center">Test</h1> -->
                 <div class="water-tank" id="water-tank-left">
                     <h5 class="water-tank-subtitle">Your Usage</h5>
                     <div class="liquid">
@@ -146,24 +187,24 @@
 </div>
 
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-12">
             <p id="water-tank-analysis"></p>
         </div>
     </div>
-</div>
+</div> -->
 
 
 <div class="container" id="pie-and-comparison">
     <div class="row">
         <div class="col-md-6 text-center">
-            <div id="piediv"></div>
+            <div id="piediv" style="bottom: 20%;"></div>
         </div>
 
         <div class="col-md-6">
 
-            <div class="container" id="comparison-table">
+            <div class="container" id="comparison-table" style="margin: 0;">
                 <div class="row feature-table">
 
                     <div class="col-sm-6 feature-block th1">
@@ -194,7 +235,7 @@
 </div>
 
 
-<div id="chartdiv"></div>
+<div id="chartdiv" style="display: none;"></div>
 <div class="container text-center" id="message-to-educate">
     <h3 class="text-center">To learn how you can save water in your daily life, kindly click the below link.</h3>
     <a class="btn btn-primary btn-xl" href="/educate">Check out our tips!</a>

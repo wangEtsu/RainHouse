@@ -135,8 +135,11 @@ text-transform:uppercase;
 /*
  Calculator manual
 */
-.card {
+
+
+.manual-card {
   display: inline-block;
+  width: 33%;
 }
 
 
@@ -152,6 +155,9 @@ text-transform:uppercase;
   /* margin: 10rem; */
   padding-top: 10rem;
   height: 100%;
+  /* background-color: gainsboro; */
+  background: url("/images/ocean.jpg")no-repeat center center fixed;
+  -webkit-background-size: cover;
 }
 
 
@@ -658,6 +664,12 @@ input[type="radio"] {
   padding-bottom: 2rem;
 }
 
+
+/* Report description */
+ul {
+  list-style: square inside url("sqpurple.gif");
+}
+
 /* Water tank */
 
 .water-tank-subtitle {
@@ -678,7 +690,7 @@ input[type="radio"] {
 .water-tanks {
   width: 50%;
   margin: 20%;
-  display: inline-block;
+  display: inline-flex;
 }
 
 .water-tank {
@@ -1088,9 +1100,9 @@ input[type="radio"] {
  }
  
  .btn-primary {
-   background-color: #1D809F !important;
-   border-color: #1D809F !important;
-   color: #fff !important;
+   background-color: #1D809F ;
+   border-color: #1D809F ;
+   color: #fff ;
  }
  
  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {

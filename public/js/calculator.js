@@ -463,7 +463,7 @@ function showResults() {
     // Calculate how much less user are using than average victorian family of the same size
     let howMuchLess = Math.round((100 - (usageTotal / averageTotal) * 100)) + "%";
 
-    tankFeedbackMessage = `<h1> Good Work! </h1> <h3> You are using <h3> <h1 class="percentage"> ${howMuchLess} </h1> <h3> less water than an average Victorian family of </h3> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1> Good Work! </h1> <h4> Your family is using </h4> <h1 class="percentage"> ${Math.round(usageTotal/30)} </h1> <h4> Litres of water each day, which is </h4> <h1 class="percentage"> ${howMuchLess} </h1> <h4> less water than an average Victorian family of </h4> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
 
     // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
@@ -485,7 +485,7 @@ function showResults() {
     let howMuchMore = Math.round((usageTotal / averageTotal) * 100 - 100) + "%";
 
 
-    tankFeedbackMessage = `Stop right there! You are using <h1 class="percentage"> ${howMuchMore} </h1> more water than an average Victorian family of <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1> Stop right there! </h1> <h4> Your family is using <h4> <h1 class="percentage"> ${Math.round(usageTotal/30)} </h1> <h4> Litres of water each day, which is </h4> <h1 class="percentage"> ${howMuchMore} </h1> <h4> more than an average Victorian family of </h4> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
       ;
 
 
@@ -500,11 +500,11 @@ function showResults() {
 
   // Pie 
   let pieFeedbackMessage = "";
-  let avgShower = familyCount * 2000;
-  let avgToilet = familyCount * 2000;
-  let avgKitchen = familyCount * 200;
-  let avgLaundry = familyCount * 200;
-  let avgOutdoor = familyCount * 200;
+  let avgShower = familyCount * 1650;
+  let avgToilet = familyCount * 1092;
+  let avgKitchen = familyCount * 525;
+  let avgLaundry = familyCount * 429;
+  let avgOutdoor = familyCount * 3786;
 
   let compareSet = {
     "Shower & Bath": "Normal",
