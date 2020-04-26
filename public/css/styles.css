@@ -1,3 +1,6 @@
+/* 
+ Import Abang font, its used for our logo Sponge 
+*/
 @font-face {
   font-family: Abang;
   src: url("/fonts/Abang.otf") format("opentype");
@@ -5,250 +8,8 @@
 
 
 
-
-
-
-/*==================================
-    TIMELINE
-==================================*/
-
-    /*-- GENERAL STYLES
-    ------------------------------*/
-    .timeline {
-      line-height: 1.4em;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      h1, h2, h3, h4, h5, h6 {
-          line-height: inherit;
-      }
-  }
-
-  /*----- TIMELINE ITEM -----*/
-
-  .timeline-item {
-      padding-left: 40px;
-      position: relative;
-      &:last-child {
-          padding-bottom: 0;
-      }
-  }
-
-  /*----- TIMELINE INFO -----*/
-
-  .timeline-info {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 3px;
-      margin: 0 0 .5em 0;
-      text-transform: uppercase;
-      white-space: nowrap;
-  }
-  /*----- TIMELINE MARKER -----*/
-
-  .timeline-marker {
-      position: absolute;
-      top: 0; bottom: 0; left: 0;
-      width: 15px;
-      &:before {
-          background: $primary-color;
-          border: 3px solid transparent;
-          border-radius: 100%;
-          content: "";
-          display: block;
-          height: 15px;
-          position: absolute;
-          top: 4px; left: 0;
-          width: 15px;
-          transition: background 0.3s ease-in-out,
-                  border 0.3s ease-in-out;
-      }
-      &:after {
-          content: "";
-          width: 3px;
-          background: #CCD5DB;
-          display: block;
-          position: absolute;
-          top: 24px; bottom: 0; left: 6px;
-      }
-      .timeline-item:last-child &:after {
-          content: none;
-      }
-  }
-  .timeline-item:not(.period):hover .timeline-marker:before {
-      background: transparent;
-      border: 3px solid $primary-color;
-  }
-
-  /*----- TIMELINE CONTENT -----*/
-
-  .timeline-content {
-      padding-bottom: 40px;
-      p:last-child {
-          margin-bottom: 0;
-      }
-  }
-
-  /*----- TIMELINE PERIOD -----*/
-  
-  .period {
-      padding: 0;
-      .timeline-info {
-          display: none;
-      }
-      .timeline-marker {
-          &:before {
-              background: transparent;
-              content: "";
-              width: 15px;
-              height: auto;
-              border: none;
-              border-radius: 0;
-              top: 0;
-              bottom: 30px;
-              position: absolute;
-              border-top: 3px solid #CCD5DB;
-              border-bottom: 3px solid #CCD5DB;
-          }
-          &:after {
-              content: "";
-              height: 32px;
-              top: auto;
-          }
-      }
-      .timeline-content {
-          padding: 40px 0 70px;
-      }
-      .timeline-title {
-          margin: 0;
-      }
-  }
-
-  /*----------------------------------------------
-      MOD: TIMELINE SPLIT
-  ----------------------------------------------*/
-
-      .timeline-split {
-          @media (min-width: 768px) {
-              .timeline {
-                  display: table;
-              }
-              .timeline-item {
-                  display: table-row;
-                  padding: 0;
-              }
-              .timeline-info,
-              .timeline-marker,
-              .timeline-content,
-              .period .timeline-info {
-                  display: table-cell;
-                  vertical-align: top;
-              }
-              .timeline-marker {
-                  position: relative;
-              }
-              .timeline-content {
-                  padding-left: 30px;
-              }
-              .timeline-info {
-                  padding-right: 30px;
-              }
-              .period .timeline-title {
-                  position: relative;
-                  left: -45px;
-              }
-          }
-      }
-
-  /*----------------------------------------------
-      MOD: TIMELINE CENTERED
-  ----------------------------------------------*/
-
-      .timeline-centered {
-          @extend .timeline-split;
-          @media (min-width: 992px) {
-              &,
-              .timeline-item,
-              .timeline-info,
-              .timeline-marker,
-              .timeline-content {
-                  display: block;
-                  margin: 0;
-                  padding: 0;
-              }
-              .timeline-item {
-                  padding-bottom: 40px;
-                  overflow: hidden;
-              }
-              .timeline-marker {
-                  position: absolute;
-                  left: 50%;
-                  margin-left: -7.5px;
-              }
-              .timeline-info,
-              .timeline-content {
-                  width: 50%;
-              }
-              > .timeline-item:nth-child(odd) .timeline-info {
-                  float: left;
-                  text-align: right;
-                  padding-right: 30px;
-              }
-              > .timeline-item:nth-child(odd) .timeline-content {
-                  float: right;
-                  text-align: left;
-                  padding-left: 30px;
-              }    
-              > .timeline-item:nth-child(even) .timeline-info {
-                  float: right;
-                  text-align: left;
-                  padding-left: 30px;
-              }
-              > .timeline-item:nth-child(even) .timeline-content {
-                  float: left;
-                  text-align: right;
-                  padding-right: 30px;
-              }
-              > .timeline-item.period .timeline-content {
-                  float: none;
-                  padding: 0;
-                  width: 100%;
-                  text-align: center;
-              }
-              .timeline-item.period {
-                  padding: 50px 0 90px;
-              }
-              .period .timeline-marker:after {
-                  height: 30px;
-                  bottom: 0;
-                  top: auto;
-              }
-              .period .timeline-title {
-                  left: auto;
-              }
-          }
-      }
-
-  /*----------------------------------------------
-      MOD: MARKER OUTLINE
-  ----------------------------------------------*/
-      
-      .marker-outline {
-          .timeline-marker {
-              &:before {
-                  background: transparent;
-                  border-color: $primary-color;
-              }
-          }
-          .timeline-item:hover .timeline-marker:before {
-              background: $primary-color;
-          }
-      }
-
-
 /*
- CSS for the main interaction
+ Tab interaction in educate page
 */
 .tabset > input[type="radio"] {
   position: absolute;
@@ -271,11 +32,6 @@
 /*
  Styling
 */
-body {
-  font: 16px/1.5em "Overpass", "Open Sans", Helvetica, sans-serif;
-  color: #333;
-  font-weight: 300;
-}
 
 .tabset > label {
   position: relative;
@@ -319,10 +75,11 @@ body {
   border-top: 1px solid #ccc;
 }
 
-/* Educate Tabs wrapper */
 
 
-/* Test monial */
+/*
+ Testmonial in about page
+*/
 .testmonial .card-inner {
   background: #dbdbdb;
   border-radius: 15px;
@@ -356,16 +113,17 @@ text-transform:uppercase;
 .card-inner .quote-icon {
   color: #202040;
 }
-/* Testmonial wrapper */
 
-/* About us */
-.about-us {
-  background-color: lightgrey;
-  border-radius: 5%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  padding: 5% 2% 5%;
-  height: fit-content;
+.about-educate:hover {
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
 }
+
+
+/*
+ About-us page styles
+*/
 
 .about-brand {
   color: black;
@@ -374,7 +132,9 @@ text-transform:uppercase;
 }
 
 
-/* card manual*/
+/*
+ Calculator manual
+*/
 .card {
   display: inline-block;
 }
@@ -386,16 +146,20 @@ text-transform:uppercase;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-/* How it work */
+
 .how-it-work {
   text-align: center;
   /* margin: 10rem; */
   padding-top: 10rem;
   height: 100%;
 }
-/* How it work */
 
-/* Service section */
+
+
+
+/*
+ Front page service section
+*/
 #service-section {
   max-width: 1000px;
   margin: 0 auto;
@@ -437,27 +201,27 @@ h3 {
 }
 
 .service {
-  background: #fff;
+  /* background: #fff; */
   margin: 20px;
   padding: 20px;
-  border-radius: 4px;
+  /* border-radius: 4px; */
   text-align: center;
   -webkit-box-flex: 1;
   flex: 1;
   display: -webkit-box;
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid #e7e7e7;
+  /* border: 2px solid #e7e7e7; */
   -webkit-transition: all 0.3s ease;
   -moz-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
 
-.service:hover {
+/* .service:hover {
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
-}
+} */
 
 .service i {
   font-size: 3.45rem;
@@ -470,9 +234,9 @@ h3 {
   color: #42b7ca;
 }
 
-.service1:hover {
+/* .service1:hover {
   border: 2px solid #42b7ca;
-}
+} */
 
 .service2 i,
 .service2 h4,
@@ -480,9 +244,9 @@ h3 {
   color: #425fca;
 }
 
-.service2:hover {
+/* .service2:hover {
   border: 2px solid #425fca;
-}
+} */
 
 .service3 i,
 .service3 h4,
@@ -490,9 +254,9 @@ h3 {
   color: #9c42ca;
 }
 
-.service3:hover {
+/* .service3:hover {
   border: 2px solid #9c42ca;
-}
+} */
 
 .service .cta span {
   font-size: 0.6rem;
