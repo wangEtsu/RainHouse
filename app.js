@@ -308,6 +308,50 @@ app.use(bodyParser.urlencoded({
 
 // Routing
 app.get("/", function (req, res) {
+    res.render("login", {
+        startingContent: homeStartingContent
+    })
+})
+
+app.get("/login", function (req, res) {
+    res.render("login", {
+        startingContent: homeStartingContent
+    })
+})
+app.get("/fail", function (req, res) {
+    res.render("fail", {
+        startingContent: homeStartingContent
+    })
+})
+
+
+app.post("/", function (req, res) {
+
+    let password = req.body.password;
+
+    if (password === "teammizu")
+    {
+        res.redirect("/home");
+    }
+    else {
+        res.redirect("/fail");
+    }
+})
+
+app.post("/login", function (req, res) {
+
+    let password = req.body.password;
+
+    if (password === "teammizu")
+    {
+        res.redirect("/home");
+    }
+    else {
+        res.redirect("/fail");
+    }
+})
+
+app.get("/home", function (req, res) {
     res.render("home", {
         startingContent: homeStartingContent
     })
