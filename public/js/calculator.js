@@ -504,7 +504,7 @@ function showResults() {
   let avgToilet = familyCount * 1092;
   let avgKitchen = familyCount * 525;
   let avgLaundry = familyCount * 429;
-  let avgOutdoor = familyCount * 3786;
+  let avgOutdoor = 450 + 200;
 
   let compareSet = {
     "Shower & Bath": "Normal",
@@ -579,11 +579,11 @@ function showResults() {
   var badStr = '';
 
   goodSet.forEach(function (goodie) {
-    goodStr += '<p>' + goodie + '</p>';
+    goodStr += '<p class="activity-indicator">' + goodie + '</p>';
   });
 
   badSet.forEach(function (badie) {
-    badStr += '<p>' + badie + '</p>';
+    badStr += '<p class="activity-indicator">' + badie + '</p>';
   });
 
 
