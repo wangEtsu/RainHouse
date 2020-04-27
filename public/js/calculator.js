@@ -1,4 +1,11 @@
 
+window.onload = function() {
+  if(!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+  }
+}
+
 var variableJSON = document.getElementById('variableJSON').innerText;
 
 // document.getElementById('variableJSON').remove();
