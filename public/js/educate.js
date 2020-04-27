@@ -58,6 +58,7 @@ am4core.ready(function() {
   var valueAxis1 = chart.yAxes.push(new am4charts.ValueAxis());
   valueAxis1.title.text = "Water storage level (%)";
   
+  
   var valueAxis2 = chart.yAxes.push(new am4charts.ValueAxis());
   valueAxis2.title.text = "Population (Million people)";
   valueAxis2.renderer.opposite = true;
@@ -89,7 +90,7 @@ am4core.ready(function() {
   var bullet3 = series3.bullets.push(new am4charts.CircleBullet());
   bullet3.circle.radius = 3;
   bullet3.circle.strokeWidth = 2;
-  bullet3.circle.fill = am4core.color("#fff");
+  bullet3.circle.fill = am4core.color("#faebd7");
   
 
   // Add cursor

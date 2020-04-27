@@ -463,7 +463,7 @@ function showResults() {
     // Calculate how much less user are using than average victorian family of the same size
     let howMuchLess = Math.round((100 - (usageTotal / averageTotal) * 100)) + "%";
 
-    tankFeedbackMessage = `<h1> Good Work! </h1> <h4> Your family is using </h4> <h1 class="percentage"> ${Math.round(usageTotal/30)} </h1> <h4> Litres of water each day, which is </h4> <h1 class="percentage"> ${howMuchLess} </h1> <h4> less water than an average Victorian family of </h4> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1> Good Work! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchLess} </h1> <p class="activity-indicator"> less than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
 
     // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
@@ -485,7 +485,7 @@ function showResults() {
     let howMuchMore = Math.round((usageTotal / averageTotal) * 100 - 100) + "%";
 
 
-    tankFeedbackMessage = `<h1> Stop right there! </h1> <h4> Your family is using <h4> <h1 class="percentage"> ${Math.round(usageTotal/30)} </h1> <h4> Litres of water each day, which is </h4> <h1 class="percentage"> ${howMuchMore} </h1> <h4> more than an average Victorian family of </h4> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1> Stop right there! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchMore} </h1> <p class="activity-indicator"> more than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
       ;
 
 
@@ -612,7 +612,7 @@ function showResults() {
   am4core.ready(function () {
 
     // Themes begin
-    am4core.useTheme(am4themes_dataviz);
+    am4core.useTheme(am4themes_animated);
     // Themes end
 
 
@@ -631,10 +631,9 @@ function showResults() {
     xAxis.renderer.cellStartLocation = 0.1
     xAxis.renderer.cellEndLocation = 0.9
     xAxis.renderer.grid.template.location = 0;
-
     var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
     yAxis.min = 0;
-
+    yAxis.title.text = "Litres of water"
     function createSeries(value, name) {
       var series = chart.series.push(new am4charts.ColumnSeries())
       series.dataFields.valueY = value
@@ -646,9 +645,10 @@ function showResults() {
 
       var bullet = series.bullets.push(new am4charts.LabelBullet())
       bullet.interactionsEnabled = false
-      bullet.dy = 30;
+      bullet.dy = -20;
       bullet.label.text = '{valueY}'
-      bullet.label.fill = am4core.color('#ffffff')
+      bullet.label.fill = am4core.color('#120136')
+
 
       return series;
     }

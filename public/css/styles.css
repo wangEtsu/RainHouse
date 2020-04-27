@@ -253,7 +253,8 @@ text-transform:uppercase;
 #water-tank-message {
   padding: 2rem;
   border-radius: 25px;
-  background-color: #e6e2dd;
+  background-color: #c2cad9;
+  box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #water-tank-analysis {
@@ -265,7 +266,8 @@ text-transform:uppercase;
 #comparison-table{
   margin-top: 10rem;
   border-radius: 25px;
-  background-color: #e6e2dd;
+  background-color: #84bdd8;
+  box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .activity-indicator {
