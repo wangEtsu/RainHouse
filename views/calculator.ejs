@@ -42,10 +42,10 @@
 
         $(document).ready(function() {
         $(document).on('click','#quiz-initialize',function(e){
-            $("#quiz-markpoint").css({"display": "block"});
-            $("li").css({"display": "list-item"});
+
             $(window).scrollTop($('#quiz-markpoint').offset().top);
-            
+            // $("#quiz-markpoint").css({"display": "block"});
+            // $("li").css({"display": "list-item"});
         });
         });
             
@@ -55,10 +55,10 @@
 
 
 <!-- Quiz -->
-<div class="container quiz-section" id="quiz-markpoint" style="display: none;">
+<div class="container quiz-section" id="quiz-markpoint">
 
     <!-- progressbar -->
-    <ul id="progressbar">
+    <ul id="progressbar" id="quiz-001">
         <li class="active">Shower & Bath</li>
         <li>Toilet</li>
         <li>Kitchen</li>
