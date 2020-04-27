@@ -43,7 +43,6 @@
         $(document).ready(function() {
         $(document).on('click','#quiz-initialize',function(e){
             $("#quiz-markpoint").css({"display": "block"});
-            // The list item have to be triggered separatedly, because the display attribute is not block and it will get overwritten by its parents div
             $("li").css({"display": "list-item"});
             $(window).scrollTop($('#quiz-markpoint').offset().top);
             

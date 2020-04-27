@@ -11,144 +11,173 @@
 <script>try { Typekit.load({ async: true }); } catch (e) { }</script>
 
 <div class="how-it-work" style="background-image: url(images/ocean.jpg); box-sizing: border-box;">
-  <div class="container text-center my-auto">
-    <h1 class="mb-1" style="color: antiquewhite; font-size: 3.5rem;">Melbourne is running out of Water</h1>
-    <div id="storage-visualization" style="width: 100%; height: 500px;"></div>
-    <h1 class="mb-1" style="color: antiquewhite; font-size: 1.5rem;">Australians are one of the top water consumers in the world. In the next decade, Victoria will witness not only population growth but also a harder impact of climate change. According to Melbourne Water, one of the state-owned water service providers, the city won’t be having enough water by 2028 if the demand keeps growing while the climate impact stays high.</h1>
-      <a class="btn btn-primary btn-xl js-scroll-trigger" style="padding: 10px;" href="#tips-section">How you can Help!</a>
-  </div>
+	<div class="container text-center my-auto">
+		<h1 class="mb-1" style="color: antiquewhite; font-size: 3.5rem;">Melbourne is running out of Water</h1>
+		<div id="storage-visualization" style="width: 100%; height: 500px;"></div>
+		<h1 class="mb-1" style="color: antiquewhite; font-size: 1.5rem;">Australians are one of the top water consumers
+			in the world. In the next decade, Victoria will witness not only population growth but also a harder impact
+			of climate change. According to Melbourne Water, one of the state-owned water service providers, the city
+			won’t be having enough water by 2028 if the demand keeps growing while the climate impact stays high.</h1>
+		<a class="btn btn-primary btn-xl js-scroll-trigger" style="padding: 10px;" href="#tips-section">How you can
+			Help!</a>
+	</div>
 </div>
 
 <!-- HTML -->
 
 <body>
-  
-<style>
 
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+	<style>
+		@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
-main {
-  max-width: 80%;
-  margin: 30px auto;
-	background: #f8f9fa;
-	/* padding: 30px; */
-	/* box-shadow: 0 3px 5px rgba(0,0,0,0.2); */
-}
-input[name=css-tabs] {
-  display: none;
-}
-a {
-	color: #F29A77;
-}
-#tabs {
-	padding: 0 0 0 50px;
-	width: calc(100% + 50px);
-	margin-left: -50px;
-	background: #0076a8;
-	height: 80px;
-	border-bottom: 5px solid #EB4E01;
-	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-}
-#tabs::before {
-	content: "";
-	display: block;
-	position: absolute;
-	z-index: -100;
-	width: 100%;
-	left: 0;
-	margin-top: 16px;
-	height: 80px;
-	background: #0076a8;
-	border-bottom: 5px solid #EB4E01;
-}
-#tabs::after {
-	content: "";
-	display: block;
-	position: absolute;
-	z-index: 0;
-	height: 80px;
-	width: 102px;
-	background: #EB4E01;
-	transition: transform 400ms;
-}
-#tabs label {
-	position: relative;
-	z-index: 100;
-	display: block;
-	float: left;
-  font-size: 11px;
-	text-transform: uppercase;
-	text-align: center;
-	width: 100px;
-	height: 100%;
-	/* border-right: 1px dotted #575654; */
-	cursor: pointer;
-}
-#tabs label:first-child {
-	border-left: 1px dotted #575654;
-}
-#tabs label::before {
-	content: "";
-	display: block;
-	height: 30px;
-	width: 30px;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: contain;
-	/* filter: invert(40%); */
-	margin: 10px auto;
-}
-#tab1::before {
-	background-image: url(images/bathroom.png);
-}
-#tab2::before {
-	background-image: url(images/toilet.png);
-}
-#tab3::before {
-	background-image: url(images/kitchen.png);
-}
-#tab4::before {
-	background-image: url(images/clothes.png);
-}
-#tab5::before {
-	background-image: url(images/garden.png);
-}
-#radio1:checked ~ #tabs #tab1::before, #radio2:checked ~ #tabs #tab2::before, #radio3:checked ~ #tabs #tab3::before, #radio4:checked ~ #tabs #tab4::before, #radio5:checked ~ #tabs #tab5::before {
-	filter: invert(100%);
-}
-#radio1:checked ~ #tabs::after {
-	transform: translateX(0);
-}
-#radio2:checked ~ #tabs::after {
-	transform: translateX(101px);
-}
-#radio3:checked ~ #tabs::after {
-	transform: translateX(202px);
-}
-#radio4:checked ~ #tabs::after {
-	transform: translateX(303px);
-}
-#radio5:checked ~ #tabs::after {
-	transform: translateX(404px);
-}
-#content {
-	position: relative;
-	height: 1600px;
-}
-#content::before {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 0;
-	height: 0;
-	margin-left: -50px;
-	border-top: 8px solid #000;
-	border-right: 10px solid #000;
-	border-left: 10px solid transparent;
-	border-bottom: 8px solid transparent;
-}
-/* #content::after {
+		main {
+			max-width: 80%;
+			margin: 30px auto;
+			background: #f8f9fa;
+			/* padding: 30px; */
+			/* box-shadow: 0 3px 5px rgba(0,0,0,0.2); */
+		}
+
+		input[name=css-tabs] {
+			display: none;
+		}
+
+		a {
+			color: #F29A77;
+		}
+
+		#tabs {
+			padding: 0 0 0 50px;
+			width: calc(100% + 50px);
+			margin-left: -50px;
+			background: #0076a8;
+			height: 80px;
+			border-bottom: 5px solid #EB4E01;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		#tabs::before {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: -100;
+			width: 100%;
+			left: 0;
+			margin-top: 16px;
+			height: 80px;
+			background: #0076a8;
+			border-bottom: 5px solid #EB4E01;
+		}
+
+		#tabs::after {
+			content: "";
+			display: block;
+			position: absolute;
+			z-index: 0;
+			height: 80px;
+			width: 102px;
+			background: #EB4E01;
+			transition: transform 400ms;
+		}
+
+		#tabs label {
+			position: relative;
+			z-index: 100;
+			display: block;
+			float: left;
+			font-size: 11px;
+			text-transform: uppercase;
+			text-align: center;
+			width: 100px;
+			height: 100%;
+			/* border-right: 1px dotted #575654; */
+			cursor: pointer;
+		}
+
+		#tabs label:first-child {
+			border-left: 1px dotted #575654;
+		}
+
+		#tabs label::before {
+			content: "";
+			display: block;
+			height: 30px;
+			width: 30px;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: contain;
+			/* filter: invert(40%); */
+			margin: 10px auto;
+		}
+
+		#tab1::before {
+			background-image: url(images/bathroom.png);
+		}
+
+		#tab2::before {
+			background-image: url(images/toilet.png);
+		}
+
+		#tab3::before {
+			background-image: url(images/kitchen.png);
+		}
+
+		#tab4::before {
+			background-image: url(images/clothes.png);
+		}
+
+		#tab5::before {
+			background-image: url(images/garden.png);
+		}
+
+		#radio1:checked~#tabs #tab1::before,
+		#radio2:checked~#tabs #tab2::before,
+		#radio3:checked~#tabs #tab3::before,
+		#radio4:checked~#tabs #tab4::before,
+		#radio5:checked~#tabs #tab5::before {
+			filter: invert(100%);
+		}
+
+		#radio1:checked~#tabs::after {
+			transform: translateX(0);
+		}
+
+		#radio2:checked~#tabs::after {
+			transform: translateX(101px);
+		}
+
+		#radio3:checked~#tabs::after {
+			transform: translateX(202px);
+		}
+
+		#radio4:checked~#tabs::after {
+			transform: translateX(303px);
+		}
+
+		#radio5:checked~#tabs::after {
+			transform: translateX(404px);
+		}
+
+		#content {
+			position: relative;
+			height: 1000px;
+		}
+
+		#content::before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 0;
+			height: 0;
+			margin-left: -50px;
+			border-top: 8px solid #000;
+			border-right: 10px solid #000;
+			border-left: 10px solid transparent;
+			border-bottom: 8px solid transparent;
+		}
+
+		/* #content::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -160,93 +189,174 @@ a {
 	border-right: 10px solid transparent;
 	border-bottom: 8px solid transparent;
 } */
-#content section {
-	position: absolute;
-	transform: translateY(50px);
-	opacity: 0;
-	transition: transform 500ms, opacity 500ms;
-}
-#radio1:checked ~ #content #content1, #radio2:checked ~ #content #content2, #radio3:checked ~ #content #content3, #radio4:checked ~ #content #content4, #radio5:checked ~ #content #content5 {
-	transform: translateY(0);
-	opacity: 1;
-}
+		#content section {
+			position: absolute;
+			transform: translateY(50px);
+			opacity: 0;
+			transition: transform 500ms, opacity 500ms;
+		}
+
+		#radio1:checked~#content #content1,
+		#radio2:checked~#content #content2,
+		#radio3:checked~#content #content3,
+		#radio4:checked~#content #content4,
+		#radio5:checked~#content #content5 {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	</style>
+	<main>
+
+		<input id="radio1" type="radio" name="css-tabs" checked>
+		<input id="radio2" type="radio" name="css-tabs">
+		<input id="radio3" type="radio" name="css-tabs">
+		<input id="radio4" type="radio" name="css-tabs">
+		<input id="radio5" type="radio" name="css-tabs">
+		<div id="tabs">
+			<label id="tab1" for="radio1">Shower</label>
+			<label id="tab2" for="radio2">Toilet</label>
+			<label id="tab3" for="radio3">Kitchen</label>
+			<label id="tab4" for="radio4">Laundry</label>
+			<label id="tab5" for="radio5">Outdoor</label>
+		</div>
+		<div id="content">
+			<section id="content1">
+				<div class="tips">
+					<h1 class="mb-1">Save Water While Bathing</h1>
+					<p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the
+						drain and set the temperature as it fills the tank.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Place a bucket in the shower</h1>
+					<p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for
+						watering plants, splashing the toilet or washing.</p>
+				</div>
 
 
-</style>
-  <main>
-
-    <input id="radio1" type="radio" name="css-tabs" checked>
-    <input id="radio2" type="radio" name="css-tabs">
-    <input id="radio3" type="radio" name="css-tabs">
-    <input id="radio4" type="radio" name="css-tabs">
-    <input id="radio5" type="radio" name="css-tabs">
-    <div id="tabs">
-      <label id="tab1" for="radio1">Shower</label>
-      <label id="tab2" for="radio2">Toilet</label>
-      <label id="tab3" for="radio3">Kitchen</label>
-      <label id="tab4" for="radio4">Laundry</label>
-      <label id="tab5" for="radio5">Outdoor</label>
-    </div>
-    <div id="content">
-      <section id="content1">
-        <div class="tips">
-          <h1 class="mb-1" >Save Water While Bathing</h1>
-        <p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the drain and set the temperature as it fills the tank.</p>
-        </div>
-        
-        <div class="tips">
-
-          <h1 class="mb-1" >Save Water While Bathing</h1>
-          <p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for watering plants, splashing the toilet or washing.</p>
-        </div>
-
-
-        <div class="tips">
-          <h1 class="mb-1" >Save Water While Bathing</h1>
-          <p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many songs you play when you’re in.</p>
-
-        </div>
-      
-        
-      
-        <div class="tips">
-          <h1 class="mb-1" >Save Water While Bathing</h1>
-          <p>The towel you use to dry after a shower does not need to be laundered after each use, so hang it up and re-use it instead.</p>
-  
-
-        </div>
-
-
-        <div class="tips">
-          <h1 class="mb-1" >Save Water While Bathing</h1>
-          <p>It may cost you a bit of money up front but your efforts to save water will save you money down the road.</p>
-
-        </div>
-        
-
-      </section>
-      <section id="content2">
-        <h3>Something Clever</h3>
-        <p>Aliquam condimentum hendrerit nisi, nec vestibulum mi feugiat ut. Donec lobortis nisi neque, in egestas eros venenatis eu. Vestibulum nulla nisi, venenatis at pretium id, fermentum quis risus. Quisque porta suscipit neque eu placerat. Etiam scelerisque, quam in sodales iaculis, velit velit mattis nunc, quis dapibus massa elit nec enim. Vivamus quis libero aliquam, volutpat nisl sed, consectetur ante.</p>
-        <p>Donec aliquam semper felis, in placerat leo blandit in. Integer interdum elit quis felis tempor venenatis. In faucibus ac mauris id commodo. Proin in sapien tincidunt, luctus mi id, bibendum dui. Nunc tincidunt libero ut purus vehicula, sit amet tincidunt mi sollicitudin. Donec varius erat magna, sed convallis purus adipiscing ut. Duis sagittis ut leo ut auctor. Ut convallis nisl nec purus sollicitudin, nec iaculis felis rutrum. </p>
-      </section>
-      <section id="content3">
-        <h3>Interesting Heading Text</h3>
-        <p>Fusce pulvinar porttitor dui, eget ultrices nulla tincidunt vel. Suspendisse faucibus lacinia tellus, et viverra ligula. Suspendisse eget ipsum auctor, congue metus vel, dictum erat. Aenean tristique euismod molestie. Nulla rutrum accumsan nisl, ac semper sapien tincidunt et. Praesent tortor risus, commodo et sagittis nec, aliquam quis augue. Aenean non elit elementum, tempor metus at, aliquam felis.</p>
-      </section>
-      <section id="content4">
-        <h3>Place a bucket in the shower</h3>
-        <p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for watering plants, splashing the toilet or washing.</p>
-      </section>
-      <section id="content5">
-        <h3>Reduce your shower time</h3>
-        <p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many songs you play when you’re in.</p>
-      </section>
-    </div>
-  </main>
+				<div class="tips">
+					<h1 class="mb-1">Reduce your shower time</h1>
+					<p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many
+						songs you play when you’re in.</p>
+				</div>
 
 
 
+				<div class="tips">
+					<h1 class="mb-1">Re-use Towels</h1>
+					<p>The towel you use to dry after a shower does not need to be laundered after each use, so hang it
+						up and re-use it instead.</p>
+				</div>
 
-<script src="js/educate.js"></script>
-<%- include("partials/footer"); -%>
+
+				<div class="tips">
+					<h1 class="mb-1">Install a low-flow showerhead</h1>
+					<p>It may cost you a bit of money up front but your efforts to save water will save you money down
+						the road.</p>
+				</div>
+
+
+			</section>
+			<section id="content2">
+				<div class="tips">
+					<h1 class="mb-1">Check your toilets and faucets for leaks</h1>
+					<p>If you have a small leak in your toilet or a faucet, you could be losing hundreds of gallons of water per day.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Get a low-flow toilet</h1>
+					<p>Flushing is the biggest water hog in the house. Older, conventional toilets can use 20 to 28 litres per flush, but low-flow models use as little as 7 litres.
+					</p>
+				</div>
+
+
+				<div class="tips">
+					<h1 class="mb-1">Dual flush toilets</h1>
+					<p>A dual flush toilet drives lower water usage in your home, thereby saving money on your monthly water bill while being environment friendly.</p>
+				</div>
+
+
+
+				<div class="tips">
+					<h1 class="mb-1">Put a filled plastic bottle inside the tank</h1>
+					<p>It will help reduce the amount of water used per flush (if you can’t replace your higher volume toilet).</p>
+				</div>
+
+
+			</section>
+			<section id="content3">
+				<div class="tips">
+					<h1 class="mb-1">Reuse cooking water</h1>
+					<p>Don’t let the grey water from boiling pasta and veggies go to waste. Instead of dumping it down the drain, why not use it to water your garden?</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Capture running water</h1>
+					<p>Instead of letting precious water run down the drain, capture it in a bucket while waiting for the temperature to change.</p>
+				</div>
+
+
+				<div class="tips">
+					<h1 class="mb-1">Use appropriate pot sizes</h1>
+					<p>Unless you really need to, don’t be tempted to use big pots and pans. Large pots tend to require more cooking water than is necessary.</p>
+				</div>
+
+
+
+				<div class="tips">
+					<h1 class="mb-1">Don’t let your faucets needlessly run</h1>
+					<p>While cooking, refrain from keeping your faucets open which will help you save lots of water.</p>
+				</div>
+
+			</section>
+			<section id="content4">
+				<div class="tips">
+					<h1 class="mb-1">Wash your jeans less</h1>
+					<p>Washing them a lot will wear them out more quickly. Consider airing them out or even putting them in the freezer to freshen them up.</p>
+				</div>
+
+
+				<div class="tips">
+					<h1 class="mb-1">Run full loads</h1>
+					<p>Use your machine only when the load is full. This will help you to save loads of water more efficiently.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Use front-loading washing machines</h1>
+					<p>They are usually the most water efficient, using up to 50% less water.</p>
+				</div>
+			</section>
+			<section id="content5">
+				<div class="tips">
+					<h1 class="mb-1">Use Rain Harvesting or Grey Water</h1>
+					<p>Water collected from these techniques can be used to water your garden.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Build a Rain Garden</h1>
+					<p>Include a rain garden on your property to slow down and help filter pollutants from storm runoff.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Recycle Household Water</h1>
+					<p>Catch and save water from household chores to use in the garden. Keep empty five-gallon buckets on hand to catch water from a dehumidifier.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Use a bucket of water instead of an open hose</h1>
+					<p>Using a bucket and a wet sponge or rag to rinse your vehicle will help you save water. Fill your buckets with three gallons or less of water.</p>
+				</div>
+
+				<div class="tips">
+					<h1 class="mb-1">Group Plants by Water Needs</h1>
+					<p>TKeep lower water use plants like shrubs and drought tolerant perennials in a separate area. Install an irrigation system controller that supports zone watering to enjoy state-of-the-art water savings.</p>
+				</div>
+			</section>
+		</div>
+	</main>
+
+
+
+
+	<script src="js/educate.js"></script>
+	<%- include("partials/footer"); -%>
