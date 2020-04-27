@@ -36,16 +36,20 @@
 
     </div>
 
-    <a class="btn btn-primary btn-xl js-scroll-trigger" style="margin-top: 2rem; background-color: #8cba51; color: antiquewhite;" id="quiz-initialize">Start</a>
+    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#quiz-markpoint" style="margin-top: 2rem; background-color: #8cba51; color: antiquewhite;" id="quiz-initialize">Start</a>
     
     <script>
 
         $(document).ready(function() {
         $(document).on('click','#quiz-initialize',function(e){
 
-            $(window).scrollTop($('#quiz-markpoint').offset().top);
+
             // $("#quiz-markpoint").css({"display": "block"});
             // $("li").css({"display": "list-item"});
+
+
+
+            // $(window).scrollTop($('#quiz-markpoint').offset().top);
         });
         });
             
