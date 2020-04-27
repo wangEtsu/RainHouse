@@ -17,350 +17,234 @@
     <h1 class="mb-1" style="color: antiquewhite; font-size: 1.5rem;">Australians are one of the top water consumers in the world. In the next decade, Victoria will witness not only population growth but also a harder impact of climate change. According to Melbourne Water, one of the state-owned water service providers, the city won’t be having enough water by 2028 if the demand keeps growing while the climate impact stays high.</h1>
       <a class="btn btn-primary btn-xl js-scroll-trigger" style="padding: 10px;" href="#tips-section">How you can Help!</a>
   </div>
-</div>div>
+</div>
 
 <!-- HTML -->
 
 <body>
   
+<style>
 
-<div class="container tabset" id="tips-section">
-  <!-- Tab 1 -->
-  <input type="radio" name="tabset" id="tab1" aria-controls="tips-shower" checked>
-  <label for="tab1">Shower & Bath</label>
-  <!-- Tab 2 -->
-  <input type="radio" name="tabset" id="tab2" aria-controls="tips-toilet">
-  <label for="tab2">Toilet</label>
-  <!-- Tab 3 -->
-  <input type="radio" name="tabset" id="tab3" aria-controls="tips-kitchen">
-  <label for="tab3">Kitchen</label>
-  <!-- Tab 4 -->
-  <input type="radio" name="tabset" id="tab4" aria-controls="tips-laundry">
-  <label for="tab4">Laundry</label>
-  <!-- Tab 5 -->
-  <input type="radio" name="tabset" id="tab5" aria-controls="tips-outdoor">
-  <label for="tab5">Outdoor</label>
-
-  <div class="tab-panels">
-    <section id="tips-shower" class="tab-panel">
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
 
 
+main {
+  max-width: 80%;
+  margin: 30px auto;
+	background: #f8f9fa;
+	/* padding: 30px; */
+	/* box-shadow: 0 3px 5px rgba(0,0,0,0.2); */
+}
+input[name=css-tabs] {
+  display: none;
+}
+a {
+	color: #F29A77;
+}
+#tabs {
+	padding: 0 0 0 50px;
+	width: calc(100% + 50px);
+	margin-left: -50px;
+	background: #0076a8;
+	height: 80px;
+	border-bottom: 5px solid #EB4E01;
+	box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+}
+#tabs::before {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: -100;
+	width: 100%;
+	left: 0;
+	margin-top: 16px;
+	height: 80px;
+	background: #0076a8;
+	border-bottom: 5px solid #EB4E01;
+}
+#tabs::after {
+	content: "";
+	display: block;
+	position: absolute;
+	z-index: 0;
+	height: 80px;
+	width: 102px;
+	background: #EB4E01;
+	transition: transform 400ms;
+}
+#tabs label {
+	position: relative;
+	z-index: 100;
+	display: block;
+	float: left;
+  font-size: 11px;
+	text-transform: uppercase;
+	text-align: center;
+	width: 100px;
+	height: 100%;
+	/* border-right: 1px dotted #575654; */
+	cursor: pointer;
+}
+#tabs label:first-child {
+	border-left: 1px dotted #575654;
+}
+#tabs label::before {
+	content: "";
+	display: block;
+	height: 30px;
+	width: 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	/* filter: invert(40%); */
+	margin: 10px auto;
+}
+#tab1::before {
+	background-image: url(images/bathroom.png);
+}
+#tab2::before {
+	background-image: url(images/toilet.png);
+}
+#tab3::before {
+	background-image: url(images/kitchen.png);
+}
+#tab4::before {
+	background-image: url(images/clothes.png);
+}
+#tab5::before {
+	background-image: url(images/garden.png);
+}
+#radio1:checked ~ #tabs #tab1::before, #radio2:checked ~ #tabs #tab2::before, #radio3:checked ~ #tabs #tab3::before, #radio4:checked ~ #tabs #tab4::before, #radio5:checked ~ #tabs #tab5::before {
+	filter: invert(100%);
+}
+#radio1:checked ~ #tabs::after {
+	transform: translateX(0);
+}
+#radio2:checked ~ #tabs::after {
+	transform: translateX(101px);
+}
+#radio3:checked ~ #tabs::after {
+	transform: translateX(202px);
+}
+#radio4:checked ~ #tabs::after {
+	transform: translateX(303px);
+}
+#radio5:checked ~ #tabs::after {
+	transform: translateX(404px);
+}
+#content {
+	position: relative;
+	height: 1600px;
+}
+#content::before {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: -50px;
+	border-top: 8px solid #000;
+	border-right: 10px solid #000;
+	border-left: 10px solid transparent;
+	border-bottom: 8px solid transparent;
+}
+/* #content::after {
+	content: "";
+	display: block;
+	position: absolute;
+	width: 0;
+	height: 0;
+	margin-left: calc(100% + 30px);
+	border-top: 8px solid #000;
+	border-left: 10px solid #000;
+	border-right: 10px solid transparent;
+	border-bottom: 8px solid transparent;
+} */
+#content section {
+	position: absolute;
+	transform: translateY(50px);
+	opacity: 0;
+	transition: transform 500ms, opacity 500ms;
+}
+#radio1:checked ~ #content #content1, #radio2:checked ~ #content #content2, #radio3:checked ~ #content #content3, #radio4:checked ~ #content #content4, #radio5:checked ~ #content #content5 {
+	transform: translateY(0);
+	opacity: 1;
+}
+
+
+</style>
+  <main>
+
+    <input id="radio1" type="radio" name="css-tabs" checked>
+    <input id="radio2" type="radio" name="css-tabs">
+    <input id="radio3" type="radio" name="css-tabs">
+    <input id="radio4" type="radio" name="css-tabs">
+    <input id="radio5" type="radio" name="css-tabs">
+    <div id="tabs">
+      <label id="tab1" for="radio1">Shower</label>
+      <label id="tab2" for="radio2">Toilet</label>
+      <label id="tab3" for="radio3">Kitchen</label>
+      <label id="tab4" for="radio4">Laundry</label>
+      <label id="tab5" for="radio5">Outdoor</label>
+    </div>
+    <div id="content">
+      <section id="content1">
+        <div class="tips">
+          <h1 class="mb-1" >Save Water While Bathing</h1>
+        <p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the drain and set the temperature as it fills the tank.</p>
+        </div>
+        
+        <div class="tips">
+
+          <h1 class="mb-1" >Save Water While Bathing</h1>
+          <p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for watering plants, splashing the toilet or washing.</p>
+        </div>
+
+
+        <div class="tips">
+          <h1 class="mb-1" >Save Water While Bathing</h1>
+          <p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many songs you play when you’re in.</p>
+
+        </div>
       
-
-
-      <div class="container-fluid">
-        <div class="row example-split">
-          <div class="col-md-12 example-title">
-            <h2>Install a Steam Shower</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-split">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the drain and set the temperature as it fills the tank.
-                    Place a bucket in the shower</p>
-                </div>
-              </li>
-
-              <li class="timeline-item period">
-                <div class="timeline-info"></div>
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h2 class="timeline-title">Don't Leave Shower Running </h2>
-                </div>
-              </li>
-              <li class="timeline-item">
-
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-
-                  <p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many songs you play when you’re in.
-                    Re-use Towels</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-        <div class="row example-centered">
-          <div class="col-md-12 example-title">
-            <h2>Re-use Towels</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-centered">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for watering plants, splashing the toilet or washing.
-                    Reduce your shower time</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-
-    <section id="tips-toilet" class="tab-panel">
-
-
-
-      <div class="container-fluid">
-        <div class="row example-split">
-          <div class="col-md-12 example-title">
-            <h2>Install a Steam Shower</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-split">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Steam showers use the power of steam to keep clean but they are also very water efficient. They use
-                    less water than a traditional shower and are very relaxing to use.</p>
-                </div>
-              </li>
-
-              <li class="timeline-item period">
-                <div class="timeline-info"></div>
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h2 class="timeline-title">Don't Leave Shower Running </h2>
-                </div>
-              </li>
-              <li class="timeline-item">
-
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-        <div class="row example-centered">
-          <div class="col-md-12 example-title">
-            <h2>Re-use Towels</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-centered">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves.</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-
-    </section>
-    <section id="tips-kitchen" class="tab-panel">
+        
       
-      <div class="container-fluid">
-        <div class="row example-split">
-          <div class="col-md-12 example-title">
-            <h2>Install a Steam Shower</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-split">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Steam showers use the power of steam to keep clean but they are also very water efficient. They use
-                    less water than a traditional shower and are very relaxing to use.</p>
-                </div>
-              </li>
+        <div class="tips">
+          <h1 class="mb-1" >Save Water While Bathing</h1>
+          <p>The towel you use to dry after a shower does not need to be laundered after each use, so hang it up and re-use it instead.</p>
+  
 
-              <li class="timeline-item period">
-                <div class="timeline-info"></div>
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h2 class="timeline-title">Don't Leave Shower Running </h2>
-                </div>
-              </li>
-              <li class="timeline-item">
-
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
         </div>
-        <div class="row example-centered">
-          <div class="col-md-12 example-title">
-            <h2>Re-use Towels</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-centered">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves.</p>
-                </div>
-              </li>
 
-            </ul>
-          </div>
+
+        <div class="tips">
+          <h1 class="mb-1" >Save Water While Bathing</h1>
+          <p>It may cost you a bit of money up front but your efforts to save water will save you money down the road.</p>
+
         </div>
-      </div>
+        
 
+      </section>
+      <section id="content2">
+        <h3>Something Clever</h3>
+        <p>Aliquam condimentum hendrerit nisi, nec vestibulum mi feugiat ut. Donec lobortis nisi neque, in egestas eros venenatis eu. Vestibulum nulla nisi, venenatis at pretium id, fermentum quis risus. Quisque porta suscipit neque eu placerat. Etiam scelerisque, quam in sodales iaculis, velit velit mattis nunc, quis dapibus massa elit nec enim. Vivamus quis libero aliquam, volutpat nisl sed, consectetur ante.</p>
+        <p>Donec aliquam semper felis, in placerat leo blandit in. Integer interdum elit quis felis tempor venenatis. In faucibus ac mauris id commodo. Proin in sapien tincidunt, luctus mi id, bibendum dui. Nunc tincidunt libero ut purus vehicula, sit amet tincidunt mi sollicitudin. Donec varius erat magna, sed convallis purus adipiscing ut. Duis sagittis ut leo ut auctor. Ut convallis nisl nec purus sollicitudin, nec iaculis felis rutrum. </p>
+      </section>
+      <section id="content3">
+        <h3>Interesting Heading Text</h3>
+        <p>Fusce pulvinar porttitor dui, eget ultrices nulla tincidunt vel. Suspendisse faucibus lacinia tellus, et viverra ligula. Suspendisse eget ipsum auctor, congue metus vel, dictum erat. Aenean tristique euismod molestie. Nulla rutrum accumsan nisl, ac semper sapien tincidunt et. Praesent tortor risus, commodo et sagittis nec, aliquam quis augue. Aenean non elit elementum, tempor metus at, aliquam felis.</p>
+      </section>
+      <section id="content4">
+        <h3>Place a bucket in the shower</h3>
+        <p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for watering plants, splashing the toilet or washing.</p>
+      </section>
+      <section id="content5">
+        <h3>Reduce your shower time</h3>
+        <p>When you’re losing track of time, carry a radio into the bathroom and time yourself with how many songs you play when you’re in.</p>
+      </section>
+    </div>
+  </main>
 
-    </section>
-    <section id="tips-laundry" class="tab-panel">
-      
-      
-      <div class="container-fluid">
-        <div class="row example-split">
-          <div class="col-md-12 example-title">
-            <h2>Install a Steam Shower</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-split">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Steam showers use the power of steam to keep clean but they are also very water efficient. They use
-                    less water than a traditional shower and are very relaxing to use.</p>
-                </div>
-              </li>
-
-              <li class="timeline-item period">
-                <div class="timeline-info"></div>
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h2 class="timeline-title">Don't Leave Shower Running </h2>
-                </div>
-              </li>
-              <li class="timeline-item">
-
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-        <div class="row example-centered">
-          <div class="col-md-12 example-title">
-            <h2>Re-use Towels</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-centered">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves.</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </section>
-    <section id="tips-outdoor" class="tab-panel">
-      
-      <div class="container-fluid">
-        <div class="row example-split">
-          <div class="col-md-12 example-title">
-            <h2>Install a Steam Shower</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-split">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Steam showers use the power of steam to keep clean but they are also very water efficient. They use
-                    less water than a traditional shower and are very relaxing to use.</p>
-                </div>
-              </li>
-
-              <li class="timeline-item period">
-                <div class="timeline-info"></div>
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h2 class="timeline-title">Don't Leave Shower Running </h2>
-                </div>
-              </li>
-              <li class="timeline-item">
-
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-        <div class="row example-centered">
-          <div class="col-md-12 example-title">
-            <h2>Re-use Towels</h2>
-          </div>
-          <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2">
-            <ul class="timeline timeline-centered">
-              <li class="timeline-item">
-                <div class="timeline-marker"></div>
-                <div class="timeline-content">
-                  <h3 class="timeline-title"> </h3>
-                  <p>Instead of letting the shower run, turn it off while lathering up and washing hair. If it’s
-                    annoying to have to constantly readjust the temperature, look for shower heads with quick shut off
-                    valves.</p>
-                </div>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-      </div>
-
-
-    </section>
-  </div>
-
-</div>
 
 
 
