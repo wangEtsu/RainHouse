@@ -519,7 +519,7 @@ position: relative;
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
 #progressbar li.active:before,  #progressbar li.active:after{
-	background: #27AE60;
+	background: #4da2fd;
 	color: white;
 }
 
