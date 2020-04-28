@@ -762,7 +762,8 @@ function showNextSlide() {
     showSlide(currentSlide + 1);
   }
   else {
-    $("#next").addClass("shake");
+    // Shake the radio toolbar if user click next with out answering any  
+    $(".radio-toolbar").addClass("shake");
       
       var delay = setTimeout(function(){
         $(".shake").removeClass("shake");
