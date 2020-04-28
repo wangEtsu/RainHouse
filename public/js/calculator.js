@@ -1,11 +1,4 @@
 
-window.onload = function() {
-  if(!window.location.hash) {
-      window.location = window.location + '#loaded';
-      window.location.reload();
-  }
-}
-
 var variableJSON = document.getElementById('variableJSON').innerText;
 
 // document.getElementById('variableJSON').remove();
@@ -470,7 +463,7 @@ function showResults() {
     // Calculate how much less user are using than average victorian family of the same size
     let howMuchLess = Math.round((100 - (usageTotal / averageTotal) * 100)) + "%";
 
-    tankFeedbackMessage = `<h1> Good Work! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchLess} </h1> <p class="activity-indicator"> less than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1 style="color: goldenrod;"> Good Work! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchLess} </h1> <p class="activity-indicator"> less than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
 
     // Activate water tanks
     $("#water-tank-left .liquid svg").css("top", "calc(97.5% - " + userPercentage + ")")
@@ -492,7 +485,7 @@ function showResults() {
     let howMuchMore = Math.round((usageTotal / averageTotal) * 100 - 100) + "%";
 
 
-    tankFeedbackMessage = `<h1> Stop right there! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchMore} </h1> <p class="activity-indicator"> more than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1 style="color: coral;"> Stop right there! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchMore} </h1> <p class="activity-indicator"> more than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
       ;
 
 
@@ -769,9 +762,12 @@ function showNextSlide() {
     showSlide(currentSlide + 1);
   }
   else {
-    alert("Select one answer")
+    $("#next").addClass("shake");
+      
+      var delay = setTimeout(function(){
+        $(".shake").removeClass("shake");
+      }, 3000)
   }
-
 
 }
 

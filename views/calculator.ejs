@@ -1,5 +1,16 @@
 <%- include("partials/header"); -%>
 
+<script>
+window.onload = function() {
+  if(!window.location.hash) {
+      window.location = window.location + '#loaded';
+      window.location.reload();
+  }
+}
+</script>
+
+
+
 <body>
     
 
@@ -94,6 +105,17 @@
         });
             
     </script>
+
+<!-- <script>
+    $("#next").on("click", function() {
+      $(this).addClass("shake");
+      
+      var delay = setTimeout(function(){
+        $(".shake").removeClass("shake");
+      }, 3000)
+    });
+    
+    </script> -->
 
 
 
@@ -213,7 +235,7 @@
                 <div class="row feature-table">
                     <h1 class="col-sm-12 text-center" style="
     font-size: 2rem;
-    padding-top: 2rem;
+    padding-top: 2rem; color: #30475e;
 ">Performance </h1>
                     <div class="col-sm-6 feature-block th1">
                         <i class="far fa-smile" id="thumbs-up"></i>

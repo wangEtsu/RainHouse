@@ -630,9 +630,9 @@ input[type="radio"] {
 
 
 /* Report description */
-ul {
+/* ul {
   list-style: square inside url("sqpurple.gif");
-}
+} */
 
 /* Water tank */
 
@@ -1107,3 +1107,15 @@ ul {
    color: #ecb807 !important;
  }
  
+ @-webkit-keyframes shaker {
+	0% { -webkit-transform: translate(4px, 0); }
+	50% { -webkit-transform: translate(-4px, 0); }
+	100% { -webkit-transform: translate(4px, 0); }
+}
+
+.shake {
+	-webkit-animation-name: shaker;
+	-webkit-animation-duration: 0.1s;
+	-webkit-transform-origin:50% 50%;
+  -webkit-animation-timing-function: linear;
+}
