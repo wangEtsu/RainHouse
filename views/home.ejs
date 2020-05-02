@@ -4,16 +4,37 @@
 
 <header class="masthead d-flex" id="header">
   <div class="container text-center my-auto">
-    <h1 class="mb-1" style="color: antiquewhite; font-size: 4rem;">STOP BEING A WATER HOG.</h1>
-    <h3 class="mb-1" style="color: antiquewhite; font-size: 4rem;">
+    <h1 class="mb-1" style="color: #323479; font-size: 4rem;">STOP BEING A WATER HOG.</h1>
+    <h3 class="mb-1" style="color: #323479; font-size: 4rem;">
       UNKNOWINGLY.
     </h3>
-    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#service-section" style="color:antiquewhite">Learn More</a>
+    <a class="btn btn-primary btn-xl js-scroll-trigger" href="#pop-vis" style="color:antiquewhite">Learn More</a>
   </div>
   <div class="overlay"></div>
 </header>
 
 
+<!-- amCharts -->
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/charts.js"></script>
+<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
+
+
+
+<div class="home-population" style="box-sizing: border-box;" id="pop-vis">
+	<div class="container text-center my-auto">
+		<h1 class="mb-1" style="color: #162447; font-size: 3.5rem;">Melbourne is running out of Water</h1>
+		<div id="storage-visualization" style="width: 100%; height: 500px;"></div>
+		<h1 class="mb-1" style="color: #162447; font-size: 1.5rem;">Australians are one of the top water consumers
+			in the world. While the individual water demand stays high, Victoria is also witnessing rapid population growth. According to Melbourne Water, the city
+			won’t be having enough water by 2028 if the demand keeps growing.</h1>
+		<!-- <a class="btn btn-primary btn-xl js-scroll-trigger" style="padding: 10px; background-color: #8cba51; color: antiquewhite;" href="#tips-section">How you can
+			Help!</a> -->
+	</div>
+</div>
+<br>
+
+<hr class="style14">
 
 <body>
 
@@ -44,7 +65,7 @@
 
 
   <!-- Calculator introduction -->
-
+  <hr class="style14">
 
   <div class="container" style="padding: 30px;">
 
@@ -70,7 +91,7 @@
     </div> <!-- /row -->
   </div> <!-- /container -->
 
-
+  <hr class="style14">
   <div class="container" style="padding: 30px;">
     <div class="row">
 
@@ -90,7 +111,7 @@
     </div> <!-- /row -->
   </div> <!-- /container -->
 
-  <div class="container" style="padding: 30px;">
+  <!-- <div class="container" style="padding: 30px;">
     <div class="row">
 
       <div class="col-lg-6 col-md-12 col-sm-12 text-center" style="padding-bottom: 1rem; ">
@@ -98,63 +119,21 @@
         <a href="/about" class="about-educate"><img src="images/about.png" style="height: 19.5rem;" class="img-fluid z-depth-1-half" alt="" id="house-img"></a>
         
         
-      </div> <!-- /col-sm-6 -->
+      </div> 
 
       <div class="col-lg-6 col-md-12 col-sm-12 text-center">
 
         <a href="/educate" class="about-educate"><img src="images/lightbulb.jpg" class="img-fluid z-depth-1-half" alt="" id="house-img"></a>
         
-          <!-- <a class="btn btn-primary btn-xl js-scroll-trigger" href="/educate">Learn more</a> -->
+          <a class="btn btn-primary btn-xl js-scroll-trigger" href="/educate">Learn more</a>
 
 
-      </div> <!-- /col-sm-6 -->
-    </div> <!-- /row -->
-  </div> <!-- /container -->
-
-
-
+      </div> 
+    </div> 
+  </div>  -->
 
 
 
-
-
-  <!-- <script>
-$(document).ready(function(){
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-  
-  $(window).scroll(function() {
-    $(".slideanim").each(function(){
-      var pos = $(this).offset().top;
-
-      var winTop = $(window).scrollTop();
-        if (pos < winTop + 600) {
-          $(this).addClass("slide");
-        }
-    });
-  });
-})
-</script> -->
-
-
+<script src="js/home.js"></script>
 
   <%- include("partials/footer"); -%>

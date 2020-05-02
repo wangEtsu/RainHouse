@@ -306,25 +306,28 @@ app.use(bodyParser.urlencoded({
     extended: true
 }))
 
-// Routing
+// Routing to user login page by default
 app.get("/", function (req, res) {
     res.render("login", {
         startingContent: homeStartingContent
     })
 })
 
+// Login page
 app.get("/login", function (req, res) {
     res.render("login", {
         startingContent: homeStartingContent
     })
 })
+
+// Fail page
 app.get("/fail", function (req, res) {
     res.render("fail", {
         startingContent: homeStartingContent
     })
 })
 
-
+// Check if password match
 app.post("/", function (req, res) {
 
     let password = req.body.password;
@@ -338,6 +341,7 @@ app.post("/", function (req, res) {
     }
 })
 
+// Post request, accept user pwd entered
 app.post("/login", function (req, res) {
 
     let password = req.body.password;
@@ -351,6 +355,7 @@ app.post("/login", function (req, res) {
     }
 })
 
+// Home page
 app.get("/home", function (req, res) {
     res.render("home", {
         startingContent: homeStartingContent

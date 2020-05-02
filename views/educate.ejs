@@ -1,26 +1,6 @@
 <%- include("partials/header"); -%>
 
-<!-- amCharts -->
-<script src="https://www.amcharts.com/lib/4/core.js"></script>
-<script src="https://www.amcharts.com/lib/4/charts.js"></script>
-<script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
-<!-- Timeline -->
-<script src="https://use.typekit.net/bkt6ydm.js"></script>
-
-<script>try { Typekit.load({ async: true }); } catch (e) { }</script>
-
-<div class="how-it-work" style="background-image: url(images/ocean.jpg); box-sizing: border-box;">
-	<div class="container text-center my-auto">
-		<h1 class="mb-1" style="color: antiquewhite; font-size: 3.5rem;">Melbourne is running out of Water</h1>
-		<div id="storage-visualization" style="width: 100%; height: 500px;"></div>
-		<h1 class="mb-1" style="color: antiquewhite; font-size: 1.5rem;">Australians are one of the top water consumers
-			in the world. Victoria is witnessing rapid population growth. According to Melbourne Water, the city
-			won’t be having enough water by 2028 if the demand keeps growing.</h1>
-		<a class="btn btn-primary btn-xl js-scroll-trigger" style="padding: 10px; background-color: #8cba51; color: antiquewhite;" href="#tips-section">How you can
-			Help!</a>
-	</div>
-</div>
 
 <!-- HTML -->
 
@@ -32,7 +12,7 @@
 
 		main {
 			max-width: 80%;
-			margin: 30px auto;
+			margin: 100px auto;
 			background: #f8f9fa;
 			/* padding: 30px; */
 			/* box-shadow: 0 3px 5px rgba(0,0,0,0.2); */
@@ -176,18 +156,6 @@
 			border-bottom: 8px solid transparent;
 		}
 
-		/* #content::after {
-	content: "";
-	display: block;
-	position: absolute;
-	width: 0;
-	height: 0;
-	margin-left: calc(100% + 30px);
-	border-top: 8px solid #000;
-	border-left: 10px solid #000;
-	border-right: 10px solid transparent;
-	border-bottom: 8px solid transparent;
-} */
 		#content section {
 			position: absolute;
 			transform: translateY(50px);
@@ -221,16 +189,36 @@
 		</div>
 		<div id="content">
 			<section id="content1">
-				<div class="tips">
-					<h1 class="mb-1">Save Water While Bathing</h1>
-					<p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the
-						drain and set the temperature as it fills the tank.</p>
+				<div class="row tips">
+					<div class="col-lg-6 col-md-6 col-sm-12">
+						<h1 class="mb-1">Save Water While Bathing</h1>
+						<p>When taking a bath, just fill the tub halfway to keep water from spilling over. First plug the
+							drain and set the temperature as it fills the tank.</p>
+					</div>
+
+					<div class="col-lg-6 col-md-6 col-sm-12">
+
+						<img src="images/showerhead.png" alt="" class="tips-image">
+
+					</div>
+					
 				</div>
 
-				<div class="tips">
-					<h1 class="mb-1">Place a bucket in the shower</h1>
-					<p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for
-						watering plants, splashing the toilet or washing.</p>
+				<div class="row tips">
+					<div class="col-lg-6 col-md-6 col-sm-12">
+
+						<h1 class="mb-1">Place a bucket in the shower</h1>
+						<p>When waiting for the water to warm up, place a bucket in the tub and use the water you catch for
+							watering plants, splashing the toilet or washing.</p>
+
+					</div>
+
+					<div class="col-lg-6 col-md-6 col-sm-12">
+
+						<img src="images/showerhead.png" alt="" class="tips-image">
+
+					</div>
+
 				</div>
 
 
@@ -358,5 +346,5 @@
 
 
 
-	<script src="js/educate.js"></script>
+
 	<%- include("partials/footer"); -%>

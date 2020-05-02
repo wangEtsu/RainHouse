@@ -13,10 +13,15 @@
 
 
 
-/* login fail */
-
-
-
+/* horizontal rules */
+hr.style14 { 
+  border: 0; 
+  height: 1px; 
+  background-image: -webkit-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -moz-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -ms-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0);
+  background-image: -o-linear-gradient(left, #f0f0f0, #8c8b8b, #f0f0f0); 
+}
 
 
 
@@ -117,6 +122,16 @@ text-transform:uppercase;
   background: url("/images/ocean.jpg")no-repeat center center fixed;
   -webkit-background-size: cover;
 }
+
+.home-population {
+  text-align: center;
+  /* margin: 10rem; */
+  padding-top: 5rem;
+  /* height: 100%; */
+  /* background-color: gainsboro; */
+  -webkit-background-size: cover;
+}
+
 
 
 
@@ -292,7 +307,7 @@ text-transform:uppercase;
 /* Apply background image in header area */
 #header {
   background-color: gainsboro;
-  background: url("/images/faucet.jpg")no-repeat center center fixed;
+  background: url("/images/water-bg.png")no-repeat center center fixed;
   -webkit-background-size: cover;
 }
 
@@ -783,17 +798,17 @@ input[type="radio"] {
   }
   #mainNav .navbar-brand {
     padding: .5rem 0;
-    color: floralwhite;
+    color: #161616;
     font-family: Abang;
   }
   #mainNav .nav-link {
     transition: none;
     padding: 2rem 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
-    font-size: larger;
+    color: #1f4068;
+    font-size: x-large;
   }
   #mainNav .nav-link:hover {
-    color: rgba(255, 255, 255, 0.75);
+    color: #1b1b2f;
   }
   #mainNav .nav-link:active {
     color: white;
@@ -1037,6 +1052,7 @@ input[type="radio"] {
  footer.footer {
    padding-top: 5rem;
    padding-bottom: 5rem;
+   background-color: aliceblue;
  }
  
  footer.footer .social-link {
@@ -1108,9 +1124,9 @@ input[type="radio"] {
  }
  
  @-webkit-keyframes shaker {
-	0% { -webkit-transform: translate(4px, 0); }
-	50% { -webkit-transform: translate(-4px, 0); }
-	100% { -webkit-transform: translate(4px, 0); }
+	0% { -webkit-transform: translate(10px, 0); }
+	50% { -webkit-transform: translate(-10px, 0); }
+	100% { -webkit-transform: translate(10px, 0); }
 }
 
 .shake {
@@ -1118,4 +1134,10 @@ input[type="radio"] {
 	-webkit-animation-duration: 0.1s;
 	-webkit-transform-origin:50% 50%;
   -webkit-animation-timing-function: linear;
+}
+
+.tips-image {
+  border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+  height: 300px;
 }
