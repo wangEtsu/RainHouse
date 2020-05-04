@@ -289,7 +289,8 @@ const https = require("https");
 // Page content waiting to be rendered
 const homeStartingContent = "Insert description of the home page";
 const contactContent = "Insert description of the contact page";
-const aboutContent = "Insert description of the about page"
+const aboutContent = "Insert description of the about page";
+const suburbContent = "Insert description of the about page";
 
 
 // Initialize express
@@ -387,6 +388,20 @@ app.get("/about", function (req, res) {
 app.get("/educate", function (req, res) {
     res.render("educate", {
         startingContent: aboutContent
+    })
+})
+
+app.get("/rainhouse", function (req, res) {
+    res.render("rainhouse", {
+        suburb: "?"
+    })
+})
+
+app.post("/rainhouse", function (req, res) {
+    let location = req.body.suburb;
+    // console.log(suburb);
+    res.render("rainhouse", {
+        suburb: location
     })
 })
 

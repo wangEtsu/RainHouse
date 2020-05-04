@@ -1,0 +1,22 @@
+<%- include("partials/header"); -%>
+
+
+<body>
+
+
+    <div class="container" id="geo-input">
+
+        <form method="post" action="/rainhouse">
+
+            <input type="text" name="suburb">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <h1 class="text-center"><%=suburb%></h1>
+        
+        
+    </div>
+
+
+
+
+<%- include("partials/footer"); -%>
