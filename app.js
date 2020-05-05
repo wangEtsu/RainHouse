@@ -2,54 +2,43 @@
 // ------------------------------------- Interact with MySQL----------------------------------
 // Comment all of these to avoid db error
 // Connect to mysql
-// var mysql = require('mysql');
-// var database = mysql.createConnection({
-//     // Use a remote heroku MySQL DB
-//     // host: 'us-cdbr-iron-east-01.cleardb.net',
-//     // user: 'bd619e2294e924',
-//     // password: 'ed79069b',
-//     // database: 'heroku_bf6ff4ce2abab84'
+var mysql = require('mysql');
+var database = mysql.createConnection({
+    // Use a remote heroku MySQL DB
+    host: 'us-cdbr-east-06.cleardb.net',
+    user: 'b3d68feaf5d63b',
+    password: '035fde2f',
+    database: 'heroku_ccf50f60e6d3df4'
 
-//     // Or use your own local DB
-//     // host: 'localhost',
-//     // user: 'dumpy',
-//     // password: 'w4ngyue19941229',
-//     // database: 'consumption'
+    // Or use your own local DB
+    // host: 'localhost',
+    // user: 'dumpy',
+    // password: 'w4ngyue19941229',
+    // database: 'consumption'
 
+});
+
+// Test if the connection is successful
+database.connect(function (connectionError) {
+    if (connectionError) {
+        throw connectionError;
+    }
+    else {
+        console.log("Connect to Heroku MySQL")
+    }
+
+});
+
+
+
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   con.query("SELECT * FROM customers", function (err, result, fields) {
+//     if (err) throw err;
+//     console.log(result);
+//   });
 // });
-
-// // Test if the connection is successful
-// database.connect(function (connectionError) {
-//     if (connectionError) {
-//         throw connectionError;
-//     }
-//     else {
-//         console.log("Connect to Database")
-//     }
-
-// });
-
-
-// // Write any query you want
-// var sql = "SELECT * FROM water_consumption";
-
-// // Setup a variable to store query result
-// let quizs;
-
-// // Query from MySQL
-// database.query(sql, function (error, results, fields) {
-
-//     if (error) throw error;
-
-//     // Query an array of js objects
-//     quizs = results.map((mysqlObj, index) => {
-//         return Object.assign({}, mysqlObj);
-//     });
-
-//     // Show the result
-//     console.log(quizs);
-// });
-
 // ------------------------------------- Interact with MySQL----------------------------------
 
 
@@ -63,7 +52,7 @@ const _ = require("lodash");
 // mongoose.connect("mongodb://localhost:27017/waterConsumption", { useUnifiedTopology: true, useNewUrlParser: true});
 
 // connect to Atlas with connection string, while suppressing two warnings
-mongoose.connect("mongodb+srv://yue:yue@cluster0-fpwyv.mongodb.net/survey?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true})
+mongoose.connect("mongodb+srv://yue:yue@cluster0-fpwyv.mongodb.net/survey?retryWrites=true&w=majority", { useUnifiedTopology: true, useNewUrlParser: true })
 
 // Creat a schema for the data model
 const testSchema = {
@@ -126,7 +115,7 @@ const Item = mongoose.model("quizs", testSchema);
 //       "30": "1",
 //       "60": "2",
 //       "120": "3"
-      
+
 //     },
 //     tip: "You dont have to shower everyday!! As per Studies, bathing too often is actually really bad for your skin"
 //   });
@@ -262,14 +251,14 @@ const Item = mongoose.model("quizs", testSchema);
 // Set up an variable to store the query result 
 let quizs;
 
-Item.find(function(err, items){
+Item.find(function (err, items) {
     if (err) {
         console.log(err);
     } else {
         // Notice we have to stringify in the back end before passing the data to ejs
         quizs = JSON.stringify(items);
         // console.log(JSON.stringify(quizs));
-        console.log(quizs);
+        // console.log(quizs);
     }
 })
 
@@ -333,8 +322,7 @@ app.post("/", function (req, res) {
 
     let password = req.body.password;
 
-    if (password === "teammizu")
-    {
+    if (password === "teammizu") {
         res.redirect("/home");
     }
     else {
@@ -347,8 +335,7 @@ app.post("/login", function (req, res) {
 
     let password = req.body.password;
 
-    if (password === "teammizu")
-    {
+    if (password === "teammizu") {
         res.redirect("/home");
     }
     else {
@@ -372,8 +359,8 @@ app.get("/home", function (req, res) {
 
 // Use it to pass value to ejs
 app.get("/calculator", function (req, res) {
-    res.render("calculator", { 
-      // Pass it to ejs page
+    res.render("calculator", {
+        // Pass it to ejs page
         calculatorContent: quizs
     })
 })
@@ -393,15 +380,42 @@ app.get("/educate", function (req, res) {
 
 app.get("/rainhouse", function (req, res) {
     res.render("rainhouse", {
-        suburb: "?"
+        suburb: "FUCK ME",
+        rainCondition: "I WANNA DIE"
     })
 })
 
 app.post("/rainhouse", function (req, res) {
     let location = req.body.suburb;
+    let rainCondition;
+
+    // Write any query you want
+    var sql = "SELECT * FROM rainfall WHERE suburb = '" + location + "';";
+
+    // // Setup a variable to store query result
+    // let quizs;
+
+    // Query from MySQL
+    database.query(sql, function (error, results, fields) {
+
+        if (error) throw error;
+
+        // Query an array of js objects
+        // let caulfield = results.map((mysqlObj, index) => {
+        //     return Object.assign({}, mysqlObj);
+        // });
+
+        // Show the result
+        console.log(results);
+
+        rainCondition = results;
+    });
+
     // console.log(suburb);
     res.render("rainhouse", {
-        suburb: location
+        suburb: location,
+        rainCondition: rainCondition
+        
     })
 })
 
