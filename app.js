@@ -2,69 +2,69 @@
 // ------------------------------------- Interact with MySQL----------------------------------
 // Comment all of these to avoid db error
 // Connect to mysql
-var mysql = require('mysql');
-var database = mysql.createConnection({
-    // Use a remote heroku MySQL DB
-    host: 'us-cdbr-east-06.cleardb.net',
-    user: 'b3d68feaf5d63b',
-    password: '035fde2f',
-    database: 'heroku_ccf50f60e6d3df4'
+// var mysql = require('mysql');
+// var database = mysql.createConnection({
+//     // Use a remote heroku MySQL DB
+//     host: 'us-cdbr-east-06.cleardb.net',
+//     user: 'b3d68feaf5d63b',
+//     password: '035fde2f',
+//     database: 'heroku_ccf50f60e6d3df4'
 
-    // Or use your own local DB
-    // host: 'localhost',
-    // user: 'dumpy',
-    // password: 'w4ngyue19941229',
-    // database: 'consumption'
-
-});
-
-// Test if the connection is successful
-database.connect(function (connectionError) {
-    if (connectionError) {
-        throw connectionError;
-    }
-    else {
-        console.log("Connect to Heroku MySQL")
-    }
-
-});
-
-setInterval(function () {
-    database.query('SELECT 1');
-}, 5000);
-
-
-// Write any query you want
-var sql = "SELECT * FROM rainfall WHERE suburb = '" + "caulfield" + "';";
-
-// Variable to store query result
-var caulfieldData = 0;
-
-// Query from MySQL
-// database.query(sql, function (error, results, fields) {
-
-//     if (error) throw error;
-//     caulfieldData = 1;
-//     console.log(results[0])
+//     // Or use your own local DB
+//     // host: 'localhost',
+//     // user: 'dumpy',
+//     // password: 'w4ngyue19941229',
+//     // database: 'consumption'
 
 // });
-// console.log(`caulfield: ${caulfieldData}`);
-let annualTotal;
-let rainfallData;
 
-function getRainfallData(callback) {
-    database.query(sql, function (err, result) {
-        if (err) throw err;
-        callback((result.length > 0) ? result[0] : "");
-    });
-}
+// // Test if the connection is successful
+// database.connect(function (connectionError) {
+//     if (connectionError) {
+//         throw connectionError;
+//     }
+//     else {
+//         console.log("Connect to Heroku MySQL")
+//     }
 
-getRainfallData(function (result) {
-    console.log(result);
-    rainfallData = result;
-});
+// });
 
-console.log(rainfallData);
+// setInterval(function () {
+//     database.query('SELECT 1');
+// }, 5000);
+
+
+// // Write any query you want
+// var sql = "SELECT * FROM rainfall WHERE suburb = '" + "caulfield" + "';";
+
+// // Variable to store query result
+// var caulfieldData = 0;
+
+// // Query from MySQL
+// // database.query(sql, function (error, results, fields) {
+
+// //     if (error) throw error;
+// //     caulfieldData = 1;
+// //     console.log(results[0])
+
+// // });
+// // console.log(`caulfield: ${caulfieldData}`);
+// let annualTotal;
+// let rainfallData;
+
+// function getRainfallData(callback) {
+//     database.query(sql, function (err, result) {
+//         if (err) throw err;
+//         callback((result.length > 0) ? result[0] : "");
+//     });
+// }
+
+// getRainfallData(function (result) {
+//     console.log(result);
+//     rainfallData = result;
+// });
+
+// console.log(rainfallData);
 // ------------------------------------- Interact with MySQL----------------------------------
 
 
@@ -104,6 +104,47 @@ Item.find(function (err, items) {
         quizs = JSON.stringify(items);
         // console.log(JSON.stringify(quizs));
         // console.log(quizs);
+    }
+})
+
+
+
+
+// Creat a schema for the data model
+const rainfallSchema = {
+    Suburb: String,
+    Longitude: String,
+    Latitude: String,
+    Year: String,
+    Jan: String,
+    Feb: String,
+    Mar: String,
+    Apr: String,
+    May: String,
+    Jun: String,
+    Jul: String,
+    Aug: String,
+    Sep: String,
+    Oct: String,
+    Nov: String,
+    Dec: String,
+    Annual: String,
+};
+
+// Create a datamodel, the first parameter is the name of collection
+const Suburb = mongoose.model("suburbs", rainfallSchema);
+
+
+// Set up an variable to store the query result 
+let caulfield;
+
+Suburb.find(function (err, items) {
+    if (err) {
+        console.log(err);
+    } else {
+        // Notice we have to stringify in the back end before passing the data to ejs
+        caulfield = JSON.stringify(items);
+        console.log(caulfield);
     }
 })
 
@@ -226,7 +267,7 @@ app.get("/educate", function (req, res) {
 app.get("/rainhouse", function (req, res) {
     res.render("rainhouse", {
         suburb: "",
-        rainCondition: ""
+        rainfallContent: caulfield
     })
 })
 
@@ -236,7 +277,7 @@ app.post("/rainhouse", function (req, res) {
     // console.log(suburb);
     res.render("rainhouse", {
         suburb: location,
-        rainCondition: annualTotal
+        rainfallContent: caulfield
 
     })
 })
