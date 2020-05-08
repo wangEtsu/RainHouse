@@ -6,7 +6,6 @@ suburbs = JSON.parse(rainfallJSON);
 console.log(suburbs);
 
 
-
 function findSuburb(targetSuburb) {
     for (var i = 0; i < suburbs.length; i++) {
         if (suburbs[i].Suburb === targetSuburb) {
@@ -20,146 +19,119 @@ console.log(findSuburb("Oakleigh"));
 
 function showAccumulation() {
 
-    // Find the selected suburb
-    let selectedSuburb = document.getElementById('selectedSuburb').innerText;
-    let selectedData = findSuburb(selectedSuburb);
+    // Get user input
+    let suburbInput = $( "#user-suburb option:selected" ).val();
+    let roofAreaInput = $( "#user-roof option:selected" ).val();
 
+    console.log(suburbInput);
+    console.log(roofAreaInput);
     // Store accumulated rainfall amout for the next 12 months
-    let accumulatedList = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200];
+    let accumulatedList = [];
     
-    for (var i = 0; i < 12; i++) {
-        
-    }
-
+    let selectedData = findSuburb(suburbInput);
+    console.log(selectedData);
     
 
+    // Precalculate here to avoid stack size overflow
+    // accumulatedList.push(parseFloat(selectedData.Jun));
+    // accumulatedList.push(selectedData.Jun + selectedData.Jul);
+    // accumulatedList.push(selectedData.Jun + selectedData.Jul + selectedData.Aug);
 
+    
     am4core.ready(function() {
 
-    // Themes begin
-    am4core.useTheme(am4themes_animated);
-    // Themes end
-
-    // Create chart
-    var chart = am4core.create("chartdiv", am4charts.XYChart);
-    chart.paddingRight = 20;
-
-    chart.data = [
-        {
-            date: new Date(2020, 5),
-            visits: accumulatedList[0]
-        },
-
-        {
-            date: new Date(2020, 6),
-            visits: accumulatedList[1]
-        },
-
-        {
-            date: new Date(2020, 7),
-            visits: accumulatedList[2]
-        },
-
-        {
-            date: new Date(2020, 8),
-            visits: accumulatedList[3]
-        },
-
-        {
-            date: new Date(2020, 9),
-            visits: accumulatedList[4]
-        },
-
-        {
-            date: new Date(2020, 10),
-            visits: accumulatedList[5]
-        },
-
-        {
-            date: new Date(2020, 11),
-            visits: accumulatedList[6]
-        },
-
-        {
-            date: new Date(2021, 0),
-            visits: accumulatedList[7]
-        },
-
-        {
-            date: new Date(2021, 1),
-            visits: accumulatedList[8]
-        },
-
-        {
-            date: new Date(2021, 2),
-            visits: accumulatedList[9]
-        },
-
-        {
-            date: new Date(2021, 3),
-            visits: accumulatedList[10]
-        },
-
-        {
-            date: new Date(2021, 4),
-            visits: accumulatedList[11]
-        },
-    ];
-    var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
-    dateAxis.baseInterval = {
-    "timeUnit": "month",
-    "count": 1
-    };
-    dateAxis.tooltipDateFormat = "YYYY MMMM";
-
-    var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-    valueAxis.tooltip.disabled = true;
-    valueAxis.title.text = "Water Catchment Estimate (Litres)";
-
-    var series = chart.series.push(new am4charts.LineSeries());
-    series.dataFields.dateX = "date";
-    series.dataFields.valueY = "visits";
-    series.tooltipText = "Visits: [bold]{valueY}[/]";
-    series.fillOpacity = 0.3;
-
-
-    chart.cursor = new am4charts.XYCursor();
-    chart.cursor.lineY.opacity = 0;
-    chart.scrollbarX = new am4charts.XYChartScrollbar();
-    chart.scrollbarX.series.push(series);
-
-
-    dateAxis.start = 0.8;
-    dateAxis.keepSelection = true;
-
-
-
-    function generateChartData() {
-        var chartData = [];
-        // current date
-        var firstDate = new Date();
-        // now set 500 minutes back
-        firstDate.setMinutes(firstDate.getDate() - 500);
-
-        // and generate 500 data items
-        var visits = 500;
-        for (var i = 0; i < 500; i++) {
-            var newDate = new Date(firstDate);
-            // each time we add one minute
-            newDate.setMinutes(newDate.getMinutes() + i);
-            // some random number
-            visits += Math.round((Math.random()<0.5?1:-1)*Math.random()*10);
-            // add data item to the array
-            chartData.push({
-                date: newDate,
-                visits: visits
-            });
-        }
-        return chartData;
-    }
-
-    }); // end am4core.ready()
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+        
+        // Create chart instance
+        var chart = am4core.create("chartdiv", am4charts.XYChart3D);
+        
+        // Add data
+        chart.data = [{
+          "country": "June 2020",
+          "visits": 200 * parseFloat(selectedData.Jun)
+        }, {
+          "country": "July 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul))
+        }, {
+          "country": "August 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug))
+        }, {
+          "country": "September 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep))
+        }, {
+          "country": "October 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct))
+        }, {
+          "country": "November 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov))
+        }, {
+          "country": "December 2020",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec))
+        }, {
+          "country": "January 2021",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan))
+        }, {
+          "country": "February 2021",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb))
+        }, {
+          "country": "March 2021",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar))
+        }, {
+          "country": "April 2021",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr))
+        }, {
+          "country": "May 2021",
+          "visits": 200 * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May))
+        }];
+        
+        // Create axes
+        let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "country";
+        categoryAxis.renderer.labels.template.rotation = 270;
+        categoryAxis.renderer.labels.template.hideOversized = false;
+        categoryAxis.renderer.minGridDistance = 20;
+        categoryAxis.renderer.labels.template.horizontalCenter = "right";
+        categoryAxis.renderer.labels.template.verticalCenter = "middle";
+        categoryAxis.tooltip.label.rotation = 270;
+        categoryAxis.tooltip.label.horizontalCenter = "right";
+        categoryAxis.tooltip.label.verticalCenter = "middle";
+        
+        let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+        valueAxis.title.text = "Water Catchment Estimate (Litres)";
+        valueAxis.title.fontWeight = "bold";
+        
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries3D());
+        series.dataFields.valueY = "visits";
+        series.dataFields.categoryX = "country";
+        series.name = "Visits";
+        series.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+        series.columns.template.fillOpacity = .8;
+        
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 2;
+        columnTemplate.strokeOpacity = 1;
+        columnTemplate.stroke = am4core.color("#FFFFFF");
+        
+        columnTemplate.adapter.add("fill", function(fill, target) {
+          return chart.colors.getIndex(target.dataItem.index);
+        })
+        
+        columnTemplate.adapter.add("stroke", function(stroke, target) {
+          return chart.colors.getIndex(target.dataItem.index);
+        })
+        
+        chart.cursor = new am4charts.XYCursor();
+        chart.cursor.lineX.strokeOpacity = 0;
+        chart.cursor.lineY.strokeOpacity = 0;
+        
+        }); // end am4core.ready()
 
 };
 
-showAccumulation();
+
+
+const inputButton = document.getElementById('user-submit');
+inputButton.addEventListener('click', showAccumulation);
