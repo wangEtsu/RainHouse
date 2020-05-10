@@ -17,7 +17,7 @@ function findSuburb(targetSuburb) {
 console.log("test");
 console.log(findSuburb("Oakleigh"));
 
-function showAccumulation() {
+function showResult() {
 
     // Get user input
     let suburbInput = $( "#user-suburb option:selected" ).val();
@@ -130,9 +130,28 @@ function showAccumulation() {
         }); // end am4core.ready()
 
 
+        
+
+        let totalRainfall = parseFloat(roofAreaInput) * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
+        
+        document.getElementById("total-message").innerHTML = `You can expect a total of ${totalRainfall} Litres of rain water for the next 12 months`;
+        
+        
+        let numOfPeople = Math.round(totalRainfall/1350);
+        let people = [];
+        for (var i = 0; i < numOfPeople; i++) {
+          if (i % 7 === 0 && i != 0)
+          {
+            people.push(`<br>`)
+          }
+          people.push(`<i class="fas fa-male" style="font-size: 3rem; color: cornflowerblue;"></i>`)
+        }
+        document.getElementById("pictogram-person").innerHTML = people.join('');
+
+
 };
 
 
 
 const inputButton = document.getElementById('user-submit');
-inputButton.addEventListener('click', showAccumulation);
+inputButton.addEventListener('click', showResult);

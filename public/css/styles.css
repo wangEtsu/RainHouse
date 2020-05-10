@@ -1149,4 +1149,27 @@ input[type="radio"] {
   text-align: center;
 }
 
-
+/* Water */
+.middle{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+.middle h1{
+	font-size: 100px;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: #2c3e5036;
+	background-image: url(https://res.cloudinary.com/drcrre4xg/image/upload/v1571101002/water_zvupjx.png);
+	-webkit-background-clip:text;
+	animation: water 15s infinite;
+}
+@keyframes water {
+	from{
+		background-position: left 0 top 0;
+	}
+	to{
+		background-position: left 1000px top 0;
+	}
+}
