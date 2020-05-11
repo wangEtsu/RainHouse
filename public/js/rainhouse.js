@@ -132,12 +132,13 @@ function showResult() {
 
         
 
-        let totalRainfall = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May)));
+        let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May)));
+        let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
+        document.getElementById("total-message").innerHTML = `You can expect a total of ${Math.round(totalCatchment)} Litres of rain water for the next 12 months`;
         
-        document.getElementById("total-message").innerHTML = `You can expect a total of ${totalRainfall} Litres of rain water for the next 12 months`;
+        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice! In last year, the average monthly rainfall in here is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>. This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month, or in other word, <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/600)} times</span> of free shower!! Oh and by the way, do you know using rainwater for bathing is better for your health? ` ;
         
-        
-        let numOfPeople = Math.round(totalRainfall/1350);
+        let numOfPeople = Math.round(totalCatchment/1350);
         let people = [];
         for (var i = 0; i < numOfPeople; i++) {
           if (i % 7 === 0 && i != 0)

@@ -30,7 +30,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-            <iframe width="450" height="400" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
+            <iframe width="500" height="400" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
 
@@ -61,7 +61,7 @@
 
         <div class="col-lg-6 col-md-6 col-sm-12">
 
-            <div id="au-chart"></div>
+            <iframe style="width: 500px; height: 400px; border: none;" src="https://map.drought.gov.au/#share=s-vMxp3S47SaRIx2BbqAZt5tUNDLu" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>
 
         </div>
 
@@ -78,7 +78,7 @@
     </div>
 
 
-
+    <hr class="style14">
 
 
     <div class="row" id="geo-input">
@@ -135,11 +135,7 @@
 
             <div class="col-lg-6 col-md-6 col-sm-12">
 
-                <p class="rainhouse-bg">Rainwater is a valuable natural resource that has been collected by Australian households for domestic use since colonial times.
-
-                    Opportunities for rainwater collection and use vary with location. Urban households typically have a connection to a reticulated, treated (mains) water supply but can significantly lower mains water usage by installing a rainwater harvesting system.
-                    
-                    Most rural households have to source all their water on their property, and rainwater often provides a better quality household supply than river, bore or dam water. <a style="text-align: left;" href="https://www.yourhome.gov.au/water/rainwater">Learn more</a> </p>
+                <p class="rainhouse-bg" id="total-writeup"></p>
 
             </div>
 
@@ -350,6 +346,89 @@ function showSlides(n) {
 } 
 </script>
 
+
+
+    <div class="row">
+    <div class="col-sm-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                <div class="inner">   
+                  <img src="images/towel.png">
+                </div>
+              </div> 
+              <div class="face back"> 
+                <div class="inner text-center"> 
+                  <h3>Writeup</h3>
+                  <button type="button" class="btn btn-default">Know More</button>
+                </div>
+              </div>
+            </div>	 
+          </div>
+        </div>
+      <div class="col-sm-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                <div class="inner">   
+                  <img src="images/towel.png">
+                </div>
+              </div> 
+              <div class="face back"> 
+                <div class="inner text-center"> 
+                  <h3>Writeup</h3>
+                  <button type="button" class="btn btn-default">Know More</button>
+                </div>
+              </div>
+            </div>	 
+          </div>
+        </div>
+      <div class="col-sm-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                <div class="inner">   
+                  <img src="images/towel.png">
+                </div>
+              </div> 
+              <div class="face back"> 
+                <div class="inner text-center"> 
+                  <h3>Writeup</h3>
+                  <button type="button" class="btn btn-default">Know More</button>
+                </div>
+              </div>
+            </div>	 
+          </div>
+        </div>
+      <div class="col-sm-3">
+          <div class="flip">
+            <div class="card"> 
+              <div class="face front"> 
+                <div class="inner">   
+                  <img src="images/towel.png">
+                </div>
+              </div> 
+              <div class="face back"> 
+                <div class="inner text-center"> 
+                  <h3>Writeup</h3>
+                  <button type="button" class="btn btn-default">Know More</button>
+                </div>
+              </div>
+            </div>	 
+          </div>
+        </div>
+      </div>
+
+
+
+<script>
+
+$('.flip').hover(function(){
+        $(this).find('.card').toggleClass('flipped');
+
+ });
+
+</script>
 
 
     <!-- Pass data through EJS -->
