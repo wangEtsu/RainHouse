@@ -1222,7 +1222,7 @@ input[type="radio"] {
   transition: background-color 0.6s ease;
 }
 
-.active, .dot:hover {
+.activeContentSlide, .dot:hover {
   background-color: #717171;
 }
 
