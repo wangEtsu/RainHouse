@@ -1231,6 +1231,7 @@ input[type="radio"] {
   -webkit-animation-name: fade;
   -webkit-animation-duration: 1.5s;
   animation-name: fade;
+  opacity: 1;
   animation-duration: 1.5s;
 }
 
