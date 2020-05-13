@@ -136,9 +136,14 @@ function showResult() {
         let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
         document.getElementById("total-message").innerHTML = `You can expect a total of ${Math.round(totalCatchment)} Litres of rain water for the next 12 months`;
         
-        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice! In last year, the average monthly rainfall in here is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>. This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month, or in other word, <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/600)} times</span> of free shower!! Oh and by the way, do you know using rainwater for bathing is better for your health? ` ;
+        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall in here is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>.<br> This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month.` ;
+        
+        
         
         let numOfPeople = Math.round(totalCatchment/1350);
+
+        document.getElementById("army-message").innerHTML = `With appropriate treatment, you can feed an Army of <span style="font-size: 5rem; color: darkgoldenrod;">${numOfPeople}</span> for an entire year!`;
+
         let people = [];
         for (var i = 0; i < numOfPeople; i++) {
           if (i % 7 === 0 && i != 0)
@@ -149,8 +154,13 @@ function showResult() {
         }
         document.getElementById("pictogram-person").innerHTML = people.join('');
 
+        let numOfLoad = Math.round(totalCatchment/100);
 
-};
+        document.getElementById("washing-machine-message").innerHTML = `It means enough water for <span style="font-size: 5rem; color: darkgoldenrod;">${numOfLoad}</span> loads of free laundry!`;
+
+        document.getElementById("shower-message").innerHTML = `It also means you got enough shower water for the next <span style="font-size: 5rem; color: darkgoldenrod;">${Math.round(totalCatchment/600)}</span> days!`
+
+      };
 
 
 

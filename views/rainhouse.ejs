@@ -4,66 +4,73 @@
 <script src="https://www.amcharts.com/lib/4/charts.js"></script>
 <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
 
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
 
 <body>
 
-    <!-- Styles -->
-    <style>
-        #chartdiv {
-            width: 100%;
-            height: 500px;
-        }
-    </style>
-
-    
+  <!-- Styles -->
+  <style>
+    #chartdiv {
+      width: 100%;
+      height: 500px;
+    }
+  </style>
 
 
 
-    <div class="text-center row" style="margin-top: 13%;">
 
-        <div class="col-lg-12 col-md-12 col-sm-12">
+  <div class="text-center row" style="margin-top: 13%;">
 
-            <h1 class="rainhouse-title" style="padding-bottom:2rem; font-family: 'Source Sans Pro';">What is rain harvesting?</h1>
+    <div class="col-lg-12 col-md-12 col-sm-12">
 
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12">
-
-            <iframe width="500" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 15px;" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
-
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12">
-
-            <p class="rainhouse-bg">Rainwater is a valuable natural resource that has been collected by Australian households for domestic use since colonial times.
-
-                Opportunities for rainwater collection and use vary with location. Urban households typically have a connection to a reticulated, treated (mains) water supply but can significantly lower mains water usage by installing a rainwater harvesting system.
-                
-                Most rural households have to source all their water on their property, and rainwater often provides a better quality household supply than river, bore or dam water. <a style="text-align: left;" href="https://www.yourhome.gov.au/water/rainwater">Learn more</a> </p>
-            
-        </div>
+      <h1 class="rainhouse-title" style="padding-bottom:2rem; font-family: 'Source Sans Pro';">What is rain harvesting?
+      </h1>
 
     </div>
 
-    
+    <div class="col-lg-6 col-md-6 col-sm-12">
 
-    <div class="text-center row" style="margin-top: 5%;">
+      <iframe width="500" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            border-radius: 15px;" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+
+      <p class="rainhouse-bg">Rainwater is a valuable natural resource that has been collected by Australian households
+        for domestic use since colonial times.
+
+        Opportunities for rainwater collection and use vary with location. Urban households typically have a connection
+        to a reticulated, treated (mains) water supply but can significantly lower mains water usage by installing a
+        rainwater harvesting system.
+
+        Most rural households have to source all their water on their property, and rainwater often provides a better
+        quality household supply than river, bore or dam water. <a style="text-align: left;"
+          href="https://www.yourhome.gov.au/water/rainwater">Learn more</a> </p>
+
+    </div>
+
+  </div>
 
 
-        <div class="col-lg-12 col-md-12 col-sm-12">
 
-            <h1 class="rainhouse-title" style="font-family: 'Source Sans Pro';">Rain Harvesting: Why location matters?</h1>
-            <p>We prepared a story map for you! Click "Yes" to see the rainfall condition in Victoria!</p>
-            <p>You can also play with it as you want!</p>
-            <iframe style="width: 1200px; height: 900px; border-radius: 15px;" src="https://map.drought.gov.au/#share=s-8dLvzV2DHoNexarhr3lAj46y7es" allowFullScreen mozAllowFullScreen webkitAllowFullScreen></iframe>
-        </div>
+  <div class="text-center row" style="margin-top: 5%;">
 
 
-        <!-- <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+      <h1 class="rainhouse-title" style="font-family: 'Source Sans Pro';">Rain Harvesting: Why location matters?</h1>
+      <p>We prepared a story map for you! Click "Yes" to see the rainfall condition in Victoria!</p>
+      <p>You can also play with it as you want!</p>
+      <iframe style="width: 1200px; height: 900px; border-radius: 15px;"
+        src="https://map.drought.gov.au/#share=s-8dLvzV2DHoNexarhr3lAj46y7es" allowFullScreen mozAllowFullScreen
+        webkitAllowFullScreen></iframe>
+    </div>
+
+
+    <!-- <div class="col-lg-12 col-md-12 col-sm-12">
 
             <p class="rainhouse-bg">Rainwater is a valuable natural resource that has been collected by Australian households for domestic use since colonial times.
 
@@ -73,85 +80,86 @@
 
         </div> -->
 
+  </div>
+
+
+  <hr class="style14">
+
+  <div class="row text-center">
+
+    <div class="col-lg-12 col-md-12 col-sm-12">
+
+      <h1 class="rainhouse-title" style="padding-top:2rem; font-family: 'Source Sans Pro';">Let's find out your
+        estimated rainfall catchment!</h1>
+
     </div>
 
+  </div>
 
-    <hr class="style14">
+  <div class="row" id="geo-input">
 
-    <div class="row text-center">
+    <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <div class="col-lg-12 col-md-12 col-sm-12">
+      <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_CEyvj2.json" background="transparent" speed="1"
+        style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+      <select id="user-suburb" name="suburb" class="form-control">
+        <option value="Caulfield">Caulfield</option>
+        <option value="Oakleigh">Oakleigh</option>
 
-        <h1 class="rainhouse-title" style="padding-top:2rem; font-family: 'Source Sans Pro';">Let's find out your estimated rainfall catchment!</h1>
+      </select>
+    </div>
+
+    <div class="col-lg-6 col-md-6 col-sm-12">
+
+      <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_Mz7MDP.json" background="transparent" speed="1"
+        style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+      <select id="user-roof" name="suburb" class="form-control">
+        <option value="100">Apartment & Unit with 1-3 bedrooms</option>
+        <option value="80">Townhouse with 2-4 bedroomes</option>
+        <option value="160">House with 2-3 bedrooms</option>
+        <option value="220">House with over 4 bedrooms</option>
+
+      </select>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <button type="submit" class="btn btn-primary" id="user-submit">Submit</button>
+    </div>
+
+    <!-- <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>       -->
+
+
+    <!-- <h1 class="text-center" id="selectedSuburb"><%=suburb%></h1> -->
+
+  </div>
+
+
+  <div style="margin-top: 10rem; display: none;" id="estimate-analysis">
+
+    <h1 class="text-center" id="total-message"></h1>
+
+
+    <div class="text-center row">
+
+
+
+      <div class="col-lg-6 col-md-6 col-sm-12">
+
+        <div id="chartdiv"></div>
+
+      </div>
+
+      <div class="col-lg-6 col-md-6 col-sm-12">
+
+        <p class="rainhouse-bg" id="total-writeup"></p>
 
       </div>
 
     </div>
 
-    <div class="row" id="geo-input">
 
-        <div class="col-lg-6 col-md-6 col-sm-12">
-            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_CEyvj2.json" background="transparent"
-                speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
-            <select id="user-suburb" name="suburb" class="form-control">
-                <option value="Caulfield">Caulfield</option>
-                <option value="Oakleigh">Oakleigh</option>
+  </div>
 
-            </select>
-        </div>
-
-        <div class="col-lg-6 col-md-6 col-sm-12">
-
-            <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_Mz7MDP.json" background="transparent"
-                speed="1" style="width: 100px; height: 100px;" loop autoplay></lottie-player>
-            <select id="user-roof" name="suburb" class="form-control">
-                <option value="100">Apartment & Unit with 1-3 bedrooms</option>
-                <option value="80">Townhouse with 2-4 bedroomes</option>
-                <option value="160">House with 2-3 bedrooms</option>
-                <option value="220">House with over 4 bedrooms</option>
-
-            </select>
-        </div>
-        <div class="col-lg-12 col-md-12 col-sm-12">
-            <button type="submit" class="btn btn-primary" id="user-submit">Submit</button>
-        </div>
-
-        <!-- <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>       -->
-
-
-        <!-- <h1 class="text-center" id="selectedSuburb"><%=suburb%></h1> -->
-
-    </div>
-
-
-    <div style="margin-top: 10rem;"> 
-
-        <h1 class="text-center" id="total-message"></h1>
-
-        
-        <div class="text-center row">
-
-        
-
-            <div class="col-lg-6 col-md-6 col-sm-12">
-
-                <div id="chartdiv"></div>
-
-            </div>
-
-            <div class="col-lg-6 col-md-6 col-sm-12">
-
-                <p class="rainhouse-bg" id="total-writeup"></p>
-
-            </div>
-
-        </div>
-        
-
-    </div>
-
-    <!-- <div class="container">
+  <!-- <div class="container">
 
         <div class="text-center row">
 
@@ -178,7 +186,7 @@
     </div> -->
 
 
-    <!-- <div class="container">
+  <!-- <div class="container">
 
         <div class="text-center row">
 
@@ -207,8 +215,10 @@
 
 
 
- <!-- Slideshow container -->
- <div class="slideshow-container" style="height: 60%;">
+  <!-- Slideshow container -->
+  <div class="slideshow-container" style="height: 60%; display: none;" id="picto-slides">
+
+    <h1 class="text-center">What does it means?</h1>
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
@@ -218,32 +228,32 @@
 
         <div class="text-center row">
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">An adult consumes about 1350 litres of water for a year</h1>
-                <i class="fas fa-male" style="font-size: 20rem; color: cornflowerblue;"></i>
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3 class="text-center">An adult consumes about 1350 litres of water for a year</h3>
+            <i class="fas fa-male" style="font-size: 20rem; color: cornflowerblue;"></i>
+
+          </div>
+
+          <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3 class="text-center" id="army-message"></h3>
+
+            <div id="pictogram-person">
+
+
 
             </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">With a decent filter, the expect water catchment can feed an Army of XX for an entire year!</h1>
 
-                <div id="pictogram-person">
-
-                   
-
-                </div>
-                
-                
-            </div>
+          </div>
 
         </div>
-
-    </div>
+  
+      </div>
 
 
       <div class="text">Caption Text</div>
     </div>
-  
+
     <div class="mySlides fade">
       <div class="numbertext">2 / 3</div>
 
@@ -251,31 +261,28 @@
 
         <div class="text-center row">
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">Toilet is the largest water consumer in your house</h1>
-                <i class="fas fa-calendar-alt" style="font-size: 20rem; color: cornflowerblue;"></i>
-            </div>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            
+            <h3 class="text-center" id="washing-machine-message"></h3>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">With a decent filter, the expect water catchment can feed an Army of XX for an entire year!</h1>
 
-                <div id="pictogram-person">
+          </div>
 
-                   
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            
+            <img style="width: 35%;" src="images/flaticons/washing.png" alt="">
 
-                </div>
-                
-                
-            </div>
+          </div>
+
 
         </div>
 
-    </div>
+      </div>
 
 
       <div class="text">Caption Two</div>
     </div>
-  
+
     <div class="mySlides fade">
       <div class="numbertext">3 / 3</div>
 
@@ -283,171 +290,186 @@
 
         <div class="text-center row">
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">An adult consumes about 1350 litres of water for a year</h1>
-                <i class="fas fa-male" style="font-size: 20rem; color: cornflowerblue;"></i>
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            
+            <h3 class="text-center" id="shower-message"></h3>
 
-            </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <h1 class="text-center">With a decent filter, the expect water catchment can feed an Army of XX for an entire year!</h1>
+          </div>
 
-                <div id="pictogram-person">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            
+            <img style="width: 35%;" src="images/flaticons/shower-test.png" alt="">
 
-                   
-
-                </div>
-                
-                
-            </div>
+          </div>
 
         </div>
 
+      </div>
+
+
+      <div class="text">Caption Two</div>
     </div>
 
-      <div class="text">Caption Three</div>
-    </div>
-  
     <!-- Next and previous buttons -->
     <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
     <a class="next" onclick="plusSlides(1)">&#10095;</a>
   </div>
   <br>
-  
+
   <!-- The dots/circles -->
   <div style="text-align:center">
     <span class="dot" onclick="currentSlide(1)"></span>
     <span class="dot" onclick="currentSlide(2)"></span>
     <span class="dot" onclick="currentSlide(3)"></span>
-  </div> 
+  </div>
 
 
 
-<!-- Slide Show -->
-<script>
+  <!-- Slide Show -->
+  <script>
 
-var slideIndex = 1;
-showSlides(slideIndex);
+    var slideIndex = 1;
+    showSlides(slideIndex);
 
-// Next/previous controls
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" activeContentSlide", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " activeContentSlide";
-} 
-</script>
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
 
 
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) { slideIndex = 1 }
+      if (n < 1) { slideIndex = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" activeContentSlide", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " activeContentSlide";
+    } 
+  </script>
 
-    <div class="row">
+
+<div class="container">
+<h1 class="text-center">How to use rainwater: Our suggestions</h1>
+
+
+  <div class="row">
+    
     <div class="col-sm-3">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner">   
-                  <img src="images/towel.png">
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner text-center"> 
-                  <h3>Writeup</h3>
-                  <button type="button" class="btn btn-default">Know More</button>
-                </div>
-              </div>
-            </div>	 
+      <div class="flip">
+        <div class="card">
+          <div class="face front">
+            <div class="inner">
+              <img src="images/towel.png">
+            </div>
           </div>
-        </div>
-      <div class="col-sm-3">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner">   
-                  <img src="images/towel.png">
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner text-center"> 
-                  <h3>Writeup</h3>
-                  <button type="button" class="btn btn-default">Know More</button>
-                </div>
-              </div>
-            </div>	 
-          </div>
-        </div>
-      <div class="col-sm-3">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner">   
-                  <img src="images/towel.png">
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner text-center"> 
-                  <h3>Writeup</h3>
-                  <button type="button" class="btn btn-default">Know More</button>
-                </div>
-              </div>
-            </div>	 
-          </div>
-        </div>
-      <div class="col-sm-3">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner">   
-                  <img src="images/towel.png">
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner text-center"> 
-                  <h3>Writeup</h3>
-                  <button type="button" class="btn btn-default">Know More</button>
-                </div>
-              </div>
-            </div>	 
+          <div class="face back">
+            <div class="inner text-center">
+              <h3>Writeup</h3>
+              <button type="button" class="btn btn-default">Know More</button>
+            </div>
           </div>
         </div>
       </div>
-
+    </div>
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card">
+          <div class="face front">
+            <div class="inner">
+              <img src="images/towel.png">
+            </div>
+          </div>
+          <div class="face back">
+            <div class="inner text-center">
+              <h3>Writeup</h3>
+              <button type="button" class="btn btn-default">Know More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card">
+          <div class="face front">
+            <div class="inner">
+              <img src="images/towel.png">
+            </div>
+          </div>
+          <div class="face back">
+            <div class="inner text-center">
+              <h3>Writeup</h3>
+              <button type="button" class="btn btn-default">Know More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="flip">
+        <div class="card">
+          <div class="face front">
+            <div class="inner">
+              <img src="images/towel.png">
+            </div>
+          </div>
+          <div class="face back">
+            <div class="inner text-center">
+              <h3>Writeup</h3>
+              <button type="button" class="btn btn-default">Know More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <script>
 
-$('.flip').hover(function(){
-        $(this).find('.card').toggleClass('flipped');
-
- });
-
+  $(document).ready(function() {
+  $(document).on('click','#user-submit',function(e){
+      $("#estimate-analysis").css({"display": "block"});
+      $("#picto-slides").css({"display": "block"});
+      $(window).scrollTop($('#estimate-analysis').offset().top);
+      
+  });
+  });
+      
 </script>
 
+  <script>
 
-    <!-- Pass data through EJS -->
-    <span id='rainfallJSON' hidden>
-        <%= rainfallContent; %>
-    </span>
+    $('.flip').hover(function () {
+      $(this).find('.card').toggleClass('flipped');
 
-    <!-- Rainhouse custom script -->
-    <script src="js/rainhouse.js"></script>
+    });
 
-    <%- include("partials/footer"); -%>
+  </script>
+
+
+
+
+  <!-- Pass data through EJS -->
+  <span id='rainfallJSON' hidden>
+    <%= rainfallContent; %>
+  </span>
+
+  <!-- Rainhouse custom script -->
+  <script src="js/rainhouse.js"></script>
+
+  <%- include("partials/footer"); -%>
