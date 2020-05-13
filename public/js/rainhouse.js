@@ -145,13 +145,27 @@ function showResult() {
         document.getElementById("army-message").innerHTML = `With appropriate treatment, you can feed an Army of <span style="font-size: 5rem; color: darkgoldenrod;">${numOfPeople}</span> for an entire year!`;
 
         let people = [];
-        for (var i = 0; i < numOfPeople; i++) {
-          if (i % 7 === 0 && i != 0)
-          {
-            people.push(`<br>`)
+
+        if (numOfPeople < 40){
+
+          for (var i = 0; i < numOfPeople; i++) {
+            if (i % 7 === 0 && i != 0)
+            {
+              people.push(`<br>`)
+            }
+            people.push(`<i class="fas fa-male" style="font-size: 3rem; color: cornflowerblue;"></i>`)
           }
-          people.push(`<i class="fas fa-male" style="font-size: 3rem; color: cornflowerblue;"></i>`)
+
+        } else {
+          for (var i = 0; i < numOfPeople; i++) {
+            if (i % 9 === 0 && i != 0)
+            {
+              people.push(`<br>`)
+            }
+            people.push(`<i class="fas fa-male" style="font-size: 1.5rem; color: cornflowerblue;"></i>`)
+          }
         }
+        
         document.getElementById("pictogram-person").innerHTML = people.join('');
 
         let numOfLoad = Math.round(totalCatchment/100);
