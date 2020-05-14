@@ -1267,7 +1267,7 @@ input[type="radio"] {
 }
 
 .card {
-  /* background: #222; */
+  background: #222;
   cursor: default;
   height: 300px;
   transform-style: preserve-3d;
