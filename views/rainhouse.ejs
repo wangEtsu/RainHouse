@@ -31,7 +31,7 @@
 
     <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <iframe width="500" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      <iframe width="600" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 15px;" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -39,7 +39,7 @@
 
     <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <p class="rainhouse-bg">Rainwater is a valuable natural resource that has been collected by Australian households
+      <p class="rainhouse-bg" style="font-size: 1.5rem;">Rainwater is a valuable natural resource that has been collected by Australian households
         for domestic use since colonial times.
 
         Opportunities for rainwater collection and use vary with location. Urban households typically have a connection
@@ -60,7 +60,11 @@
 
 
 
-    <div class="row stats-row">
+    <div class="row stats-row" style="padding-bottom: 2rem;">
+      <div class="text-center col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 2rem;">
+
+        <h1>Some interesting facts</h1>
+      </div>
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
           <span class="stats-no" data-toggle="counter-up">232</span> Satisfied Customers
@@ -86,14 +90,14 @@
       </div>
     </div>
 
-    <script>
+    <!-- <script>
 
       $('[data-toggle="counter-up"]').counterUp({
           delay: 10,
           time: 1000
         });
 
-    </script>
+    </script> -->
     <!-- <div class="col-lg-12 col-md-12 col-sm-12">
 
       <h1 class="rainhouse-title" style="font-family: 'Source Sans Pro';">Rain Harvesting: Why location matters?</h1>
@@ -131,12 +135,12 @@
 
   </div>
 
-  <div class="row" id="geo-input">
+  <div class="row" id="geo-input" style="padding: 2rem 12rem 2rem;">
 
     <div class="col-lg-6 col-md-12 col-sm-12">
 
-      <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_CEyvj2.json" background="transparent" speed="1"
-        style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+      <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_7UVfnn.json"  background="transparent"  speed="1"  style="width: 80px; height: 100px; display: inline; position: relative; top: 1rem;"  loop  autoplay></lottie-player>
+        <h3 class="input-guide">Enter your suburb</h3>
       <select id="user-suburb" name="suburb" class="form-control">
         <option value="Caulfield">Caulfield</option>
         <option value="Oakleigh">Oakleigh</option>
@@ -147,7 +151,8 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
 
       <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_Mz7MDP.json" background="transparent" speed="1"
-        style="width: 100px; height: 100px;" loop autoplay></lottie-player>
+        style="width: 100px; height: 100px; display: inline;" loop autoplay></lottie-player>
+        <h3 class="input-guide">Enter your house type</h3>
       <select id="user-roof" name="suburb" class="form-control">
         <option value="100">Apartment & Unit with 1-3 bedrooms</option>
         <option value="80">Townhouse with 2-4 bedroomes</option>
@@ -157,7 +162,7 @@
       </select>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <button type="submit" class="btn btn-primary" id="user-submit">Submit</button>
+      <button type="submit" class="btn btn-primary" id="user-submit" style="width: 10rem; height: 4rem;">Submit</button>
     </div>
 
     <!-- <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>       -->
@@ -405,8 +410,8 @@
 
   <div class="cardBox" >
     <div class="card">
-      <div class="front" style="background-image: url(images/tank-stock.png); background-repeat:no-repeat;
-      background-position: center center;">
+      <div class="front" style="background-image: url(images/convey.jpg); background-repeat:no-repeat;
+      background-position: center center; background-size: cover;">
         <h3>Conveyance system</h3>
         <!-- <p>How it work?</p> -->
         <strong>&#x21bb;</strong>
@@ -422,7 +427,8 @@
 
   <div class="cardBox">
     <div class="card">
-      <div class="front" style="background-image: url(images/towel.jpg);">
+      <div class="front" style="background-image: url(images/diverter.png); background-repeat:no-repeat;
+      background-position: center center; background-size: cover;">
         <h3>Diverters & filters</h3>
         <!-- <p>How it work?</p> -->
         <strong>&#x21bb;</strong>
@@ -437,7 +443,8 @@
 
   <div class="cardBox">
     <div class="card">
-      <div class="front" style="background-image: url(images/towel.jpg);">
+      <div class="front" style="background-image: url(images/tank-stock.png); background-repeat:no-repeat;
+      background-position: center center; background-size: cover;">
         <h3>Storage tank</h3>
         <!-- <p>How it work?</p> -->
         <strong>&#x21bb;</strong>
@@ -452,7 +459,8 @@
 
   <div class="cardBox">
     <div class="card">
-      <div class="front" style="background-image: url(images/towel.jpg);">
+      <div class="front" style="background-image: url(images/distribute.png); background-repeat:no-repeat;
+      background-position: center center; background-size: cover;">
         <h3>Distribution system</h3>
         <!-- <p>How it work?</p> -->
         <strong>&#x21bb;</strong>

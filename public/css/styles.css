@@ -1428,3 +1428,10 @@ input[type="radio"] {
   border-radius: 50%;
   font-weight: 700;
 }
+
+
+.input-guide {
+  display: inline;
+  position: relative;
+  bottom: 1rem;
+}
