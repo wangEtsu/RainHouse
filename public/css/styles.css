@@ -1403,8 +1403,8 @@ input[type="radio"] {
 
 .stats-col .circle {
   display: inline-block;
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   font-family: "Raleway", Helvetica, Arial, sans-serif;
   font-weight: 500;
   color: #666;
