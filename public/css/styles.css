@@ -1476,3 +1476,12 @@ border-bottom: 1px solid #aaa;
 height:3px;
 
 }
+
+/* Blackquote Rainhosue */
+#blockquote-rain {
+  margin: 0 0 1rem;
+  background: #f4f2ff;
+  padding: 1rem;
+  border-radius: 15px;
+  border-left: 2px solid #9f77a9;
+}
