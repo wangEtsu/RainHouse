@@ -1437,7 +1437,7 @@ input[type="radio"] {
 }
 
 /* line behind title */
-h2 {
+/* h2 {
   display: flex;
   width: 100%;
   justify-content: center;
@@ -1455,4 +1455,24 @@ h2:after {
 
 h2:after {
   margin: 0 20px 0 20px;
+} */
+
+.rain-title {
+text-align:center;
+display: grid;
+grid-template-columns: 1fr max-content 1fr;
+grid-template-rows: 20px 0;
+grid-gap: 20px;
+align-items:center;
+padding-left: 3rem;
+padding-right: 3rem;
+}
+
+.rain-title:after,.rain-title:before {
+content: " ";
+display: block;
+border-top: 1px solid #aaa;
+border-bottom: 1px solid #aaa;
+height:3px;
+
 }

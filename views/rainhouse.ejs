@@ -24,7 +24,7 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-      <h2 class="background" style="padding-bottom: 2rem;"><span>What is Rain Harvesting?</span></h2>
+      <h2 class="rain-title" style="padding-bottom: 2rem;"><span>What is Rain Harvesting?</span></h2>
       <!-- <h1 class="rainhouse-title" style="padding-bottom:2rem; font-family: 'Source Sans Pro';"></h1> -->
       </h1>
 
@@ -64,7 +64,7 @@
     <div class="row stats-row" style="padding-bottom: 5rem;">
       <div class="text-center col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 2rem;">
 
-        <h2 class="background" style="padding-bottom: 2rem;"><span>Rain Harvesting in Australia</span></h2>
+        <h2 class="rain-title" style="padding-bottom: 2rem;"><span>Rain Harvesting in Australia</span></h2>
       </div>
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
@@ -131,22 +131,22 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-      <h2 class="background" style="padding-bottom: 2rem;"><span>Find Out Your Estimated Rainfall Catchment</span></h2>
+      <h2 class="rain-title" style="padding-bottom: 2rem;"><span>Find Out Your Estimated Rainfall Catchment</span></h2>
 
     </div>
 
   </div>
 
-  <div class="row" id="geo-input" style="padding: 2rem 12rem 2rem;">
+  <div class="row" id="geo-input" style="padding: 0rem 12rem 2rem;">
 
     <div class="col-lg-6 col-md-12 col-sm-12">
 
       <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_7UVfnn.json"  background="transparent"  speed="1"  style="width: 80px; height: 100px; display: inline; position: relative; top: 1rem;"  loop  autoplay></lottie-player>
         <h3 class="input-guide">Enter your suburb</h3>
       <select id="user-suburb" name="suburb" class="form-control">
-        <option value="Caulfield">Caulfield</option>
-        <option value="Oakleigh">Oakleigh</option>
-
+        <option value='{"suburb":"Caulfield","longitude":"145.05","latitude":"-37.88"}'>Caulfield</option>
+        <option value='{"suburb":"Oakleigh","longitude":"145.09","latitude":"-37.92"}'>Oakleigh</option>
+        
       </select>
     </div>
 
@@ -164,7 +164,7 @@
       </select>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12">
-      <button type="submit" class="btn btn-primary" id="user-submit" style="width: 10rem; height: 4rem;">Submit</button>
+      <button type="submit" class="btn btn-primary" id="user-submit" style="width: 10rem; height: 3.5rem;">Submit</button>
     </div>
 
     <!-- <label for="country">Country</label><span style="color: red !important; display: inline; float: none;">*</span>       -->
@@ -175,9 +175,9 @@
   </div>
 
 
-  <div style="margin-top: 10rem; display: none;" id="estimate-analysis">
+  <div style="margin-top: 2rem; display: none;" id="estimate-analysis">
 
-    <h1 class="text-center" id="total-message"></h1>
+    <h1 class="text-center" id="total-message" style="font-size: 2rem;"></h1>
 
 
     <div class="text-center row">
@@ -258,7 +258,7 @@
 
 
   <!-- Slideshow container -->
-  <div class="slideshow-container" style="height: 60%; display: none;" id="picto-slides">
+  <div class="slideshow-container" style="height: 75%; display: none;" id="picto-slides">
 
     <h1 class="text-center">What does it means?</h1>
 
@@ -406,7 +406,7 @@
   </script>
 
 
-<h2 class="background" style="padding-bottom: 2rem;"><span>Things You Need to Start Rain Harvesting</span></h2>
+<h2 class="rain-title" style="padding-bottom: 2rem;"><span>Things You Need to Start Rain Harvesting</span></h2>
 
 <div class="boxesContainer" style="height: 30%;">
 

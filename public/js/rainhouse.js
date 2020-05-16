@@ -6,6 +6,25 @@ suburbs = JSON.parse(rainfallJSON);
 console.log(suburbs);
 
 
+function getDistanceFromLatLonInKm(lat1,lon1,lat2,lon2) {
+  var R = 6371; // Radius of the earth in km
+  var dLat = deg2rad(lat2-lat1);  // deg2rad below
+  var dLon = deg2rad(lon2-lon1); 
+  var a = 
+    Math.sin(dLat/2) * Math.sin(dLat/2) +
+    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+    Math.sin(dLon/2) * Math.sin(dLon/2)
+    ; 
+  var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+  var d = R * c; // Distance in km
+  return d;
+}
+
+function deg2rad(deg) {
+  return deg * (Math.PI/180)
+}
+
+
 function findSuburb(targetSuburb) {
     for (var i = 0; i < suburbs.length; i++) {
         if (suburbs[i].Suburb === targetSuburb) {
@@ -14,23 +33,49 @@ function findSuburb(targetSuburb) {
     }
 };
 
-console.log("test");
-console.log(findSuburb("Oakleigh"));
+
+function locateToData(longitude, latitude) {
+  let currentDistance = 0;
+  let nearestIndex = 0;
+  for (var i = 0; i < suburbs.length; i++) {
+    let stationLat = parseFloat(suburbs[i].Latitude);
+    let stationLon = parseFloat(suburbs[i].Longitude);
+    let distanceThisIter = getDistanceFromLatLonInKm(latitude, longitude, stationLat, stationLon);
+    console.log(distanceThisIter, currentDistance);
+    if(i === 0){
+
+      currentDistance = distanceThisIter;
+
+    }
+
+    if(distanceThisIter < currentDistance){
+      currentDistance = distanceThisIter;
+      nearestIndex = i;
+    }
+  }
+  console.log(nearestIndex);
+  return suburbs[nearestIndex];
+};
+
+// console.log("test");
+// console.log(findSuburb("Oakleigh"));
 
 function showResult() {
 
     // Get user input
-    let suburbInput = $( "#user-suburb option:selected" ).val();
+    let suburbInput = JSON.parse($( "#user-suburb option:selected" ).val()).suburb;
+    let suburbLongitude = parseFloat(JSON.parse($( "#user-suburb option:selected" ).val()).longitude);
+    let suburbLatitude = parseFloat(JSON.parse($( "#user-suburb option:selected" ).val()).latitude);
     let roofAreaInput = $( "#user-roof option:selected" ).val();
 
-    console.log(suburbInput);
-    console.log(roofAreaInput);
+    // console.log(suburbInput);
+    // console.log(roofAreaInput);
     // Store accumulated rainfall amout for the next 12 months
     let accumulatedList = [];
     
-    let selectedData = findSuburb(suburbInput);
-    console.log(selectedData);
-    
+    let selectedData = locateToData(suburbLongitude,suburbLatitude);
+    // console.log(selectedData);
+    console.log(selectedData.Suburb);
   
     // Precalculate here to avoid stack size overflow
     // accumulatedList.push(parseFloat(selectedData.Jun));
@@ -132,11 +177,11 @@ function showResult() {
 
         
 
-        let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May)));
+        let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Annual)));
         let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
-        document.getElementById("total-message").innerHTML = `You can expect a total of <span style="font-size: 6rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span> of rain water for the next 12 months`;
+        document.getElementById("total-message").innerHTML = `You can expect a total of <span style="font-size: 4rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span> of rain water for the next 12 months`;
         
-        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall in here is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>.<br> This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month.` ;
+        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>.<br> This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month.` ;
         
         
         
