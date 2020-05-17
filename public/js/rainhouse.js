@@ -158,7 +158,7 @@ function showResult() {
         var columnTemplate = series.columns.template;
         columnTemplate.strokeWidth = 2;
         columnTemplate.strokeOpacity = 1;
-        columnTemplate.stroke = am4core.color("#FFFFFF");
+        // columnTemplate.stroke = am4core.color("#FFFFFF");
         
         columnTemplate.adapter.add("fill", function(fill, target) {
           return chart.colors.getIndex(target.dataItem.index);
@@ -179,9 +179,9 @@ function showResult() {
 
         let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Annual)));
         let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
-        document.getElementById("total-message").innerHTML = `You can expect a total of <span style="font-size: 4rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span> of rain water for the next 12 months`;
+        document.getElementById("total-message").innerHTML = `Estimated rainwater saving in next 12 months: <br>  <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span>`;
         
-        document.getElementById("total-writeup").innerHTML = `<span style="font-size: xx-large; color: darkgoldenrod;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalRainfall/12)} millimetre</span>.<br> This means an estimated rainwater catchment of <span style="font-size: xx-large; color: darkgoldenrod;">${Math.round(totalCatchment/12)} litres</span> per month.` ;
+        document.getElementById("total-writeup").innerHTML = `<span style="font-size: 2.2rem; color: cornflowerblue;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalRainfall/12)} millimetre</span>.<br> Estimated Monthly Saving <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment/12)} litres</span>.` ;
         
         
         

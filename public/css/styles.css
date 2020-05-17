@@ -1479,9 +1479,29 @@ height:3px;
 
 /* Blackquote Rainhosue */
 #blockquote-rain {
-  margin: 0 0 1rem;
+  margin: 0 3rem 1rem;
   background: #f4f2ff;
   padding: 1rem;
   border-radius: 15px;
   border-left: 2px solid #9f77a9;
+  box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+
+#main-content {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1px 0 0;
+}
+
+
+.responsive-iframe {
+  width: 100%;
+  height: 0;
+  padding-bottom: 0%;
+  position: relative;
+}
+
+/* .responsive-iframe iframe {
+  position: absolute;
+} */

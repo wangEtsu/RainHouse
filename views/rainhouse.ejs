@@ -24,7 +24,7 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-      <h2 class="rain-title" style="padding-bottom: 2rem;"><span>What is Rain Harvesting?</span></h2>
+      <h1 style="font-size: 4rem; margin-bottom: 3rem;">Welcome to RainHouse</h1>
       <!-- <h1 class="rainhouse-title" style="padding-bottom:2rem; font-family: 'Source Sans Pro';"></h1> -->
       </h1>
 
@@ -32,24 +32,30 @@
 
     <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <iframe width="600" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      <div id="main-content"> 
+
+        <div class="responsive-iframe"></div>
+        <iframe width="500" height="400" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             border-radius: 15px;" src="https://www.youtube.com/embed/pcjuXr8vQXA" frameborder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+      </div>
 
     </div>
 
     <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <p class="rainhouse-bg" style="font-size: 1.5rem;">Rainwater is a valuable natural resource that has been collected by Australian households
+      <p class="rainhouse-bg" style="font-size: 1.5rem; padding-left: 20px;">
+        <span style="font-size: larger; font-weight: bold;">Let's learn more about saving water through rain harvesting.</span> 
+        <br>
+        <br>
+        Rainwater is a valuable natural resource that has been collected by Australian households
         for domestic use since colonial times.
 
         Opportunities for rainwater collection and use vary with location. Urban households typically have a connection
         to a reticulated, treated (mains) water supply but can significantly lower mains water usage by installing a
         rainwater harvesting system.
-
-        Most rural households have to source all their water on their property, and rainwater often provides a better
-        quality household supply than river, bore or dam water. <a style="text-align: left;"
-          href="https://www.yourhome.gov.au/water/rainwater">Learn more</a> </p>
+ </p>
 
     </div>
 
@@ -74,14 +80,14 @@
 
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
-          <span class="stats-no" data-toggle="counter-up" style="font-size: 12px;">1.7 Million</span> Households that installed water tanks
+          <span class="stats-no" data-toggle="counter-up">1.7</span> Households that installed water tanks (in millions)
         </div>
       </div>
 
 
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
-          <span class="stats-no" data-toggle="counter-up" style="font-size: 12px;">213B litres</span> Rainwater collected annualy
+          <span class="stats-no" data-toggle="counter-up">213</span> Rainwater collected annually (in billion litres)
         </div>
       </div>
 
@@ -142,7 +148,7 @@
     <div class="col-lg-6 col-md-12 col-sm-12">
 
       <lottie-player src="https://assets4.lottiefiles.com/packages/lf20_7UVfnn.json"  background="transparent"  speed="1"  style="width: 80px; height: 100px; display: inline; position: relative; top: 1rem;"  loop  autoplay></lottie-player>
-        <h3 class="input-guide">Enter your suburb</h3>
+        <h3 class="input-guide">Select suburb</h3>
       <select id="user-suburb" name="suburb" class="form-control">
         
         <option value='{"suburb":"Brunswick","longitude":"144.940","latitude":"-37.760"}'>Brunswick</option>
@@ -171,7 +177,7 @@
 
       <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_Mz7MDP.json" background="transparent" speed="1"
         style="width: 100px; height: 100px; display: inline;" loop autoplay></lottie-player>
-        <h3 class="input-guide">Enter your house type</h3>
+        <h3 class="input-guide">Select house type</h3>
       <select id="user-roof" name="suburb" class="form-control">
         <option value="100">Apartment & Unit with 1-3 bedrooms</option>
         <option value="80">Townhouse with 2-4 bedroomes</option>
@@ -210,8 +216,8 @@
 
         <blockquote id="blockquote-rain">
 
-          <p class="rainhouse-bg" id="total-message"></p>
-          <p class="rainhouse-bg" id="total-writeup"></p>
+          <p class="rainhouse-bg" id="total-message" style="font-size: 1.5rem;"></p>
+          <p class="rainhouse-bg" id="total-writeup" style="font-size: 1.5rem;"></p>
 
         </blockquote>
         
@@ -436,14 +442,14 @@
     <div class="card">
       <div class="front" style="background-image: url(images/convey.jpg); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3>Conveyance system</h3>
+        <h3 style="padding-top: 6.5rem;">Conveyance system</h3>
         <!-- <p>How it work?</p> -->
-        <strong>&#x21bb;</strong>
+
       </div>
       <div class="back">
         <img src="images/flaticons/pipe.png" alt="" style="width: 70px;">
         <!-- <h3>How it works</h3> -->
-        <p>gutters and downpipes that channel the water from the collection surface into a rainwater tank</p>
+        <p>Gutters and downpipes that channel the water from the collection surface into a rainwater tank.</p>
 
       </div>
     </div>
@@ -453,14 +459,14 @@
     <div class="card">
       <div class="front" style="background-image: url(images/diverter.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3>Diverters & filters</h3>
+        <h3 style="padding-top: 6.5rem;">Diverters & filters</h3>
         <!-- <p>How it work?</p> -->
-        <strong>&#x21bb;</strong>
+     
       </div>
       <div class="back">
         <img src="images/flaticons/filter.png" alt="" style="width: 70px;">
         <!-- <h3>Back Side Two</h3> -->
-        <p>keep leaves and other debris out of the storage tank.</p>
+        <p>They keep the leaves and other debris out of the storage tank.</p>
       </div>
     </div>
   </div>
@@ -469,14 +475,14 @@
     <div class="card">
       <div class="front" style="background-image: url(images/tank-stock.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3>Storage tank</h3>
+        <h3 style="padding-top: 6.5rem;">Storage tank</h3>
         <!-- <p>How it work?</p> -->
-        <strong>&#x21bb;</strong>
+  
       </div>
       <div class="back">
         <img src="images/flaticons/tank.png" alt="" style="width: 70px;">
         <!-- <h3>Back Side Three</h3> -->
-        <p>safely store the water that has been collected</p>
+        <p>It safely stores the water that has been collected from rain.</p>
       </div>
     </div>
   </div>
@@ -485,14 +491,14 @@
     <div class="card">
       <div class="front" style="background-image: url(images/distribute.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3>Distribution system</h3>
+        <h3 style="padding-top: 6.5rem;">Distribution system</h3>
         <!-- <p>How it work?</p> -->
-        <strong>&#x21bb;</strong>
+       
       </div>
       <div class="back">
         <img src="images/flaticons/conveyance.png" alt="" style="width: 70px;">
         <!-- <h3>Back Side Four</h3> -->
-        <p>this includes the pumps and pipes used to transport the water from the tank to wherever it will be used.</p>
+        <p>The pumps and pipes used to transport the water from the tank to wherever it will be used.</p>
       </div>
     </div>
   </div>
@@ -535,3 +541,7 @@
   <script src="js/rainhouse.js"></script>
 
   <%- include("partials/footer"); -%>
+
+
+
+  <div class="ytp-cued-thumbnail-overlay-image" style="background-image: url(&quot;https://i.ytimg.com/vi/LXRYlDlToDw/maxresdefault.jpg&quot;);"></div>
