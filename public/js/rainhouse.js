@@ -187,7 +187,7 @@ function showResult() {
         
         let numOfPeople = Math.round(totalCatchment/1350);
 
-        document.getElementById("army-message").innerHTML = `With appropriate treatment, you can feed an Army of <span style="font-size: 5rem; color: darkgoldenrod;">${numOfPeople}</span> for an entire year!`;
+        document.getElementById("army-message").innerHTML = `You can feed an army of <span style="font-size: 1.7rem; color: darkgoldenrod;">${numOfPeople}</span> for an entire year with appropriate treatment!`;
 
         let people = [];
 
