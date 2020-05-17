@@ -71,7 +71,7 @@ text-transform:uppercase;
 
 /* Tips educate */
 .tips {
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .tips p {
@@ -1166,7 +1166,7 @@ input[type="radio"] {
 .prev, .next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 40%;
   width: auto;
   margin-top: -22px;
   padding: 16px;
