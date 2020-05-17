@@ -1257,12 +1257,15 @@ input[type="radio"] {
   float: left;
   font-size: 1.2em;
   margin: 1% 0 0 1%;
+  -webkit-perspective: 800px;
   perspective: 800px;
+  -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   width: 23.7%;
 }
 
 .cardBox:hover .card {
+  -webkit-transform: rotateY( 180deg);
   transform: rotateY( 180deg);
 }
 
@@ -1270,7 +1273,9 @@ input[type="radio"] {
   background: #222;
   cursor: default;
   height: 300px;
+  -webkit-transform-style: preserve-3d;
   transform-style: preserve-3d;
+  -webkit-transition: transform 0.4s ease 0s;
   transition: transform 0.4s ease 0s;
   width: 100%;
   -webkit-animation: giro 1s 1;
@@ -1307,6 +1312,7 @@ input[type="radio"] {
 }
 
 .card .back {
+  -webkit-transform: rotateY( 180deg);
   transform: rotateY( 180deg);
 }
 
@@ -1317,6 +1323,7 @@ input[type="radio"] {
   text-decoration: none;
   border-radius: 1px;
   font-size: 0.9em;
+  -webkit-transition: all 0.2s ease 0s;
   transition: all 0.2s ease 0s;
 }
 
