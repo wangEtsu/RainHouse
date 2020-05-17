@@ -1275,6 +1275,8 @@ input[type="radio"] {
   width: 100%;
   -webkit-animation: giro 1s 1;
   animation: giro 1s 1;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .card p {
