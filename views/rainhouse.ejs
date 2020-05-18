@@ -70,7 +70,7 @@
     <div class="row stats-row" style="padding-bottom: 5rem;">
       <div class="text-center col-lg-12 col-md-12 col-sm-12" style="padding-bottom: 2rem;">
 
-        <h2 class="rain-title" style="padding-bottom: 2rem;"><span>Rain Harvesting in Australia</span></h2>
+        <h1 class="rain-title" style="padding-bottom: 2rem;"><span>Rain Harvesting in Australia</span></h1>
       </div>
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
@@ -137,7 +137,7 @@
 
     <div class="col-lg-12 col-md-12 col-sm-12">
 
-      <h2 class="rain-title" style="padding-bottom: 2rem;"><span>Find Out Your Estimated Rainfall Catchment</span></h2>
+      <h1 class="rain-title" style="padding-bottom: 2rem;"><span>Find Out Your Estimated Rainfall Catchment</span></h1>
 
     </div>
 
@@ -200,7 +200,7 @@
 
   <div style="margin-top: 2rem; display: none;" id="estimate-analysis">
 
-
+    <h1 class="rain-title" style="padding-bottom: 2rem;"><span>What you can expect</span></h1>
 
     <div class="text-center row">
 
@@ -234,9 +234,10 @@
 
 
   <!-- Slideshow container -->
+  <h1 class="rain-title" style="padding-bottom: 2rem; display: none;" id="slide-title"><span>It means...</span></h1>
   <div class="slideshow-container" style="display: none;" id="picto-slides">
 
-    <h1 class="text-center">What does it means?</h1>
+    
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides fade">
@@ -407,7 +408,7 @@
 
 
 
-<h2 class="rain-title" style="padding-bottom: 2rem;"><span>Things You Need to Start Rain Harvesting</span></h2>
+<h1 class="rain-title" style="padding-bottom: 2rem;"><span>Start rainharvesting today!</span></h1>
 
 <div class="boxesContainer">
 
@@ -486,6 +487,7 @@
   $(document).on('click','#user-submit',function(e){
       $("#estimate-analysis").css({"display": "block"});
       $("#picto-slides").css({"display": "block"});
+      $("#slide-title").css({"display": "grid"});
       $(window).scrollTop($('#estimate-analysis').offset().top);
       
   });
