@@ -179,7 +179,7 @@ function showResult() {
 
         let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Annual)));
         let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
-        document.getElementById("total-message").innerHTML = `Estimated rainwater saving in next 12 months: <br>  <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span>`;
+        document.getElementById("total-message").innerHTML = `Estimated rainwater saving in the next 12 months:<br><span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span>`;
         
         document.getElementById("total-writeup").innerHTML = `<span style="font-size: 2.2rem; color: cornflowerblue;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalRainfall/12)} millimetre</span>.<br> Estimated Monthly Saving <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment/12)} litres</span>.` ;
         
