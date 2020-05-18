@@ -187,7 +187,7 @@ function showResult() {
         
         let numOfPeople = Math.round(totalCatchment/1350);
 
-        document.getElementById("army-message").innerHTML = `You can feed an army of <span style="font-size: 1.7rem; color: darkgoldenrod;">${numOfPeople}</span> for an entire year with appropriate treatment!`;
+        document.getElementById("army-message").innerHTML = `You can feed an army of <span style="font-size: 1.7rem; color: cornflowerblue;">${numOfPeople}</span> for an entire year with appropriate treatment!`;
 
         let people = [];
 
@@ -215,9 +215,9 @@ function showResult() {
 
         let numOfLoad = Math.round(totalCatchment/100);
 
-        document.getElementById("washing-machine-message").innerHTML = `It means enough water for <span style="font-size: 5rem; color: darkgoldenrod;">${numOfLoad}</span> loads of free laundry!`;
+        document.getElementById("washing-machine-message").innerHTML = `It means enough water for <span style="font-size: 3rem; color: cornflowerblue;">${numOfLoad}</span> loads of free laundry!`;
 
-        document.getElementById("shower-message").innerHTML = `It also means you got enough shower water for the next <span style="font-size: 5rem; color: darkgoldenrod;">${Math.round(totalCatchment/600)}</span> days!`
+        document.getElementById("shower-message").innerHTML = `It also means enough shower water for the next <span style="font-size: 3rem; color: cornflowerblue;">${Math.round(totalCatchment/600)}</span> days!`
 
       };
 
