@@ -168,8 +168,12 @@ text-transform:uppercase;
   font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #56ceba;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   margin: 1rem 0 0.6rem;
+}
+
+.service p {
+  font-size: 1.4rem;
 }
 
 .services-grid {
@@ -203,7 +207,7 @@ text-transform:uppercase;
 } */
 
 .service i {
-  font-size: 3.45rem;
+  font-size: 5rem;
   margin: 1rem 0;
 }
 
