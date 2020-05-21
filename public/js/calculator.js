@@ -359,6 +359,12 @@ function showResults() {
   let outdoorTotal = result["outdoorGarden"] + result["outdoorCar"];
   let usageTotal = showerTotal + toiletTotal + kitchenTotal + laundryTotal + outdoorTotal
 
+  window.localStorage;
+  localStorage.setItem("totalUsage", usageTotal);
+
+
+
+
   // // Set up variable to store table element, and then fill in with calculated data
   // const showerCell = document.getElementById("shower-consumption");
   // const toiletCell = document.getElementById("toilet-consumption");

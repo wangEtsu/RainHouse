@@ -183,6 +183,16 @@ function showResult() {
         
         document.getElementById("total-writeup").innerHTML = `<span style="font-size: 2.2rem; color: cornflowerblue;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalRainfall/12)} millimetre</span>.<br> Estimated Monthly Saving <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment/12)} litres</span>.` ;
         
+        let monthlyUsage = localStorage.getItem("totalUsage");
+        let percentageCovered = Math.round(totalCatchment/(monthlyUsage*12)*100);
+
+
+        if(monthlyUsage === null) {
+          document.getElementById("percentage-message").innerHTML = `Wanna know how much it is comparing to your usage? <button type="button" onclick="location.href='/calculator'" class="btn btn-outline-success">Try our calculator!</button>`;
+        } else {
+          document.getElementById("percentage-message").innerHTML = `Your estimate rainfall catchment can cover about <span style="font-size: 1.7rem; color: cornflowerblue;">${percentageCovered}%</span> of your total usage!`;
+        }
+
         
         
         let numOfPeople = Math.round(totalCatchment/1350);
@@ -219,6 +229,7 @@ function showResult() {
 
         document.getElementById("shower-message").innerHTML = `It also means enough shower water for the next <span style="font-size: 3rem; color: cornflowerblue;">${Math.round(totalCatchment/600)}</span> days!`
 
+        
       };
 
 
