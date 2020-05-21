@@ -734,13 +734,21 @@ function showSlide(n) {
   slides[currentSlide].classList.remove('active-slide');
   slides[n].classList.add('active-slide');
   currentSlide = n;
+
+
+  const answerContainers = quizContainer.querySelectorAll('.answers');  
+  const lastAnswer = answerContainers[13];
+  const currentSelector = `input[name=question${13}]:checked`;
+  const atLeastOneIsChecked = lastAnswer.querySelector(currentSelector) !== null;
+
   if (currentSlide === 0) {
     previousButton.style.display = 'none';
   }
   else {
     previousButton.style.display = 'inline-block';
   }
-  if (currentSlide === slides.length - 1) {
+  if (currentSlide === slides.length - 1 && atLeastOneIsChecked) {
+    
     nextButton.style.display = 'none';
     submitButton.style.display = 'inline-block';
   }
@@ -801,6 +809,17 @@ for (var i = 0; i < choiceButtons.length - 2; i++) {
 for (var i = 0; i < choiceButtons.length; i++) {
   choiceButtons[i].addEventListener("click", activateStepper);
 };
+
+// Add event listener to the last TWO OPTIONS, only when they are clicked, submitted where appear
+choiceButtons[43].addEventListener("click", showSubmitButton);
+choiceButtons[42].addEventListener("click", showSubmitButton);
+
+function showSubmitButton() {
+    nextButton.style.display = 'none';
+    submitButton.style.display = 'inline-block';
+}
+
+
 
 function activateStepper() {
   // find out which question user are currently in
