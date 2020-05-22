@@ -258,8 +258,8 @@ app.get("/about", function (req, res) {
     })
 })
 
-app.get("/educate", function (req, res) {
-    res.render("educate", {
+app.get("/tips", function (req, res) {
+    res.render("tips", {
         startingContent: aboutContent
     })
 })
