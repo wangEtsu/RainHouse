@@ -817,8 +817,8 @@ for (var i = 0; i < choiceButtons.length; i++) {
 };
 
 // Add event listener to the last TWO OPTIONS, only when they are clicked, submitted where appear
-choiceButtons[43].addEventListener("click", showSubmitButton);
-choiceButtons[42].addEventListener("click", showSubmitButton);
+choiceButtons[44].addEventListener("click", showSubmitButton);
+choiceButtons[45].addEventListener("click", showSubmitButton);
 
 function showSubmitButton() {
     nextButton.style.display = 'none';
