@@ -179,9 +179,9 @@ function showResult() {
 
         let totalCatchment = Math.round(parseFloat(roofAreaInput) * (parseFloat(selectedData.Annual)));
         let totalRainfall = Math.round(parseFloat(selectedData.Jun) + parseFloat(selectedData.Jul) + parseFloat(selectedData.Aug) + parseFloat(selectedData.Sep) + parseFloat(selectedData.Oct) + parseFloat(selectedData.Nov) + parseFloat(selectedData.Dec) + parseFloat(selectedData.Jan) + parseFloat(selectedData.Feb) + parseFloat(selectedData.Mar) + parseFloat(selectedData.Apr) + parseFloat(selectedData.May));
-        document.getElementById("total-message").innerHTML = `Estimated rainwater saving in the next 12 months:<br><span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment)} Litres</span>`;
+        document.getElementById("total-message").innerHTML = `Estimated rainwater saving in the next 12 months:<br><span style="font-size: 2.2rem; color: #194fb0;">${Math.round(totalCatchment)} Litres</span>`;
         
-        document.getElementById("total-writeup").innerHTML = `<span style="font-size: 2.2rem; color: cornflowerblue;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalRainfall/12)} millimetre</span>.<br> Estimated Monthly Saving <span style="font-size: 2.2rem; color: cornflowerblue;">${Math.round(totalCatchment/12)} litres</span>.` ;
+        document.getElementById("total-writeup").innerHTML = `<span style="font-size: 2.2rem; color: #194fb0;">${suburbInput}</span> is a wonderful choice!<br> In last year, the average monthly rainfall is <span style="font-size: 2.2rem; color: #194fb0;">${Math.round(totalRainfall/12)} mm</span>.<br> Estimated Monthly Saving <span style="font-size: 2.2rem; color: #194fb0;">${Math.round(totalCatchment/12)} litres</span>.` ;
         
         let monthlyUsage = localStorage.getItem("totalUsage");
         let percentageCovered = Math.round(totalCatchment/(monthlyUsage*12)*100);
@@ -190,14 +190,14 @@ function showResult() {
         if(monthlyUsage === null) {
           document.getElementById("percentage-message").innerHTML = `Wanna know how much it is comparing to your usage? <button type="button" onclick="location.href='/calculator'" class="btn btn-outline-success">Try our calculator!</button>`;
         } else {
-          document.getElementById("percentage-message").innerHTML = `Your estimate rainfall catchment can cover about <span style="font-size: 1.7rem; color: cornflowerblue;">${percentageCovered}%</span> of your total usage!`;
+          document.getElementById("percentage-message").innerHTML = `Your estimate rainfall catchment can cover about <span style="font-size: 1.7rem; color: #194fb0;">${percentageCovered}%</span> of your total usage!`;
         }
 
         
         
         let numOfPeople = Math.round(totalCatchment/1350);
 
-        document.getElementById("army-message").innerHTML = `You can feed an army of <span style="font-size: 1.7rem; color: cornflowerblue;">${numOfPeople}</span> for an entire year with appropriate treatment!`;
+        document.getElementById("army-message").innerHTML = `You can feed an army of <span style="font-size: 1.7rem; color: #194fb0;">${numOfPeople}</span> soldiers for a year with appropriate treatment!`;
 
         let people = [];
 
@@ -208,7 +208,7 @@ function showResult() {
             {
               people.push(`<br>`)
             }
-            people.push(`<i class="fas fa-male" style="font-size: 3rem; color: cornflowerblue;"></i>`)
+            people.push(`<i class="fas fa-male" style="font-size: 3rem; color: #194fb0;"></i>`)
           }
 
         } else {
@@ -217,7 +217,7 @@ function showResult() {
             {
               people.push(`<br>`)
             }
-            people.push(`<i class="fas fa-male" style="font-size: 1.5rem; color: cornflowerblue;"></i>`)
+            people.push(`<i class="fas fa-male" style="font-size: 1.5rem; color: #194fb0;"></i>`)
           }
         }
         
@@ -225,9 +225,9 @@ function showResult() {
 
         let numOfLoad = Math.round(totalCatchment/100);
 
-        document.getElementById("washing-machine-message").innerHTML = `It means enough water for <span style="font-size: 3rem; color: cornflowerblue;">${numOfLoad}</span> loads of free laundry!`;
+        document.getElementById("washing-machine-message").innerHTML = `It means enough water for <span style="font-size: 3rem; color: #194fb0;">${numOfLoad}</span> loads of free laundry!`;
 
-        document.getElementById("shower-message").innerHTML = `It also means enough shower water for the next <span style="font-size: 3rem; color: cornflowerblue;">${Math.round(totalCatchment/600)}</span> days!`
+        document.getElementById("shower-message").innerHTML = `It also means enough shower water for the next <span style="font-size: 3rem; color: #194fb0;">${Math.round(totalCatchment/600)}</span> days!`
 
         
       };

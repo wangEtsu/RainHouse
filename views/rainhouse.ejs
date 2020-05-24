@@ -6,7 +6,7 @@
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 
-
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <!-- <script>
 
 window.onunload = () => {
@@ -30,8 +30,8 @@ window.onunload = () => {
 <header class="masthead d-flex" style="background-image: url(images/ocean.jpg); height: 20%;">
   <div class="container text-center my-auto">
       <h1 class="mb-1" style="color: antiquewhite; font-size: 4rem; font-weight: bold;">Welcome to RainHouse</h1>
-      <h3 class="mb-1" style="color: antiquewhite; font-size: 1.5rem;">
-          Rain Harvesting is becoming a major way of conserving water. With Sponge, you can learn more about rain harvesting, find out your estimation of rainfall catchment, and what you need to build up your own rain harvesting system!
+      <h3 class="mb-1" style="color: antiquewhite; font-size: 1.5rem; padding-top: 1rem;">
+        Rain Harvesting is becoming a significant way of conserving water. With Sponge, you can discover more about rain harvesting, find out your estimation of rainfall catchment, and the equipments you need to build your rain harvesting system.
       </h3>
 
   </div>
@@ -62,16 +62,11 @@ window.onunload = () => {
 
     <div class="col-lg-6 col-md-6 col-sm-12">
 
-      <p class="rainhouse-bg" style="font-size: 1.5rem; padding-left: 20px;">
+      <p class="rainhouse-bg" style="font-size: 1.5rem; padding-left: 20px; text-align: justify;">
         <span style="font-size: larger; font-weight: bold;">Let's learn more about saving water through rain harvesting.</span> 
         <br>
         <br>
-        Rainwater is a valuable natural resource that has been collected by Australian households
-        for domestic use since colonial times.
-
-        Opportunities for rainwater collection and use vary with location. Urban households typically have a connection
-        to a reticulated, treated (mains) water supply but can significantly lower mains water usage by installing a
-        rainwater harvesting system.
+        Rainwater is a valuable natural resource that has been collected by Australian households for domestic use since colonial times. Opportunities for rainwater collection and use vary with location. Urban households typically have a connection to the reticulated, treated water supply however, they can significantly lower water usage by installing a rainwater harvesting system.
  </p>
 
     </div>
@@ -97,14 +92,14 @@ window.onunload = () => {
 
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
-          <span class="stats-no" data-toggle="counter-up">1.7</span> Households that installed water tanks (in millions)
+          <span class="stats-no" data-toggle="counter-up">1.7</span> Households with water tanks (in millions)
         </div>
       </div>
 
 
       <div class="stats-col text-center col-md-3 col-sm-6">
         <div class="circle">
-          <span class="stats-no" data-toggle="counter-up">213</span> Rainwater collected annually (in billion litres)
+          <span class="stats-no" data-toggle="counter-up">213</span> Rain collected annually (in billion litres)
         </div>
       </div>
 
@@ -183,6 +178,7 @@ window.onunload = () => {
         <option value='{"suburb":"Glen Waverley","longitude":"145.170","latitude":"-37.880"}'>Glen Waverley</option>
         <option value='{"suburb":"Glenroy","longitude":"144.920","latitude":"-37.700"}'>Glenroy</option>
         <option value='{"suburb":"Malvern","longitude":"145.030","latitude":"-37.840"}'>Malvern</option>
+        <option value='{"suburb":"Oakleigh","longitude":"145.090","latitude":"-37.910"}'>Oakleigh</option>
         <option value='{"suburb":"Parkville","longitude":"144.960","latitude":"-37.800"}'>Parkville</option>
         <option value='{"suburb":"Preston","longitude":"145.030","latitude":"-37.740"}'>Preston</option>
         <option value='{"suburb":"Port Melbourne","longitude":"144.960","latitude":"-37.830"}'>Port Melbourne</option>
@@ -208,8 +204,8 @@ window.onunload = () => {
         style="width: 100px; height: 100px; display: inline;" loop autoplay></lottie-player>
         <h3 class="input-guide">Select house type</h3>
       <select id="user-roof" name="suburb" class="form-control">
-        <option value="100">Apartment & Unit with 1-3 bedrooms</option>
-        <option value="80">Townhouse with 2-4 bedroomes</option>
+        <option value="80">Townhouse with 2-4 bedrooms</option>
+        <option value="100">Apartment & Unit with 1-3 bedrooms</option> 
         <option value="160">House with 2-3 bedrooms</option>
         <option value="220">House with over 4 bedrooms</option>
 
@@ -278,7 +274,7 @@ window.onunload = () => {
         <div class="text-center row">
 
           <div class="col-lg-6 col-md-6 col-sm-12">
-            <h3 class="text-center">An adult consumes about <span style="color: cornflowerblue;">1350 litres</span> of water for a year</h3>
+            <h3 class="text-center">An adult consumes about <span style="color: cornflowerblue;">1350 litres</span> of water yearly</h3>
             <i class="fas fa-male" style="font-size: 14rem; color: cornflowerblue;"></i>
 
           </div>
@@ -446,7 +442,7 @@ window.onunload = () => {
     <div class="card">
       <div class="front" style="background-image: url(images/convey.jpg); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3 style="padding-top: 6.5rem;">Conveyance system</h3>
+        <h3 style="padding-top: 6.5rem; font-size: 2rem;">Conveyance system</h3>
         <!-- <p>How it work?</p> -->
 
       </div>
@@ -463,7 +459,7 @@ window.onunload = () => {
     <div class="card">
       <div class="front" style="background-image: url(images/diverter.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3 style="padding-top: 6.5rem;">Diverters & filters</h3>
+        <h3 style="padding-top: 6.5rem; font-size: 2rem;">Diverters & filters</h3>
         <!-- <p>How it work?</p> -->
      
       </div>
@@ -479,7 +475,7 @@ window.onunload = () => {
     <div class="card">
       <div class="front" style="background-image: url(images/tank-stock.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3 style="padding-top: 6.5rem;">Storage tank</h3>
+        <h3 style="padding-top: 6.5rem; font-size: 2rem;">Storage tank</h3>
         <!-- <p>How it work?</p> -->
   
       </div>
@@ -495,7 +491,7 @@ window.onunload = () => {
     <div class="card">
       <div class="front" style="background-image: url(images/distribute.png); background-repeat:no-repeat;
       background-position: center center; background-size: cover;">
-        <h3 style="padding-top: 6.5rem;">Distribution system</h3>
+        <h3 style="padding-top: 6.5rem; font-size: 2rem;">Distribution system</h3>
         <!-- <p>How it work?</p> -->
        
       </div>

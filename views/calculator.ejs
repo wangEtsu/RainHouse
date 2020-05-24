@@ -20,7 +20,7 @@ window.onload = function() {
 <!-- Manual Section -->
 <div class="how-it-work" style="background-image: url(images/ocean.jpg); box-sizing: border-box;">
     <!-- <h1 class="mb-1" style="color: antiquewhite; font-size: 4rem;">Get your water usage analysis in three steps!</h1> -->
-    <h1 style="padding: 5rem 0rem 4rem 0rem; color: antiquewhite; font-size: 3rem; font-weight: bold;">Get your water usage analysis in 3 steps!</h1>
+    <h1 style="padding: 5rem 0rem 4rem 0rem; color: antiquewhite; font-size: 3rem; font-weight: bold;">Find out which household activity is using more water in 3 steps</h1>
     <div class="row" style="margin: 2rem;">
         <div class="manual-card col-lg-4 col-md-12 col-sm-12">
             <img class="card-img-top" src="images/manual1.png" style="border-radius: 5%;
@@ -143,11 +143,12 @@ window.onload = function() {
         
 
         <div class="col-lg-6 col-md-12 col-sm-12">
-            <!-- <h1 id="tank-subtitle text-center">Test</h1> -->
+            <!-- <img src="images/vs.png" alt=""> -->
+            <h1 id="tank-subtitle" style="position: absolute; text-align: center;">Your Usage VS Average</h1>
             <div class="water-tanks">
                 
                 <div class="water-tank" id="water-tank-left">
-                    <h5 class="water-tank-subtitle">Your Usage</h5>
+                    <!-- <h5 class="water-tank-subtitle">Your Usage</h5> -->
                     <div class="liquid">
                         <svg class="water" viewBox="0 0 200 100">
                             <defs>
@@ -179,7 +180,7 @@ window.onload = function() {
 
                 <!-- water tank right -->
                 <div class="water-tank" id="water-tank-right">
-                    <h5 class="water-tank-subtitle">Average Usage</h5>
+                    <!-- <h5 class="water-tank-subtitle">Average Usage</h5> -->
                     <div class="liquid">
                         <svg class="water" viewBox="0 0 200 100">
                             <defs>
@@ -211,12 +212,32 @@ window.onload = function() {
             </div>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <h3>Left side is asdas das dasd asda sdas</h3> -->
             <h3 id="water-tank-message"></h3>
             <!-- <p id="water-tank-analysis"></p> -->
         </div>
     </div>
 </div>
 
+
+<!-- Media query for tank subtitle -->
+<style>
+
+    @media (orientation: landscape){
+        #tank-subtitle {
+            left: 7rem;
+        }
+    
+    }
+    
+    
+    @media (orientation: portrait){
+        #tank-subtitle {
+            left: 12rem;
+        }
+    }
+    
+</style>
 
 <!-- <div class="container">
     <div class="row">

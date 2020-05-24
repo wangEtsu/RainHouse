@@ -296,7 +296,7 @@ function buildQuiz() {
         `<div class="quiz-slide">
             <div class="question"> ${currentQuestion.question} </div>
             <div class="answers"><div class="radio-toolbar"> ${answers.join("")} </div></div>
-            <div style="font-size:1.2rem"><i class="fas fa-lightbulb" style="font-size:1.5rem;"></i> ${currentQuestion.tip} </div>
+            <div style="font-size:1.2rem; color:#325592"><i class="fas fa-lightbulb" style="font-size:1.5rem; color:orange"></i> ${currentQuestion.tip} </div>
           </div>`
       );
     }

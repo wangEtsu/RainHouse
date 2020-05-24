@@ -76,11 +76,13 @@ text-transform:uppercase;
 
 .tips p {
   font-size: 1.4rem;
+  text-align: justify;
 }
 
 .tips h1 {
   color:black; 
   font-size: 1.5rem;
+  font-weight: 700;
 }
 
 
@@ -272,7 +274,7 @@ text-transform:uppercase;
 #water-tank-message {
   padding: 2rem;
   border-radius: 25px;
-  background-color: #c2cad9;
+  background-color: #84bdd8;
   box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
@@ -1420,7 +1422,7 @@ input[type="radio"] {
   width: 180px;
   height: 180px;
   font-family: "Raleway", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   color: #666;
   border: 6px solid #199EB8;
   border-radius: 50%;
@@ -1494,10 +1496,10 @@ height:3px;
 /* Blackquote Rainhosue */
 #blockquote-rain {
   margin: 0 3rem 1rem;
-  background: #f4f2ff;
+  background: #84bdd8;
   padding: 1rem;
   border-radius: 15px;
-  border-left: 2px solid #9f77a9;
+  border-left: 2px solid #84bdd8;
   box-shadow: 0px 0px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
