@@ -293,7 +293,7 @@ text-transform:uppercase;
 
 .activity-indicator {
   font-size: 1.5rem;
-    font-weight: 300;
+    /* font-weight: 300; */
     font-family: inherit;
 }
 
@@ -386,11 +386,13 @@ position: relative;
 .percentage {
   font-family: 'Montserrat', sans-serif;
   color: #007bff;
+  font-weight: bolder;
 }
 
 #family-size {
   font-family: 'Montserrat', sans-serif;
   color: #007bff;
+  font-weight: bolder;
 }
 
 
