@@ -491,7 +491,7 @@ function showResults() {
     let howMuchMore = Math.round((usageTotal / averageTotal) * 100 - 100) + "%";
 
 
-    tankFeedbackMessage = `<h1 style="color: coral;"> Stop right there! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchMore} </h1> <p class="activity-indicator"> more than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
+    tankFeedbackMessage = `<h1 style="color: #d51313;"> Stop right there! </h1> <p class="activity-indicator"> Your family is using </p> <h1 class="percentage"> ${Math.round(usageTotal/30)} Litres</h1> <p class="activity-indicator"> of water each day, which is </p> <h1 class="percentage"> ${howMuchMore} </h1> <p class="activity-indicator"> more than an average Victorian family of </p> <h1 id="family-size"> ${Math.ceil(familyCount)} </h1>`
       ;
 
 
