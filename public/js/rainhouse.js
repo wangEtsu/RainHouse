@@ -188,7 +188,7 @@ function showResult() {
 
 
         if(monthlyUsage === null) {
-          document.getElementById("percentage-message").innerHTML = `Wanna know how much it is comparing to your usage? <button type="button" onclick="location.href='/calculator'" class="btn btn-outline-success">Try our calculator!</button>`;
+          document.getElementById("percentage-message").innerHTML = `Wanna know how much it is comparing to your usage? <a class="btn btn-primary btn-xl js-scroll-trigger" href="/calculator" style="color:antiquewhite;">Try our calculator</a>`;
         } else {
           document.getElementById("percentage-message").innerHTML = `Your estimate rainfall catchment can cover about <span style="font-size: 1.7rem; color: #194fb0;">${percentageCovered}%</span> of your total usage!`;
         }
