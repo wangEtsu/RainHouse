@@ -221,6 +221,8 @@ function showResult() {
           }
         }
         
+        document.getElementById("slide-title").innerHTML = `${Math.round(totalCatchment)} Litres of Water Means`;
+
         document.getElementById("pictogram-person").innerHTML = people.join('');
 
         let numOfLoad = Math.round(totalCatchment/100);
