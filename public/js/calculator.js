@@ -639,6 +639,7 @@ function showResults() {
     xAxis.renderer.grid.template.location = 0;
     var yAxis = chart.yAxes.push(new am4charts.ValueAxis());
     yAxis.min = 0;
+    yAxis.extraMax = 0.2;  
     yAxis.title.text = "Litres of water"
     function createSeries(value, name) {
       var series = chart.series.push(new am4charts.ColumnSeries())
