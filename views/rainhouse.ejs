@@ -516,7 +516,14 @@ window.onunload = () => {
       $("#estimate-analysis").css({"display": "block"});
       $("#picto-slides").css({"display": "block"});
       $("#slide-title").css({"display": "grid"});
-      $(window).scrollTop($('#estimate-analysis').offset().top);
+      
+
+      const id = 'estimate-analysis';
+      const yOffset = -200; 
+      const element = document.getElementById(id);
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({top: y, behavior: 'smooth'});
       
   });
   });
