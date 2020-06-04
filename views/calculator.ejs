@@ -102,7 +102,10 @@ window.onload = function() {
         $(document).on('click','#submit',function(e){
             $(".report-card").css({"display": "block"});
             $("#chartdiv").css({"display": "block"});
-            $(window).scrollTop($('.report-card').offset().top);
+            window.scroll({
+                top: 1400,
+                behavior: 'smooth'
+                });
             
         });
         });
@@ -125,7 +128,7 @@ window.onload = function() {
 </div>
 
 
-<div class="container report-card" style="display: none;">
+<div class="container report-card" style="display: none;" id="jump-point">
     <h1 class="rain-title" style="padding-bottom: 2rem; color: #325592; font-size: 3rem; font-weight: 400;"><span>Your Report Card</span></h1>
 <!-- <h3 style="text-align: center;">The result section will display the following:</h3>
 <ul style="list-style-type: none; text-align: center;">
