@@ -14,7 +14,7 @@
   "dependencies": {
     "@types/node": "^13.11.0",
     "ejs": "^3.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "lodash": "^4.17.15",
     "mongoose": "^5.9.10",
     "mysql": "^2.18.1",
